@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/Site.css">
+  <title>site institucional</title>
+</head>
+<body>
+  <a href="#Home"><img id="botao_voltar" class="invisivel" src="./Imagens/voltar.png" alt="botão voltar com erro de imagem"></a>
+  <div id="Home" class="flex" style="background-image: url(./Imagens/papel1.jpg);">
+    <div class="divImage">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+    </div>
+    <div class="space"></div>
+    <div class="divText">
+      <h1>Quem somos</h1>
+      <p>Somos um grupo de Universitários no qual se juntamos para criar 
+        uma forma de ter um controle de hardware melhor sobre as máquinas de recargas 
+        do metro, tanto para os usuários comuns que querem recarregar quanto 
+        para a empresa, assim tendo um controle melhor das máquina</p>
+    </div>
+  </div>
+  <!-- <div class="space"></div> -->
+  <div class="flex" style="background-image: url(./Imagens/papel2.jpg);">
+    <div class="divText">
+      <h1>Nosso Produto</h1>
+      <p>Iremos monitorar o Hardware (Memória ram ,CPU, Disco) das máquinas 
+        de recarga de bilhetes para assegurar um melhor funcionamento delas, 
+        em caso de mal uso ou  falta de recursos os uruários poderão 
+        saber antes de usar, e a empresa terá uma visão micro e macro dos 
+        funcionamentos e produtividade de cada máquina e, serão alertados 
+        em caso de algum problema</p>
+    </div>
+    <div class="space"></div>
+    <div class="divImage">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+      <img src=".\Imagens\cinza.jpg" alt="erro imagem">
+    </div>
+  </div>
+  <div class="space"></div>
+  <div class="flex" style="background-image: url(./Imagens/papel3.jpg);">
+    <div class="divContact">
+      <h1>Contato</h1><form action="">
+      <label>Nome:</label>
+      <input type="text"><br>
+      <label>Email:</label>
+      <input type="text"><br>
+      <label>Mensagem:</label>
+      <input type="text" style="height: 120px;margin-bottom: 30px;"><br></form>
+      <button>Enviar</button>
+    </div>
+    <div class="divMap">
+      <iframe     
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2858382656123!2d-46.663741385384114!3d-23.55817156735876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59905987b185%3A0x694b9d3b5828073f!2sBandTec%20-%20Faculdade%20de%20Tecnologia%20Bandeirantes!5e0!3m2!1spt-BR!2sbr!4v1570561225947!5m2!1spt-BR!2sbr"
+      frameborder="0%" allowfullscreen=""></iframe>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  window.addEventListener('scroll', function(){   // sempre vai fazer a função ao mudar o nivel da scroll (vertical)
+    if (scrollY >= 650){
+        botao_voltar.classList.remove(`invisivel`);
+        botao_voltar.classList.add(`visivel`);   // adciona a frase escrita na classe
+    }
+    else{
+        botao_voltar.classList.remove("visivel"); // remove a frase escrita na classes
+        botao_voltar.classList.add("invisivel");
+    }
+})
+</script>
