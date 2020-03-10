@@ -48,6 +48,7 @@ body{margin: 0px;}
     background-color: rgba(0, 255, 0, 0.15);
   }
   form{
+    display: inline-grid;
     text-align: -webkit-center;
     width: 80%;
     background-color: rgba(240, 248, 255, 0.6); 
@@ -69,7 +70,6 @@ body{margin: 0px;}
     width: 80%;
   }
   input{
-    margin-top: 30px;
     width: 80%;
     border-color: black;
     box-shadow: 5px 5px 2px 0px rgba(0, 0, 0, 0.678);
