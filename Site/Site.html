@@ -20,16 +20,16 @@
           <div class="caixa2 col">
             <div class="row no-gutters   conteudo">
                 <div class="col">
-                  <a href="#">Home</a>
+                  <a href="#Home">Home</a>
                </div>
                <div class="col">
-                  <a href="#">Produto</a>
+                  <a href="#Produto">Produto</a>
                 </div>
                 <div class="col">
-                 <a href="#">Quem somos nós?</a>
+                 <a href="#QuemSomos">Quem somos nós?</a>
                 </div>
                 <div class="col">
-                 <a href="#">Contato</a>
+                 <a href="#Contato">Contato</a>
                </div>
              </div>
           </div>
@@ -59,7 +59,7 @@
         <div class="col-md-6 imagens">
           <img class="img" src="./Imagens/papel2.jpg" alt="">
         </div>
-        <div class="col-md-6 divText">
+        <div class="col-md-6 divText"><a id="QuemSomos"></a>
           <div class="quemSomos">
           <h1>Quem somos nós?</h1>
             <p>Somos um grupo de Universitários no qual nos juntamos primeiramente para criar 
@@ -98,7 +98,7 @@
       <div class="col-12 linha">
     </div>
   </div>
-  <div class="row no-gutters">
+  <div class="row no-gutters"><a id="Produto"></a>
     <div class="col-md-6 divText2">
       <div class="nossoProduto">
       <h1>Nosso Produto</h1>
@@ -127,7 +127,7 @@
       <div class="row no-gutters">
         <div class="col-md-6">
           <div class="titulo">
-          <h1>Contate-nos</h1>
+          <h1>Contate-nos</h1><a id="Contato"></a>
           </div>
           <form class="form">
             <div class="form-group">
@@ -178,7 +178,7 @@
 
 <script>
   window.addEventListener('scroll', function(){   // sempre vai fazer a função ao mudar o nivel da scroll (vertical)
-    if (scrollY >= 850){
+    if (scrollY >= 530){
         botao_voltar.classList.remove(`invisivel`);
         botao_voltar.classList.add(`visivel`);   // adciona a frase escrita na classe
     }
