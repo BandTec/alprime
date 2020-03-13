@@ -22,26 +22,26 @@ public class Teste {
         System.out.println("Versão do Sistema Operacional: " + versaoSO);
         System.out.println(teste.getOperatingSystem().getThreadCount());
 
-//        OSProcess[] listaProcessos = teste.getOperatingSystem().getProcesses();
-//
-//        for (OSProcess processos: listaProcessos){
-//            System.out.println(processos.getName());
-//        }
+        OSProcess[] listaProcessos = teste.getOperatingSystem().getProcesses();
 
-//        PowerSource[] bateria = teste.getHardware().getPowerSources();
-//        Sensors sensors = teste.getHardware().getSensors();
-//        System.out.println(sensors);
-//        System.out.println(bateria[0]);
+        for (OSProcess processos: listaProcessos){
+            System.out.println(processos.getName());
+        }
+
+        PowerSource[] bateria = teste.getHardware().getPowerSources();
+        Sensors sensors = teste.getHardware().getSensors();
+        System.out.println(sensors);
+        System.out.println(bateria[0]);
 
         System.out.println("====== Estado Atual ======");
         for (Integer i = 0; i < 5; i ++ ) {
-//            System.out.println("Processos Ativos: " + processosAtivos);
-//            double memoriaTotal = teste.getHardware().getMemory().getTotal() / 1000000000.0;
-//            double memoriaSobrando = (teste.getHardware().getMemory().getAvailable() / 1000000000.0) * 100/memoriaTotal;
-//            double memoriaUtilizada = 100 - memoriaSobrando;
-//            System.out.println(String.format("Memória Total:%.3f Gb",memoriaTotal));
-//            System.out.println(String.format("Memória Utilizada:%.3f %%",memoriaUtilizada));
-//            System.out.println(String.format("Memória Restante:%.3f %%",memoriaSobrando));
+            System.out.println("Processos Ativos: " + processosAtivos);
+            double memoriaTotal = teste.getHardware().getMemory().getTotal() / 1000000000.0;
+            double memoriaSobrando = (teste.getHardware().getMemory().getAvailable() / 1000000000.0) * 100/memoriaTotal;
+            double memoriaUtilizada = 100 - memoriaSobrando;
+            System.out.println(String.format("Memória Total:%.3f Gb",memoriaTotal));
+            System.out.println(String.format("Memória Utilizada:%.3f %%",memoriaUtilizada));
+            System.out.println(String.format("Memória Restante:%.3f %%",memoriaSobrando));
 
 
             try {
