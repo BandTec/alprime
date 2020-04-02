@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Cadastro</title>
+</head>
+
+<body>
+    <div id="resultado">Bem Vindo!</div>
+
+    <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+        <div>Usuario <input name="usuario" type="text" onkeyup=""></div>
+        <div>Tipo de Usuario <select name="tipo" id="">
+            <option value="comum">comum</option>
+            <option value="especializado">especializado</option>
+        </select></div>
+        <div>CPF <input name="cpf" type="text" onkeyup=""></div>
+        <div>Email <input name="email" type="text" onkeyup=""></div>
+        <div>Senha <input name="senha" type="text" onkeyup=""></div>
+        <div>Repetir Senha <input id="senha_repetida" type="text" onkeyup=""></div>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+<script src="./cadastro.js"></script>
+</html>
