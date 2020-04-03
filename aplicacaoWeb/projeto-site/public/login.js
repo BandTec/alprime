@@ -1,5 +1,5 @@
 let cpf_meuapp;
-let senha_meuapp;
+let login_usuario;
 function entrar() {
     // aguardar();
     var formulario = new URLSearchParams(new FormData(form_login));
@@ -11,10 +11,10 @@ function entrar() {
         if (resposta.ok) {
 
             resposta.json().then(json => {
-
-                sessionStorage.cpf_meuapp = json.nomeUsuario;
-                sessionStorage.senha_meuapp = json.senhaUsuario;
-                mensagem.innerHTML = `Bem vindo ${resposta.senhaUsuario}`  
+                console.log("resposta", json.nomeUsuario);
+                sessionStorage.cpf_meuapp = json.cpfUsuario;
+                sessionStorage.login_usuario = json.idUsuario;
+                mensagem.innerHTML = `Bem vindo ${json.nomeUsuario}`  
               
             });
 
@@ -31,4 +31,16 @@ function entrar() {
     });
 
     return false;
+}
+
+function logoff() {
+    finalizar_sessao();
+    sessionStorage.clear();
+    redirecionar_login();
+}
+function redirecionar_login() {
+    window.location.href = 'login.html';
+}
+function finalizar_sessao() {
+    fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
 }
