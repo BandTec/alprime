@@ -11,15 +11,12 @@
     <div id="resultado">Bem Vindo!</div>
 
     <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
-        <div>Usuario <input name="usuario" type="text" onkeyup=""></div>
-        <div>Tipo de Usuario <select name="tipo" id="">
-            <option value="comum">comum</option>
-            <option value="especializado">especializado</option>
-        </select></div>
-        <div>CPF <input name="cpf" type="text" onkeyup=""></div>
-        <div>Email <input name="email" type="text" onkeyup=""></div>
-        <div>Senha <input name="senha" type="text" onkeyup=""></div>
-        <div>Repetir Senha <input id="senha_repetida" type="text" onkeyup=""></div>
+        <div>Nome Completo<input id="nome" name="nome" type="text" onkeyup="verificarNome()"></div>
+        <div>CPF <input name="cpf" id="cpf" type="text" onblur="colocar_mascara()" onfocus="arrancar_mascara()" placeholder="Ex:111.211.141-75" maxlength="14"
+            onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>
+        <div>Email <input id="email" name="email" type="text" onkeyup="verificarEmail()"></div>
+        <div>Senha <input id="senha" name="senha" type="text" onkeyup="verificarSenha()"></div>
+        <div>Repetir Senha <input id="senha_repetida" type="text" onkeyup="verificarSenhaRep()"></div>
         <button type="submit">Cadastrar</button>
     </form>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Página com exemplo de gráfico com Chart.js</title>
+
+    <!-- scripts do Chart.js -->
+    <script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="./dashboard.js"></script>
+
+</head>
+
+<body onload="atualizarGrafico()">
+    <div>
+        Olá, <b id="b_usuario"></b>
+
+        <a href="tempo-real.html">Tempo Real</a>
+    </div>
+    <div style="width:75%;">
+        <div id="div_aguarde">Dados sendo obtidos...</div>
+        <canvas id="canvas_grafico"></canvas>
+    </div>
+</body>
+</html>
