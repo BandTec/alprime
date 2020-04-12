@@ -30,35 +30,74 @@ router.get('/ultimos', function(req, res, next) {
 	  });
 });
 
-// router.get('/eventos2', function(req, res, next) {
+router.get('/processador', function(req, res, next) {
     
-//     // Como fazer o "@QueryParam" do java só que no node.
-    
+	// quantas são as últimas leituras que quer? 8 está bom?
+	const limite_linhas = 7;
 
-// 	// quantas são as últimas leituras que quer? 8 está bom?
-// 	const limite_linhas = 7;
-
-// 	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
+	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
 	
-// 	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
+	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
 
-// 	const instrucaoSql = `select top ${limite_linhas} 
-// 							luminosidade,
-// 							dateHora,
-// 							PotenciaLampada                  
-// 							from Eventos where fk_Eventos_Sensor = 2 order by idEventos desc;`;
-// 	sequelize.query(instrucaoSql, {
-// 		model: Leitura,
-// 		mapToModel: true 
-// 	  })
-// 	  .then(resultado => {
-// 			console.log(`Encontrados: ${resultado.length}`);
-// 			res.json(resultado);
-// 	  }).catch(erro => {
-// 			console.error(erro);
-// 			res.status(500).send(erro.message);
-// 	  });
-// });
+	const instrucaoSql = `select idRegistro,dataHora, porcProcessador from registro`;
+	sequelize.query(instrucaoSql, selectQueryType,{
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/memoria', function(req, res, next) {
+    
+	// quantas são as últimas leituras que quer? 8 está bom?
+	const limite_linhas = 7;
+
+	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
+	
+	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
+
+	const instrucaoSql = `select idRegistro, dataHora, porcMemoria from registro`;
+	sequelize.query(instrucaoSql, selectQueryType,{
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/disco', function(req, res, next) {
+    
+	// quantas são as últimas leituras que quer? 8 está bom?
+	const limite_linhas = 7;
+
+	console.log(`Recuperando as últimas ${limite_linhas} leituras`);
+	
+	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
+
+	const instrucaoSql = `select idRegistro, dataHora, porcDisco from registro`;
+	sequelize.query(instrucaoSql, selectQueryType,{
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
 
 
 // tempo real (último valor de cada leitura)
