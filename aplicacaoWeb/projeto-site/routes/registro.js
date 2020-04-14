@@ -15,7 +15,7 @@ router.get('/ultimos', function(req, res, next) {
 	
 	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
 
-	const instrucaoSql = `select ${limite_linhas} idRegistro, dataHora, porcProcessador, porcDisco, porcMemoria
+	const instrucaoSql = `select idRegistro, dataHora, porcProcessador, porcDisco, porcMemoria
 	 from registro order by idRegistro desc;`;
 	sequelize.query(instrucaoSql, selectQueryType, {
 		model: Registro,
