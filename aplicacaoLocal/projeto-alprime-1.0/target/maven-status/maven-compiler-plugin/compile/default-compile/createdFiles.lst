@@ -5,6 +5,7 @@ com\alprime\totem\InformacoesComputador.class
 com\alprime\GUI\TelaInicial1.class
 com\alprime\totem\Totem.class
 com\alprime\totem\Usuario.class
+com\alprime\GUI\TelaMonitoramento1$4.class
 com\alprime\bancoDados\ConexaoBD.class
 com\alprime\GUI\TelaProcessos$1.class
 com\alprime\GUI\TelaProcessos.class

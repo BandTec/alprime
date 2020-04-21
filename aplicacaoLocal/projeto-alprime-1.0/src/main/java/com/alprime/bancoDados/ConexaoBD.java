@@ -5,22 +5,30 @@
  */
 package com.alprime.bancoDados;
 
-public class ConexaoBD 
+import org.apache.commons.dbcp2.BasicDataSource;
 
-{
-    public void FazerLogin()
-    {
-        
+public class ConexaoBD {
+
+    private BasicDataSource dataSource;
+
+    public ConexaoBD() {
+        this.dataSource = new BasicDataSource();
+        dataSource​.setDriverClassName("org.h2.Driver");
+        dataSource​.setUrl("jdbc:h2:file:~/testdb");
+        dataSource​.setUsername("sa");
+        dataSource​.setPassword("");
     }
-    
-    public void EnviarDadosBD()
-    {
-        
+
+    public BasicDataSource getDataSource() {
+        return dataSource;
     }
-    
-    public void ConectarBD()
-    {
-      
+
+    public void FazerLogin() {
+
     }
-    
+
+    public void EnviarDadosBD() {
+
+    }
+
 }
