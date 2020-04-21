@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="16e6db79-2581-46fa-a0a6-337fbc8e0521" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/models/registro.js" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/models/registro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/public/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/public/dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/routes/registro.js" beforeDir="false" afterPath="$PROJECT_DIR$/aplicacaoWeb/projeto-site/routes/registro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bancoDeDados/Modelo lógico.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/bancoDeDados/Modelo lógico.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bancoDeDados/Modelo lógico.mwb.bak" beforeDir="false" afterPath="$PROJECT_DIR$/bancoDeDados/Modelo lógico.mwb.bak" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1adcYSvp40rEQGABgzmfc168LXb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16e6db79-2581-46fa-a0a6-337fbc8e0521" name="Default Changelist" comment="" />
+      <created>1587068959044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587068959044</updated>
+      <workItem from="1587068967618" duration="154000" />
+      <workItem from="1587410098368" duration="63000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="531" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587069072087">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="531" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587069072087" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1587410148337">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587410148337" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1587410133144">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587410133144" />
+    <state x="65" y="0" key="new project wizard" timestamp="1587410169595">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587410169595" />
+  </component>
+</project>
