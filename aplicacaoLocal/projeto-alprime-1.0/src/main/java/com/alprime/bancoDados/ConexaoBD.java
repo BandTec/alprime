@@ -13,10 +13,10 @@ public class ConexaoBD {
 
     public ConexaoBD() {
         this.dataSource = new BasicDataSource();
-        dataSource​.setDriverClassName("org.h2.Driver");
-        dataSource​.setUrl("jdbc:h2:file:~/testdb");
-        dataSource​.setUsername("sa");
-        dataSource​.setPassword("");
+        dataSource​.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource​.setUrl("jdbc:mysql://localhost:3306/alprime?useTimezone=true&serverTimezone=UTC&useSSL=false");
+        dataSource​.setUsername("root");
+        dataSource​.setPassword("bandtec");
     }
 
     public BasicDataSource getDataSource() {
