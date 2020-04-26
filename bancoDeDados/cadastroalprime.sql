@@ -1,25 +1,27 @@
 create database alprime;
 use alprime;
 
-create table usuarios (idUsuario int primary key, nomeUsuario varchar(45),cpfUsuario varchar(45),emailUsuario varchar(45),senhaUsuario varchar(45),tipoUsuario varchar(45));
-create table maquina (id_maquina int primary key auto_increment, tipo_processador varchar(45), capacidade_memoria int, sistema_operacional varchar(45));
+create table usuario (id_usuario int primary key auto_increment, nome_usuario varchar(45),cpf_usuario varchar(45),email_usuario varchar(45),senha_usuario varchar(45),telefone varchar(45));
+create table localizacao (id_localizacao int primary key auto_increment, nome_localizacao varchar(45), tipo_linha varchar(45),endereco varchar(70),total_maquina INT);
+create table maquina (id_maquina int primary key auto_increment,senha_maquina varchar(45), tipo_processador varchar(45), capacidade_memoria double, sistema_operacional varchar(45),
+					  status tinyint, hostname varchar(45), fabricante varchar(45), modelo varchar(45), ram_total varchar(45));
+create table registro (id_registro int primary key auto_increment, data_hora datetime, porc_processador double, porc_disco double, porc_memoria double,temp_cpu double ,porc_ram double);
+
+Alter table usuario add fk_localizacao int ;
+alter table usuario add foreign key (fk_localizacao)references localizacao(id_localizacao) ;
 Alter table maquina add fk_localizacao int ;
-create table localizacao (id_localizacao int primary key auto_increment, nome_localizacao varchar(45), tipo_linha varchar(45),endereco varchar(45));
 alter table maquina add foreign key (fk_localizacao)references localizacao(id_localizacao) ;
-create table registro (id_registro int primary key auto_increment, data_hora varchar(45), porc_processador int, porc_disco int, porc_memoria int);
 Alter table registro add fk_maquina int ;
 alter table registro add foreign key (fk_maquina)references maquina(id_maquina) ;
-
-insert into usuarios values(2,'diovana','123','diovana@bandtec.com.br','123','comum');
-insert into localizacao values (null,'consolação','verde','haddllock lobo');
-insert into maquina values (null, "aa", 2,"Windows","1");
-insert into registro values (null,"02:10",2,3,4,1);
-insert into registro values (null,"03:10",20,43,41,1);
 
 select * from maquina;
 select * from localizacao;
 select * from registro;
-
+select * from usuario;
+insert into localizacao values (null, "Giovanni Gronchi", "Lilás","Jardim Mirante, São Paulo - SP, 05801-110, ‎Av. João Dias, 3569",0);
+insert into usuario values (null,"Gabriel","123.456.789-01","gabriel.oliveira@bandtec.com.br","123","(11)96452-2405",1);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",1);
+insert into registro values (null,'1000-01-01 00:00:00',0,0,0,0,1);
 
 select * from maquina where id_maquina= 1;
 select * from registro where fk_maquina =1;
@@ -34,7 +36,7 @@ select idUsuario, nomeUsuario, cpfUsuario, emailUsuario, senhaUsuario, tipoUsuar
 
 
 select count(idUsuario) from usuarios;
-
+drop table usuario;
 drop table maquina;
 drop table localizacao;
 drop table registro;

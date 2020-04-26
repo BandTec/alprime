@@ -1,6 +1,7 @@
 package com.alprime.totem;
 
 
+import com.alprime.monitoramento.Converssao;
 import com.profesorfalken.jsensors.model.components.Cpu;
 import java.util.List;
 import oshi.SystemInfo;
@@ -12,7 +13,7 @@ public class InformacoesComputador
 {
     // Variáveis que os dados vão entrar
     String usuario, hostname, fabricante, modelo, processador, ramTotal, sistemaOperacional;
-    String disco, gpu, cpu;
+    Double disco, gpu, cpu;
     HWDiskStore[] ds;
     List<Cpu> cpus;
     int cpuLoad;
@@ -36,7 +37,7 @@ public class InformacoesComputador
             ramTotal = FormatUtil.formatBytes(infoHardware.getMemory().getTotal());
             sistemaOperacional = infoSO.getFamily();
             ds = infoHardware.getDiskStores();
-            disco = FormatUtil.formatBytes(ds[0].getSize());
+            disco = Converssao.bytesParaGigabits(ds[0].getSize());
        
         }
         // Métodos para pegar os dados
@@ -75,7 +76,7 @@ public class InformacoesComputador
         return sistemaOperacional;
     }
 
-    public String getDisco() 
+    public Double getDisco() 
     {
         return disco;
     }

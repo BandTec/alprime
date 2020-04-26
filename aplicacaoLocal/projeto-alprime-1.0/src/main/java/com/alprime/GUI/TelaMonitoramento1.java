@@ -1,6 +1,10 @@
 
 package com.alprime.GUI;
 
+import com.alprime.bancoDados.ConsultaBD;
+import com.alprime.bancoDados.tabelas.Localizacao;
+import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.bancoDados.tabelas.Registro;
 import com.alprime.monitoramento.Consumo;
 import com.alprime.monitoramento.Monitorar;
 import com.alprime.totem.InformacoesComputador;
@@ -499,30 +503,31 @@ public class TelaMonitoramento1 extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_AtualizarBotaoActionPerformed
    
-    public void pegarInformacoes()
-    {
+    public void pegarInformacoes(){
         // Primeiro é necessário criar objetos
         InformacoesComputador comp = new InformacoesComputador();
-        Consumo cons = new Consumo();
-        
+        Localizacao localizacao = new Localizacao();
+        Maquina maquina = new Maquina(localizacao); 
+        ConsultaBD.inserirMaquina(maquina);
+        Registro registro = new Registro(maquina);
+        ConsultaBD.insertRegistro(registro);
         // Aqui é onde os dados irão na tela de monitoramento
-        ProcessadorLabel.setText(comp.getProcessador());
-        RAMLabel.setText(comp.getRamTotal());
-        HDLabel.setText(comp.getDisco());
-        SOLabel.setText(comp.getSistemaOperacional());
-        UsernameLabel.setText(comp.getHostname());
-        FabricanteLabel.setText(comp.getFabricante());
-        ModeloLabel.setText(comp.getModelo());
-        UsoCPULabel.setValue(cons.getUsoCpu());
-        UsoRAMLabel.setText(cons.getConsumoRAM());
-        ProcessadorTempLabel.setText(String.valueOf(cons.getTemperaturaCPU())+ " Celsius");
-        HDUsoLabel.setValue(cons.getConsumoDisco().intValue());
+        ProcessadorLabel.setText(String.valueOf(registro.getPorcProcessador()));
+        RAMLabel.setText(String.valueOf(comp.getRamTotal()));
+        HDLabel.setText(String.valueOf(comp.getDisco()));
+        SOLabel.setText(maquina.getSistemaOperacional());
+        UsernameLabel.setText(maquina.getHostname());
+        FabricanteLabel.setText(maquina.getFabricante());
+        ModeloLabel.setText(maquina.getModelo());
+        UsoCPULabel.setValue(registro.getPorcProcessador().intValue());
+        UsoRAMLabel.setText(String.valueOf(registro.getPorcRam()));
+        ProcessadorTempLabel.setText(String.valueOf(registro.getTempCpu())+ " Celsius");
+        HDUsoLabel.setValue(registro.getPorcDisco().intValue());
         
         // Informações de Data e Hora:
         
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	Date dataAtual = new Date();
-
         DataLabel.setText(dateFormat.format(dataAtual));
     }
 
