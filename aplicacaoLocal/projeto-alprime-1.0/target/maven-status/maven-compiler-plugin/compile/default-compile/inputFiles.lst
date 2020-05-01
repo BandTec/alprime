@@ -1,7 +1,9 @@
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\GUI\TelaRPA.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\totem\Usuario.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\alerta\Alerta.java
+C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\InserirBD.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\testeBanco.java
+C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\GUI\TelaMonitoramento2.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\monitoramento\Consumo.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\monitoramento\Converssao.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\GUI\TelaProcessos.java
@@ -10,10 +12,10 @@ C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projet
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\tabelas\Maquina.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\tabelas\Localizacao.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\GUI\TelaInicial1.java
-C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\Consulta.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\totem\InformacoesComputador.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\totem\Totem.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\tabelas\Usuario.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\monitoramento\Monitorar.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\ConexaoBD.java
+C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\bancoDados\ConsultaBD.java
 C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal\projeto-alprime-1.0\src\main\java\com\alprime\GUI\TelaMonitoramento1.java

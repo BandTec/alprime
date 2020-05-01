@@ -15,13 +15,17 @@ Alter table registro add fk_maquina int ;
 alter table registro add foreign key (fk_maquina)references maquina(id_maquina) ;
 
 select * from maquina;
+select count(id_maquina) from maquina;
+
 select * from localizacao;
-select * from registro;
+select * from registro; 
 select * from usuario;
+select * from maquina;
+select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = 1;
 insert into localizacao values (null, "Giovanni Gronchi", "Lilás","Jardim Mirante, São Paulo - SP, 05801-110, ‎Av. João Dias, 3569",0);
 insert into usuario values (null,"Gabriel","123.456.789-01","gabriel.oliveira@bandtec.com.br","123","(11)96452-2405",1);
 insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",1);
-insert into registro values (null,'1000-01-01 00:00:00',0,0,0,0,1);
+insert into registro values (null,'1000-01-01 00:00:00',0,0,0,0,0,1);
 
 select * from maquina where id_maquina= 1;
 select * from registro where fk_maquina =1;
@@ -34,6 +38,7 @@ delete from maquina where id_maquina > 5;
 delete from localizacao where id_localizacao = 2;
 select idUsuario, nomeUsuario, cpfUsuario, emailUsuario, senhaUsuario, tipoUsuario from usuarios order by idUsuario desc;
 
+update maquina set tipo_processador = "aaa", capacidade_memoria = 0, sistema_operacional = "linux", status = false, hostname= "batata", fabricante = "aaaa", modelo = "asdw", ram_total = "aaa" where id_maquina = 5;
 
 select count(idUsuario) from usuarios;
 drop table usuario;

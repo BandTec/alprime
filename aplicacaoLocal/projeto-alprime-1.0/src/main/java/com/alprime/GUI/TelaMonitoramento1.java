@@ -397,6 +397,11 @@ public class TelaMonitoramento1 extends javax.swing.JFrame
                 DesligarBotaoMouseClicked(evt);
             }
         });
+        DesligarBotao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DesligarBotaoActionPerformed(evt);
+            }
+        });
         getContentPane().add(DesligarBotao);
         DesligarBotao.setBounds(900, 530, 50, 40);
 
@@ -502,6 +507,10 @@ public class TelaMonitoramento1 extends javax.swing.JFrame
     private void AtualizarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarBotaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AtualizarBotaoActionPerformed
+
+    private void DesligarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesligarBotaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DesligarBotaoActionPerformed
    
     public void pegarInformacoes(){
         // Primeiro é necessário criar objetos

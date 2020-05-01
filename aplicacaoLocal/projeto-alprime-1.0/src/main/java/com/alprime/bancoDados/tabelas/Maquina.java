@@ -23,13 +23,13 @@ public class Maquina {
     private String fabricante;
     private String modelo;
     private String ramTotal;
-    private Localizacao localizacao;
+    private Localizacao fkLocalizacao;
     private List<Registro> registros;
 
     public Maquina() {
     }
 
-    public Maquina(Integer idMaquina, String senhaMaquina, String tipoProcessador, Double capacidadeMemoria, String sistemaOperacional, boolean status, String hostname, String fabricante, String modelo, String ramTotal, Localizacao localizacao, List<Registro> registros) {
+    public Maquina(Integer idMaquina, String senhaMaquina, String tipoProcessador, Double capacidadeMemoria, String sistemaOperacional, boolean status, String hostname, String fabricante, String modelo, String ramTotal, Localizacao fkLocalizacao, List<Registro> registros) {
         this.idMaquina = idMaquina;
         this.senhaMaquina = senhaMaquina;
         this.tipoProcessador = tipoProcessador;
@@ -40,7 +40,7 @@ public class Maquina {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.ramTotal = ramTotal;
-        this.localizacao = localizacao;
+        this.fkLocalizacao = fkLocalizacao;
         this.registros = registros;
     }
     
@@ -57,7 +57,7 @@ public class Maquina {
         this.fabricante = computador.getFabricante();
         this.modelo = computador.getModelo();
         this.ramTotal = computador.getRamTotal();
-        this.localizacao = localizacao;
+        this.fkLocalizacao = localizacao;
         this.registros = null;
     }
 
@@ -142,11 +142,11 @@ public class Maquina {
     }
 
     public Localizacao getLocalizacao() {
-        return localizacao;
+        return fkLocalizacao;
     }
 
     public void setLocalizacao(Localizacao localizacao) {
-        this.localizacao = localizacao;
+        this.fkLocalizacao = localizacao;
     }
 
     public List<Registro> getRegistros() {
@@ -159,7 +159,7 @@ public class Maquina {
 
     @Override
     public String toString() {
-        return "Maquina{" + "idMaquina=" + idMaquina + ", senhaMaquina=" + senhaMaquina + ", tipoProcessador=" + tipoProcessador + ", capacidadeMemoria=" + capacidadeMemoria + ", sistemaOperacional=" + sistemaOperacional + ", status=" + status + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", ramTotal=" + ramTotal + ", localizacao=" + localizacao + ", registros=" + registros + '}';
+        return "Maquina{" + "idMaquina=" + idMaquina + ", senhaMaquina=" + senhaMaquina + ", tipoProcessador=" + tipoProcessador + ", capacidadeMemoria=" + capacidadeMemoria + ", sistemaOperacional=" + sistemaOperacional + ", status=" + status + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", ramTotal=" + ramTotal + ", localizacao=" + fkLocalizacao + ", registros=" + registros + '}';
     }
 
     

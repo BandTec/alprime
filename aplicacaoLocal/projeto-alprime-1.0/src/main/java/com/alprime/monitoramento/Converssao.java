@@ -33,4 +33,20 @@ public class Converssao {
         
         return String.format("%s %s",data,horaFormatada);
     }
+    public static List<String> dataHoraFormatoBrasileiro(String dataHora) {
+   
+        List<String> dataHoraFormatada = new ArrayList();
+        System.out.println(dataHora);
+        String data = dataHora.split("T")[0];
+        String hora = dataHora.split("T")[1];
+
+        String datas[] = data.split("-");
+        String dataFormatada = String.format("%s/%s/%s", datas[2], datas[1], datas[0]);
+        dataHoraFormatada.add(dataFormatada);
+        String horas[] = hora.split(":");
+        String horaFormatada = String.format("%s:%s", horas[0], horas[1]);
+        dataHoraFormatada.add(horaFormatada);
+
+        return dataHoraFormatada;
+}
 }

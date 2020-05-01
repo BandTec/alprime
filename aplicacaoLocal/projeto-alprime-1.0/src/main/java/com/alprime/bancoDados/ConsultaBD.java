@@ -49,9 +49,18 @@ public class ConsultaBD {
     public static Maquina procurarIdMaquina(Integer idMaquina) {
         Maquina resultado = jdbcTemplate.queryForObject("select * from maquina where id_maquina = ?",
                                          new BeanPropertyRowMapper<Maquina>(Maquina.class),idMaquina);
+        Localizacao localizacao = jdbcTemplate.queryForObject("select localizacao.* from maquina, localizacao where fk_localizacao = id_localizacao AND id_maquina = ?",
+                                         new BeanPropertyRowMapper<Localizacao>(Localizacao.class),idMaquina);
+        Usuario usuario = jdbcTemplate.queryForObject("select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = ?",
+                                         new BeanPropertyRowMapper<Usuario>(Usuario.class),idMaquina);
+        
+        localizacao.setUsuario(usuario);
+        resultado.setLocalizacao(localizacao);
+        
         return resultado;
     }
-     
+    
+    
     public static Registro procurarIdRegistro(Integer idRegistro) {
         Registro resultado = jdbcTemplate.queryForObject("select * from registro where id_registro = ?",
                                          new BeanPropertyRowMapper<Registro>(Registro.class),idRegistro);
@@ -85,5 +94,14 @@ public class ConsultaBD {
                             registro.getPorcMemoria(), registro.getTempCpu(), registro.getPorcRam(),
                             registro.getMaquina().getIdMaquina());
         
-    } 
+    }
+    
+    public static void atualizarMaquina(Integer idMaquina, Maquina maquina){
+        jdbcTemplate.update("update maquina set tipo_processador = ?, capacidade_memoria = ?, "
+                           + "sistema_operacional = ?, status = ?, hostname= ?, fabricante = ?, "
+                            + "modelo = ?, ram_total = ? where id_maquina = ?;",
+                            maquina.getTipoProcessador(),maquina.getCapacidadeMemoria(),
+                            maquina.getSistemaOperacional(), maquina.isStatus(), maquina.getHostname(),maquina.getFabricante(),
+                            maquina.getModelo(),maquina.getRamTotal(),idMaquina);
+    }
 }

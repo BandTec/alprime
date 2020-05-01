@@ -33,7 +33,7 @@ public class Registro {
         this.dataHora = Converssao.dataHoraFormatoSQL(String.valueOf(LocalDateTime.now()));
         this.porcProcessador = consumo.getUsoCpu();
         this.porcDisco = consumo.getConsumoDisco();
-        this.porcMemoria = null;
+        this.porcMemoria = consumo.getConsumoMemoria();
         this.tempCpu = consumo.getTemperaturaCPU();
         this.porcRam = consumo.getConsumoRAM();
         this.maquina = maquina;
@@ -49,7 +49,7 @@ public class Registro {
         this.porcRam = porcRam;
         this.maquina = maquina;
     }
-
+    
     public Integer getIdRegistro() {
         return idRegistro;
     }
