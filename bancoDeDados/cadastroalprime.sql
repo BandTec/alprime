@@ -19,7 +19,9 @@ select count(id_maquina) from maquina;
 
 select * from localizacao;
 select * from registro; 
+delete from registro where id_registro > 0;
 select * from usuario;
+select registro.* from registro, maquina where id_maquina = 1 AND fk_maquina = id_maquina order by id_registro desc limit 10;
 select * from maquina;
 select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = 1;
 insert into localizacao values (null, "Giovanni Gronchi", "Lilás","Jardim Mirante, São Paulo - SP, 05801-110, ‎Av. João Dias, 3569",0);

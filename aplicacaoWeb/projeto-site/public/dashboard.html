@@ -11,20 +11,29 @@
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
     <script type="text/javascript" src="funcoes.js"></script>
-
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 
 <body onload="atualizarGraficos();">
-    <div style="width:35%">
+    <div>Hitórico do monitoramento da maquina</div>
+    <div>Digite o numero da sua maquina</div>
+    <input type="number" id="inp_id_maquina">
+    <button onclick="confirmarIdMaquina()">Confirmar</button>
+    <div style="width:46%" class="grafico_processador">
         <canvas id="canvas_grafico_processador"></canvas>
     </div>
-    <div style="width:35%">
+    <div style="width:46%" class="grafico_memoria">
         <canvas id="canvas_grafico_memoria"></canvas>
     </div>
-    <div style="width:35%">
+    <div style="width:46%" class="grafico_disco">
         <canvas id="canvas_grafico_disco"></canvas>
     </div>
-
+    <div style="width:46%" class="grafico_ram">
+        <canvas id="canvas_grafico_ram"></canvas>
+    </div>
+    <div style="width:46%" class="grafico_temperatura">
+        <canvas id="canvas_grafico_temperatura"></canvas>
+    </div>
 
 
 </body>
