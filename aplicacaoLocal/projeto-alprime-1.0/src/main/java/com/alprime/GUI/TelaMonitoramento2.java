@@ -64,7 +64,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
         Integer tempo = valor * 1000;
         while (monitorando) {
-            Registro registro = new Registro(maquinaAtualizada);
+            Registro registro = new Registro(maquinaBD);
             ConsultaBD.insertRegistro(registro);
 
 //Uso do Disco e uso da CPU estão errados
@@ -489,8 +489,8 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private void btnMonitorarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonitorarActionPerformed
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
         if (!monitorando) {
-            if (valor < 3) {
-                spnAtualizacao.setValue(3);
+            if (valor < 1) {
+                spnAtualizacao.setValue(1);
             } else {
                 Thread threadMonitoramento = new Thread(this::atualizarDados);
 //                Thread threadReticencias = new Thread(this::reticencias);

@@ -8,30 +8,38 @@ https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 module.exports = (sequelize, DataTypes) => {
     let Registro = sequelize.define('registro',{
 		//Nome do campo
-		idRegistro: {
+		id_registro: {
 			//Quando der erro colocar esse field
-			field: "idRegistro",
+			field: "id_registro",
 			type: DataTypes.INTEGER,
 			primaryKey: true,
 			autoIncrement: true
 		},		
-		dataHora: {
-			field: "dataHora",
+		data_hora: {
+			field: "data_hora",
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		porcProcessador: {
-			field: "porcProcessador",
+		porc_processador: {
+			field: "porc_processador",
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
-		porcDisco: {
-			field: "porcDisco",
+		porc_disco: {
+			field: "porc_disco",
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
-		porcMemoria: {
-			field: "porcMemoria",
+		porc_memoria: {
+			field: "porc_memoria",
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},porc_ram: {
+			field: "porc_ram",
+			type: DataTypes.INTEGER,
+			allowNull: false
+		},temp_cpu: {
+			field: "temp_cpu",
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},

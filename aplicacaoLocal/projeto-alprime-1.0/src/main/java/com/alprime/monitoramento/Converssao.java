@@ -36,7 +36,6 @@ public class Converssao {
     public static List<String> dataHoraFormatoBrasileiro(String dataHora) {
    
         List<String> dataHoraFormatada = new ArrayList();
-        System.out.println(dataHora);
         String data = dataHora.split("T")[0];
         String hora = dataHora.split("T")[1];
 
