@@ -26,7 +26,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     boolean monitorando = false;
     Localizacao localizacao;
     Maquina maquinaBD;
-    Maquina maquinaAtualizada ;
+    Maquina maquinaAtualizada;
 
     public TelaMonitoramento2(Integer idMaquina) {
         initComponents();
@@ -50,6 +50,11 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         // Informações de Data e Hora:
         Thread threadDataHora = new Thread(this::atualizarHora);
         threadDataHora.start();
+        
+        lblAvisoCapturar.setVisible(false);
+        lblReticencias1.setVisible(false);
+        lblReticencias2.setVisible(false);
+        lblReticencias3.setVisible(false);
     }
 
     public void atualizarHora() {
@@ -60,9 +65,56 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         }
     }
 
+    public void reticencias() {
+        while (monitorando) {
+
+            lblAvisoCapturar.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+            lblReticencias1.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+            lblReticencias2.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+            lblReticencias3.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+
+            lblReticencias1.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+            lblReticencias2.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+            lblReticencias3.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+            }
+
+        }
+        lblAvisoCapturar.setVisible(false);
+        lblReticencias1.setVisible(false);
+        lblReticencias2.setVisible(false);
+        lblReticencias3.setVisible(false);
+    }
+
     public void atualizarDados() {
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
-        Integer tempo = valor * 1000;
+        Integer tempo = (valor - 5) * 1000;
         while (monitorando) {
             Registro registro = new Registro(maquinaBD);
             ConsultaBD.insertRegistro(registro);
@@ -152,6 +204,10 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         btnMonitorar = new javax.swing.JButton();
         btnParar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        lblAvisoCapturar = new javax.swing.JLabel();
+        lblReticencias1 = new javax.swing.JLabel();
+        lblReticencias3 = new javax.swing.JLabel();
+        lblReticencias2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -311,102 +367,102 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         AdministrativoPalavraLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         AdministrativoPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         AdministrativoPalavraLabel.setText("Administrativo");
-        jPanel1.add(AdministrativoPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 170, 30));
+        jPanel1.add(AdministrativoPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 500, 170, 30));
 
         ClientesPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         ClientesPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         ClientesPalavraLabel.setText("Clientes atendidos no dia:");
-        jPanel1.add(ClientesPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 230, 20));
+        jPanel1.add(ClientesPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, 230, 20));
 
         MediaMensalPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         MediaMensalPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         MediaMensalPalavraLabel.setText("Média mensal de clientes:");
-        jPanel1.add(MediaMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 230, 20));
+        jPanel1.add(MediaMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 230, 20));
 
         PDiaPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         PDiaPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         PDiaPalavraLabel.setText("p/ dia");
-        jPanel1.add(PDiaPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 50, 20));
+        jPanel1.add(PDiaPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 50, 20));
 
         LucroMensalPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         LucroMensalPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         LucroMensalPalavraLabel.setText("Lucro mensal: ");
-        jPanel1.add(LucroMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 370, 140, 30));
+        jPanel1.add(LucroMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 140, 30));
 
         GastoMensalPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         GastoMensalPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
         GastoMensalPalavraLabel.setText("Gasto mensal: ");
-        jPanel1.add(GastoMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 400, 140, 20));
+        jPanel1.add(GastoMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 140, 20));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(111, 44, 145));
         jLabel20.setText("Temperatura da CPU");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, -1));
 
         lblTempCPU.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblTempCPU.setForeground(new java.awt.Color(111, 44, 145));
         lblTempCPU.setText("0%");
-        jPanel1.add(lblTempCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, -1, -1));
+        jPanel1.add(lblTempCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 320, -1, -1));
 
         lblUsoProcessador.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoProcessador.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoProcessador.setText("0%");
-        jPanel1.add(lblUsoProcessador, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, -1));
+        jPanel1.add(lblUsoProcessador, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 350, -1, -1));
 
         lblUsoMemoria.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoMemoria.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoMemoria.setText("0%");
-        jPanel1.add(lblUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, -1, -1));
+        jPanel1.add(lblUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 380, -1, -1));
 
         lblUsoDisco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoDisco.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoDisco.setText("0%");
-        jPanel1.add(lblUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 660, -1, -1));
+        jPanel1.add(lblUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, -1, -1));
 
         pgbUsoMemoria.setForeground(new java.awt.Color(111, 44, 145));
-        jPanel1.add(pgbUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 600, -1, -1));
+        jPanel1.add(pgbUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
 
         pgbUsoCpu.setForeground(new java.awt.Color(111, 44, 145));
-        jPanel1.add(pgbUsoCpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 570, -1, -1));
+        jPanel1.add(pgbUsoCpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, -1, -1));
 
         pgbTempCPU.setForeground(new java.awt.Color(111, 44, 145));
-        jPanel1.add(pgbTempCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, -1, -1));
+        jPanel1.add(pgbTempCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(111, 44, 145));
         jLabel24.setText("Uso de RAM");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, -1, -1));
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, -1, -1));
 
         pgbUsoDisco.setForeground(new java.awt.Color(111, 44, 145));
-        jPanel1.add(pgbUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 660, -1, -1));
+        jPanel1.add(pgbUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, -1, -1));
 
         lblUsoRAM.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoRAM.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoRAM.setText("0%");
-        jPanel1.add(lblUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 630, -1, -1));
+        jPanel1.add(lblUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, -1, -1));
 
         pgbUsoRAM.setForeground(new java.awt.Color(111, 44, 145));
-        jPanel1.add(pgbUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 630, -1, -1));
+        jPanel1.add(pgbUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(111, 44, 145));
         jLabel21.setText("Uso de Memoria");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, 21));
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 380, -1, 21));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(111, 44, 145));
         jLabel22.setText("Uso do Disco");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, -1, -1));
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(111, 44, 145));
         jLabel25.setText("Monitoramento");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, -1, -1));
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(111, 44, 145));
         jLabel26.setText("Uso da CPU");
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(111, 44, 145));
@@ -454,13 +510,33 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, 190, 90));
 
+        lblAvisoCapturar.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        lblAvisoCapturar.setForeground(new java.awt.Color(111, 44, 145));
+        lblAvisoCapturar.setText("Capturando informações");
+        jPanel1.add(lblAvisoCapturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, 30));
+
+        lblReticencias1.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        lblReticencias1.setForeground(new java.awt.Color(111, 44, 145));
+        lblReticencias1.setText(".");
+        jPanel1.add(lblReticencias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+
+        lblReticencias3.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        lblReticencias3.setForeground(new java.awt.Color(111, 44, 145));
+        lblReticencias3.setText(".");
+        jPanel1.add(lblReticencias3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 10, -1));
+
+        lblReticencias2.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        lblReticencias2.setForeground(new java.awt.Color(111, 44, 145));
+        lblReticencias2.setText(".");
+        jPanel1.add(lblReticencias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,20 +559,20 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     }//GEN-LAST:event_spnAtualizacaoMouseClicked
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_btnFecharActionPerformed
 
     private void btnMonitorarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonitorarActionPerformed
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
         if (!monitorando) {
-            if (valor < 1) {
-                spnAtualizacao.setValue(1);
+            if (valor < 6) {
+                spnAtualizacao.setValue(6);
             } else {
                 Thread threadMonitoramento = new Thread(this::atualizarDados);
-//                Thread threadReticencias = new Thread(this::reticencias);
+                Thread threadReticencias = new Thread(this::reticencias);
 
                 threadMonitoramento.start();
-//                threadReticencias.start();
+                threadReticencias.start();
 
                 monitorando = true;
             }
@@ -584,6 +660,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAvisoCapturar;
     private javax.swing.JLabel lblCPU;
     private javax.swing.JLabel lblData1;
     private javax.swing.JLabel lblEstacao;
@@ -592,6 +669,9 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private javax.swing.JLabel lblHora1;
     private javax.swing.JLabel lblLinha;
     private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblReticencias1;
+    private javax.swing.JLabel lblReticencias2;
+    private javax.swing.JLabel lblReticencias3;
     private javax.swing.JLabel lblSistemaOp;
     private javax.swing.JLabel lblTempCPU;
     private javax.swing.JLabel lblTotalMemoriaRam;
