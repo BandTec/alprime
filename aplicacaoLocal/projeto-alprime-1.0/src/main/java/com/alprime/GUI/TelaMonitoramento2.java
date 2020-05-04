@@ -23,13 +23,16 @@ import java.util.List;
  */
 public class TelaMonitoramento2 extends javax.swing.JFrame {
 
-    boolean monitorando = false;
-    Localizacao localizacao;
-    Maquina maquinaBD;
-    Maquina maquinaAtualizada;
+    private boolean monitorando = false;
+    private static boolean logado = true;
+    private boolean statusMonitoramento = true;
+    private Localizacao localizacao;
+    private Maquina maquinaBD;
+    private Maquina maquinaAtualizada;
 
     public TelaMonitoramento2(Integer idMaquina) {
         initComponents();
+
         maquinaBD = ConsultaBD.procurarIdMaquina(idMaquina);
         System.out.println(ConsultaBD.procurarIdMaquina(idMaquina));
         localizacao = maquinaBD.getLocalizacao();
@@ -47,10 +50,11 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         lblLinha.setText(localizacao.getTipoLinha());
         lblEstacao.setText(localizacao.getNomeLocalizacao());
         lblUsuario.setText(localizacao.getUsuario().getNomeUsuario());
+
         // Informações de Data e Hora:
         Thread threadDataHora = new Thread(this::atualizarHora);
         threadDataHora.start();
-        
+        //Animação de captura de dados
         lblAvisoCapturar.setVisible(false);
         lblReticencias1.setVisible(false);
         lblReticencias2.setVisible(false);
@@ -67,7 +71,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
 
     public void reticencias() {
         while (monitorando) {
-
             lblAvisoCapturar.setVisible(true);
             try {
                 Thread.sleep(200);
@@ -88,7 +91,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
             }
-
             lblReticencias1.setVisible(false);
             try {
                 Thread.sleep(200);
@@ -104,7 +106,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
             }
-
         }
         lblAvisoCapturar.setVisible(false);
         lblReticencias1.setVisible(false);
@@ -137,7 +138,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
             } catch (InterruptedException e) {
             }
         }
-
     }
 
     /**
@@ -547,15 +547,12 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void spnAtualizacaoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_spnAtualizacaoPropertyChange
-
     }//GEN-LAST:event_spnAtualizacaoPropertyChange
 
     private void spnAtualizacaoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_spnAtualizacaoInputMethodTextChanged
-
     }//GEN-LAST:event_spnAtualizacaoInputMethodTextChanged
 
     private void spnAtualizacaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnAtualizacaoMouseClicked
-
     }//GEN-LAST:event_spnAtualizacaoMouseClicked
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
@@ -577,11 +574,9 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
                 monitorando = true;
             }
         }
-
     }//GEN-LAST:event_btnMonitorarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
@@ -589,12 +584,21 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPararActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        // TODO add your handling code here:
+        statusMonitoramento = false;
     }//GEN-LAST:event_btnSairActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public static boolean isLogin() {
+        return logado;
+    }
+
+    public void setStatusMonitoramento(boolean statusMonitoramento) {
+        this.statusMonitoramento = statusMonitoramento;
+    }
+
+    public boolean isStatusMonitoramento() {
+        return statusMonitoramento;
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
