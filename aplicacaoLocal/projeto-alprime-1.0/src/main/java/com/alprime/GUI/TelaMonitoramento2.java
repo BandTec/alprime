@@ -29,6 +29,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private Localizacao localizacao;
     private Maquina maquinaBD;
     private Maquina maquinaAtualizada;
+    private boolean telaProcessos = false;
 
     public TelaMonitoramento2(Integer idMaquina) {
         initComponents();
@@ -203,7 +204,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         btnMonitorar = new javax.swing.JButton();
         btnParar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnProcessos = new javax.swing.JButton();
         lblAvisoCapturar = new javax.swing.JLabel();
         lblReticencias1 = new javax.swing.JLabel();
         lblReticencias3 = new javax.swing.JLabel();
@@ -497,18 +498,18 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         });
         jPanel1.add(btnParar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, 75, 40));
 
-        jButton3.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(111, 44, 145));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/processos.png"))); // NOI18N
-        jButton3.setText("Processos");
-        jButton3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(111, 44, 145), 1, true));
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnProcessos.setFont(new java.awt.Font("Dubai", 1, 24)); // NOI18N
+        btnProcessos.setForeground(new java.awt.Color(111, 44, 145));
+        btnProcessos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/processos.png"))); // NOI18N
+        btnProcessos.setText("Processos");
+        btnProcessos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(111, 44, 145), 1, true));
+        btnProcessos.setContentAreaFilled(false);
+        btnProcessos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnProcessosActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 580, 190, 90));
+        jPanel1.add(btnProcessos, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 550, 190, 90));
 
         lblAvisoCapturar.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         lblAvisoCapturar.setForeground(new java.awt.Color(111, 44, 145));
@@ -534,9 +535,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,8 +575,10 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMonitorarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessosActionPerformed
+            TelaProcessos2 janelaProcessos = new TelaProcessos2();
+            janelaProcessos.setVisible(true);
+    }//GEN-LAST:event_btnProcessosActionPerformed
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
         monitorando = false;
@@ -641,8 +642,8 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnMonitorar;
     private javax.swing.JButton btnParar;
+    private javax.swing.JButton btnProcessos;
     private javax.swing.JButton btnSair;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
