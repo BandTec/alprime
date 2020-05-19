@@ -1,9 +1,10 @@
+package com.alprime.GUI;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.tela.rpa;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -78,7 +79,7 @@ public class TelaRPA extends javax.swing.JFrame {
                 btn03ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn03, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, -1, 76));
+        jPanel2.add(btn03, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, 76));
 
         btn01.setBackground(new java.awt.Color(204, 204, 204));
         btn01.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -89,7 +90,7 @@ public class TelaRPA extends javax.swing.JFrame {
                 btn01ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn01, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 76));
+        jPanel2.add(btn01, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 76));
 
         btn02.setBackground(new java.awt.Color(204, 204, 204));
         btn02.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -100,13 +101,13 @@ public class TelaRPA extends javax.swing.JFrame {
                 btn02ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn02, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, -1, 76));
+        jPanel2.add(btn02, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, 76));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Saldo Recarga");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 139, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 139, -1));
 
         lblSaldo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblSaldo.setForeground(new java.awt.Color(51, 153, 0));
@@ -116,7 +117,7 @@ public class TelaRPA extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(102, 0, 102));
         jLabel3.setText("Outro valor (Digite):");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 372, -1, 30));
 
         txtValor.setForeground(new java.awt.Color(51, 153, 0));
         txtValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -125,7 +126,7 @@ public class TelaRPA extends javax.swing.JFrame {
                 txtValorActionPerformed(evt);
             }
         });
-        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 150, 33));
+        jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 150, 33));
 
         btnCarregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCarregar.setForeground(new java.awt.Color(102, 0, 102));
@@ -135,7 +136,7 @@ public class TelaRPA extends javax.swing.JFrame {
                 btnCarregarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, -1, -1));
+        jPanel2.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, 30));
 
         lblDataHora.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         lblDataHora.setForeground(new java.awt.Color(51, 153, 0));
