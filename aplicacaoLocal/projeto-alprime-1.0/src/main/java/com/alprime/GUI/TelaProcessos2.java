@@ -143,7 +143,7 @@ public class TelaProcessos2 extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_editado.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 180, 80));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 180, 80));
 
         tblProcessos.setAutoCreateRowSorter(true);
         tblProcessos.setFont(new java.awt.Font("Dubai", 1, 11)); // NOI18N

@@ -180,7 +180,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
         AdministrativoPalavraLabel = new javax.swing.JLabel();
         ClientesPalavraLabel = new javax.swing.JLabel();
         MediaMensalPalavraLabel = new javax.swing.JLabel();
-        PDiaPalavraLabel = new javax.swing.JLabel();
         LucroMensalPalavraLabel = new javax.swing.JLabel();
         GastoMensalPalavraLabel = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -377,13 +376,8 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
 
         MediaMensalPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         MediaMensalPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
-        MediaMensalPalavraLabel.setText("Média mensal de clientes:");
+        MediaMensalPalavraLabel.setText("Clientes por dia no mês: ");
         jPanel1.add(MediaMensalPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 230, 20));
-
-        PDiaPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        PDiaPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
-        PDiaPalavraLabel.setText("p/ dia");
-        jPanel1.add(PDiaPalavraLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 550, 50, 20));
 
         LucroMensalPalavraLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         LucroMensalPalavraLabel.setForeground(new java.awt.Color(111, 44, 145));
@@ -638,7 +632,6 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     private javax.swing.JLabel GastoMensalPalavraLabel;
     private javax.swing.JLabel LucroMensalPalavraLabel;
     private javax.swing.JLabel MediaMensalPalavraLabel;
-    private javax.swing.JLabel PDiaPalavraLabel;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnMonitorar;
     private javax.swing.JButton btnParar;
