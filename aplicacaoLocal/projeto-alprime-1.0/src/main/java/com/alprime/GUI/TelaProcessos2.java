@@ -5,6 +5,7 @@
  */
 package com.alprime.GUI;
 
+import java.awt.Toolkit;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -21,6 +22,7 @@ public class TelaProcessos2 extends javax.swing.JFrame {
      */
     public TelaProcessos2() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
         ProcessosTableModel model = new ProcessosTableModel();
         tblProcessos.setModel(model);
         lblAtualizar.setVisible(false);

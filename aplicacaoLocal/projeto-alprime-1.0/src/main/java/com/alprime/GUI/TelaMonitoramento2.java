@@ -11,6 +11,7 @@ import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Registro;
 import com.alprime.monitoramento.Converssao;
 import com.alprime.totem.InformacoesComputador;
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -33,7 +34,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
 
     public TelaMonitoramento2(Integer idMaquina) {
         initComponents();
-
+setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
         maquinaBD = ConsultaBD.procurarIdMaquina(idMaquina);
         System.out.println(ConsultaBD.procurarIdMaquina(idMaquina));
         localizacao = maquinaBD.getLocalizacao();

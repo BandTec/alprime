@@ -2,6 +2,7 @@ package com.alprime.GUI;
 
 import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Maquina;
+import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -16,6 +17,7 @@ public class TelaInicial2 extends javax.swing.JFrame {
 
     public TelaInicial2() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
         lblSucesso.setVisible(false);
         lblErroSenha.setVisible(false);
         lblSucesso.setVisible(false);

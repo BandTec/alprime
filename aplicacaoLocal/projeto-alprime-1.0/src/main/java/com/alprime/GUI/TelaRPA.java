@@ -6,6 +6,7 @@ package com.alprime.GUI;
  * and open the template in the editor.
  */
 
+import java.awt.Toolkit;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +25,7 @@ public class TelaRPA extends javax.swing.JFrame {
 
     public TelaRPA() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
     }
 
     /**

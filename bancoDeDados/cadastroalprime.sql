@@ -1,7 +1,7 @@
 create database alprime;
 use alprime;
 
-create table usuario (id_usuario int primary key auto_increment, nome_usuario varchar(45),cpf_usuario varchar(45),email_usuario varchar(45),senha_usuario varchar(45),telefone varchar(45));
+create table usuario (id_usuario int primary key auto_increment, nome_usuario varchar(45),cpf_usuario varchar(45),email_usuario varchar(45),senha_usuario varchar(45),telefone varchar(45), chat_id varchar(30));
 create table localizacao (id_localizacao int primary key auto_increment, nome_localizacao varchar(45), tipo_linha varchar(45),endereco varchar(70),total_maquina INT);
 create table maquina (id_maquina int primary key auto_increment,senha_maquina varchar(45), tipo_processador varchar(45), capacidade_memoria double, sistema_operacional varchar(45),
 					  status tinyint, hostname varchar(45), fabricante varchar(45), modelo varchar(45), ram_total varchar(45));
@@ -51,9 +51,9 @@ delete from registro where id_registro >0;
 delete from maquina where id_maquina > 5;
 delete from localizacao where id_localizacao = 2;
 select idUsuario, nomeUsuario, cpfUsuario, emailUsuario, senhaUsuario, tipoUsuario from usuarios order by idUsuario desc;
-
+alter table usuario add column chat_id varchar(30);
 update maquina set tipo_processador = "aaa", capacidade_memoria = 0, sistema_operacional = "linux", status = false, hostname= "batata", fabricante = "aaaa", modelo = "asdw", ram_total = "aaa" where id_maquina = 5;
-
+select usuario.telefone from maquina, usuario, localizacao where usuario.fk_localizacao = id_localizacao and maquina.fk_localizacao = id_localizacao and id_maquina = 1;
 drop table usuario;
 drop table maquina;
 drop table localizacao;
