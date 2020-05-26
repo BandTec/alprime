@@ -11,7 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
  */
 public class TelaInicial2 extends javax.swing.JFrame {
 
-    static Integer idMaquina = 0;
+    static Integer idMaquina = 0; 
     static boolean statusTelaInicial = true;
 
     public TelaInicial2() {

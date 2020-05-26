@@ -4,6 +4,7 @@ com\alprime\bancoDados\ConsultaBD.class
 com\alprime\monitoramento\Cliente.class
 com\alprime\totem\InformacoesComputador.class
 com\alprime\GUI\TelaMonitoramento2$5.class
+com\alprime\GUI\TelaRPA$2.class
 com\alprime\monitoramento\Converssao.class
 com\alprime\GUI\TelaProcessos2$3.class
 com\alprime\totem\Usuario.class
@@ -12,12 +13,15 @@ com\alprime\bancoDados\ConexaoBD.class
 com\alprime\GUI\TelaProcessos$1.class
 com\alprime\GUI\TelaMonitoramento2$2.class
 com\alprime\GUI\TelaInicial2$1.class
+com\alprime\GUI\TelaRPA$6.class
 com\alprime\GUI\TelaMonitoramento1$1.class
+com\alprime\GUI\TelaRPA$3.class
 com\alprime\monitoramento\Monitorar.class
 com\alprime\bancoDados\tabelas\Registro.class
 com\alprime\GUI\TelaMonitoramento2.class
 com\alprime\bancoDados\tabelas\Maquina.class
 com\alprime\GUI\TelaMonitoramento2$3.class
+com\alprime\GUI\TelaRPA$4.class
 com\alprime\GUI\TelaInicial2$2.class
 com\alprime\GUI\TelaProcessos$2.class
 com\alprime\GUI\TelaMonitoramento2$6.class
@@ -34,6 +38,7 @@ com\alprime\GUI\Processos.class
 com\alprime\GUI\TelaProcessos.class
 com\alprime\GUI\TelaMonitoramento1$2.class
 com\alprime\GUI\TelaMonitoramento1.class
+com\alprime\GUI\TelaRPA$5.class
 com\alprime\GUI\TelaProcessos$3.class
 com\alprime\GUI\TelaRPA$1.class
 com\alprime\GUI\TelaProcessos2$2.class
