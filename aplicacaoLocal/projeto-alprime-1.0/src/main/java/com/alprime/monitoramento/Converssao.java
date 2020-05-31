@@ -1,6 +1,8 @@
 package com.alprime.monitoramento;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import oshi.util.FormatUtil;
 
@@ -29,12 +31,13 @@ public class Converssao {
         String hora = dataHora.split("T")[1];
         String horas[] = hora.split(":");
         String segundos[] = horas[2].split("");
-        String horaFormatada = String.format("%s:%s:%s%s", horas[0], horas[1], segundos[0],segundos[1]);
-        
-        return String.format("%s %s",data,horaFormatada);
+        String horaFormatada = String.format("%s:%s:%s%s", horas[0], horas[1], segundos[0], segundos[1]);
+
+        return String.format("%s %s", data, horaFormatada);
     }
+
     public static List<String> dataHoraFormatoBrasileiro(String dataHora) {
-   
+
         List<String> dataHoraFormatada = new ArrayList();
         String data = dataHora.split("T")[0];
         String hora = dataHora.split("T")[1];
@@ -47,5 +50,14 @@ public class Converssao {
         dataHoraFormatada.add(horaFormatada);
 
         return dataHoraFormatada;
-}
+    }
+
+    public static String dataHoraLog(LocalDateTime data) {
+        String dataString = data.toString();
+        String arrayDataHora[] = dataString.split("T");
+        String arrayData[] = arrayDataHora[0].split("-");
+        String arrayHora[] = arrayDataHora[1].split(":");
+        String segundos[] = arrayHora[2].split("");
+        return String.format("%s%s%s%s%s%s%s", arrayData[0], arrayData[1], arrayData[2], arrayHora[0], arrayHora[1], segundos[0], segundos[1]);
+    }
 }

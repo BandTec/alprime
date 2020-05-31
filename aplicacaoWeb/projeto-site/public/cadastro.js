@@ -1,19 +1,46 @@
+
+let nomeCadastro;
+let emailCadastro;
+let telefoneCadastro;
+let cpfCadastro;
+let senhaCadastro;
+onload = function () {
+  document.body.style.visibility = "visible"
+}
+
+function guardarDados(){
+  sessionStorage.nomeCadastro = nome.value;
+  sessionStorage.emailCadastro = email.value;
+  sessionStorage.telefoneCadastro = telefone.value;
+  sessionStorage.cpfCadastro = cpf.value;
+  sessionStorage.senhaCadastro = senha.value;
+  console.log("deveria ter mudado de tela");
+  window.location.assign("./Cadastro2.html");
+}
+
 function cadastrar() {
-  var formulario = new URLSearchParams(new FormData(form_cadastro));
-  fetch("/usuarios/cadastrar", {
+  var formulario= new URLSearchParams(new FormData(form_localizacao));
+  formulario.append('nome', sessionStorage.getItem('nomeCadastro'));
+  formulario.append('telefone', sessionStorage.getItem('telefoneCadastro'));
+  formulario.append('cpf', sessionStorage.getItem('cpfCadastro'));
+  formulario.append('email', sessionStorage.getItem('emailCadastro'));
+  formulario.append('senha', sessionStorage.getItem('senhaCadastro'));
+  var form = new URLSearchParams(formulario);
+  fetch("/usuarios/cadastrarUsuario", {
     method: "POST",
-    body: formulario
+    body: form
   }).then(function(response) {
     if (response.ok) {
-      resultado.innerHTML = "Usuario cadastrado com sucesso";
+      alert("Usuario cadastrado com sucesso");
+  window.location.assign("./Cadastro2.html");
+
     } else {
-      console.log("Erro de cadastro!");
+      alert("Erro de cadastro!");
       response.text().then(function(resposta) {});
-      resultado.innerHTML = "Erro ao cadastrar usuario";
+      console.log("Erro ao cadastrar usuario");
     }
   });
 
-  return false;
 }
 function verificarNome() {
   if (nome.value.length >= 6) {

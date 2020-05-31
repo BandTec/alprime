@@ -1,9 +1,14 @@
 let cpf_meuapp;
 let login_usuario;
+
+onload = function () {
+    document.body.style.visibility = "visible"
+}
+
 function entrar() {
     // aguardar();
     var formulario = new URLSearchParams(new FormData(form_login));
-    fetch("/usuarios/autenticar", {
+    fetch("/usuarios/login", {
         method: "POST",
         body: formulario
     }).then(resposta => {
@@ -11,16 +16,16 @@ function entrar() {
         if (resposta.ok) {
 
             resposta.json().then(json => {
-                console.log("resposta", json.nomeUsuario);
-                sessionStorage.cpf_meuapp = json.cpfUsuario;
+                console.log("resposta", json.emailUsuario);
+                sessionStorage.email_alprime = json.emailUsuario;
                 sessionStorage.login_usuario = json.idUsuario;
-                mensagem.innerHTML = `Bem vindo ${json.nomeUsuario}`  
-              
+                alert("Login aceito");
+                
             });
 
         } else {
 
-            mensagem.innerHTML = "Username/senha inválido(a).";
+            alert("Username/senha inválido(a).");
             console.log('Erro de login!');
             // console.log(resposta);
             resposta.text().then(texto => {

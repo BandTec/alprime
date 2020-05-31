@@ -39,6 +39,10 @@ module.exports = (sequelize, DataTypes) => {
 			field: "telefone",
 			type: DataTypes.STRING,
 			allowNull: false
+		},chat_id: {
+			field: "chat_id",
+			type: DataTypes.STRING,
+			allowNull: false
 		}
 	}, 
 	{
