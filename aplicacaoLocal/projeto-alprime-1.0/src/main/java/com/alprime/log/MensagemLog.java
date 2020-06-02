@@ -3,15 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package log;
+package com.alprime.log;
 
 import com.alprime.monitoramento.Converssao;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,11 +14,11 @@ import java.util.logging.Logger;
  */
 public class MensagemLog {
     private LocalDateTime dataHora;
-    private String idMaquina;
+    private int idMaquina;
     private String mensagem;
     private String tipo;
 
-    public MensagemLog(String idMaquina, String mensagem, String tipo) {
+    public MensagemLog(int idMaquina, String mensagem, String tipo) {
         this.dataHora = LocalDateTime.now();
         this.idMaquina = idMaquina;
         this.mensagem = mensagem;
@@ -38,11 +33,11 @@ public class MensagemLog {
         this.dataHora = dataHora;
     }
 
-    public String getIdMaquina() {
+    public int getIdMaquina() {
         return idMaquina;
     }
 
-    public void setIdMaquina(String idMaquina) {
+    public void setIdMaquina(int idMaquina) {
         this.idMaquina = idMaquina;
     }
 
@@ -64,7 +59,7 @@ public class MensagemLog {
 
     @Override
     public String toString() {
-        return Converssao.dataHoraLog(dataHora) + ";" + idMaquina + ";" + mensagem + ";" + tipo + ';';
+        return Converssao.dataHoraLogMensagem(dataHora) + ", 'Maquina': " + idMaquina + " , 'Descrição': " + mensagem + ", 'Importância': " + tipo + ';';
     }
  
     

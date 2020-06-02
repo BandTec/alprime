@@ -1,67 +1,47 @@
 package com.alprime.GUI;
 
-
-
 import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
-import com.alprime.bancoDados.tabelas.Registro;
-import com.alprime.bancoDados.tabelas.RegistroRPA;
+import com.alprime.bancoDados.tabelas.Usuario;
+import com.alprime.bancoDados.tabelas.Venda;
 import com.alprime.monitoramento.Converssao;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+public class TelaRPA extends javax.swing.JFrame {
 
-public class TelaRPA extends javax.swing.JFrame 
-{
-    private static boolean logado = true;
-    private Localizacao localizacao;
-    private Maquina maquinaBD;
-    private Maquina maquinaAtualizada;
-    
-    
-    
-    private Random numAleatorio = new Random();
-    private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
-    private Date dataAtual = new Date();
-    
-    
-    public TelaRPA(Integer idMaquina) 
-    {
+    private Venda venda;
+    private Maquina maquina;
+
+    public TelaRPA(Maquina maquina) {
+        this.maquina = maquina;
         initComponents();
+        Thread threadDataHora = new Thread(this::atualizarHora);
+        threadDataHora.start();
+        lblConfirmacao.setText(maquina.getLocalizacao().getNomeLocalizacao());
+        lblUsuario.setText(maquina.getLocalizacao().getUsuario().getNomeUsuario());
+        lblConfirmacao.setVisible(false);
+        btnConfirmar.setVisible(false);
         //maquinaBD = ConsultaBD.procurarIdMaquina(idMaquina);
         //System.out.println(ConsultaBD.procurarIdMaquina(idMaquina));
         //localizacao = maquinaBD.getLocalizacao();
         //maquinaAtualizada = new Maquina(localizacao);
         //ConsultaBD.atualizarMaquina(idMaquina, maquinaAtualizada);
     }
-    
-    public void atualizarDados()
-    {
-        RegistroRPA registro = new RegistroRPA(maquinaBD);
-        //ConsultaBD.insertRegistro(registro);
-    }
 
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        lblData1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         botao50reais = new javax.swing.JButton();
         botao5reais = new javax.swing.JButton();
         botao20reais = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtValor = new javax.swing.JTextField();
-        btnCarregar = new javax.swing.JButton();
+        btnConfirmar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
         AdministrativoPalavraLabel = new javax.swing.JLabel();
@@ -69,7 +49,7 @@ public class TelaRPA extends javax.swing.JFrame
         AdministrativoPalavraLabel2 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        lblUsuario = new javax.swing.JLabel();
+        lblLinha = new javax.swing.JLabel();
         lblHora1 = new javax.swing.JLabel();
         AdministrativoPalavraLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -79,24 +59,11 @@ public class TelaRPA extends javax.swing.JFrame
         saldoAtualLabel = new javax.swing.JLabel();
         valorRecargaLabel = new javax.swing.JLabel();
         lblData2 = new javax.swing.JLabel();
-        lblData3 = new javax.swing.JLabel();
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        jLabel6.setText("jLabel6");
-
-        lblData1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblData1.setForeground(new java.awt.Color(111, 44, 145));
-        lblData1.setText("DD/MM/AAAA");
+        lblData1 = new javax.swing.JLabel();
+        lblConfirmacao = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
+        btnCarregar = new javax.swing.JButton();
+        lblEstacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,15 +117,15 @@ public class TelaRPA extends javax.swing.JFrame
         });
         jPanel2.add(txtValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 150, 33));
 
-        btnCarregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCarregar.setForeground(new java.awt.Color(102, 0, 102));
-        btnCarregar.setText("Carregar");
-        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirmar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnConfirmar.setForeground(new java.awt.Color(102, 0, 102));
+        btnConfirmar.setText("Confirmar?");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCarregarActionPerformed(evt);
+                btnConfirmarActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 330, -1, 30));
+        jPanel2.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, 30));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 57, 83, -1));
@@ -203,10 +170,10 @@ public class TelaRPA extends javax.swing.JFrame
         jLabel19.setText("Estação:");
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        lblUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        lblUsuario.setForeground(new java.awt.Color(111, 44, 145));
-        lblUsuario.setText("Usuario");
-        jPanel2.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
+        lblLinha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblLinha.setForeground(new java.awt.Color(111, 44, 145));
+        lblLinha.setText("Linha");
+        jPanel2.add(lblLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 30));
 
         lblHora1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         lblHora1.setForeground(new java.awt.Color(111, 44, 145));
@@ -258,10 +225,35 @@ public class TelaRPA extends javax.swing.JFrame
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, 280, 260));
 
-        lblData3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblData3.setForeground(new java.awt.Color(111, 44, 145));
-        lblData3.setText("DD/MM/AAAA");
-        jPanel2.add(lblData3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        lblData1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblData1.setForeground(new java.awt.Color(111, 44, 145));
+        lblData1.setText("DD/MM/AAAA");
+        jPanel2.add(lblData1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+
+        lblConfirmacao.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblConfirmacao.setForeground(new java.awt.Color(111, 44, 145));
+        lblConfirmacao.setText("Deseja mesmo fazer a recarga de %s reais?");
+        jPanel2.add(lblConfirmacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, -1, 40));
+
+        lblUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(111, 44, 145));
+        lblUsuario.setText("Usuario");
+        jPanel2.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
+
+        btnCarregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCarregar.setForeground(new java.awt.Color(102, 0, 102));
+        btnCarregar.setText("OK");
+        btnCarregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarregarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, -1, 30));
+
+        lblEstacao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblEstacao.setForeground(new java.awt.Color(111, 44, 145));
+        lblEstacao.setText("Estacao");
+        jPanel2.add(lblEstacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -284,51 +276,64 @@ public class TelaRPA extends javax.swing.JFrame
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void botao5reaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao5reaisActionPerformed
-
-        
-        double numero = 5;
-        valorRecargaLabel.setText(String.valueOf("R$ " +  numero));
-        
+        double valor = 5;
+        valorRecargaLabel.setText(String.valueOf("R$ " + valor));
         List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
         lblData2.setText(dataHora.get(0));
-        double valorComprado = 5;
+        Venda venda = new Venda(null, valor, LocalDateTime.now().toString(), maquina);
+        lblConfirmacao.setText(String.format("Sua recarga é de R$ %.0f,00 ?", valor));
+        lblConfirmacao.setVisible(true);
+        btnConfirmar.setVisible(true);
     }//GEN-LAST:event_botao5reaisActionPerformed
 
     private void botao20reaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao20reaisActionPerformed
-
-        double numero = 20;
-        valorRecargaLabel.setText(String.valueOf("R$ " +  numero));
-       
+        double valor = 20;
+        valorRecargaLabel.setText(String.valueOf("R$ " + valor));
         List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
         lblData2.setText(dataHora.get(0));
-        double valorComprado = 20;
+        Venda venda = new Venda(null, valor, LocalDateTime.now().toString(), maquina);
+        lblConfirmacao.setText(String.format("Sua recarga é de R$ %.0f,00 ?", valor));
+        lblConfirmacao.setVisible(true);
+        btnConfirmar.setVisible(true);
     }//GEN-LAST:event_botao20reaisActionPerformed
 
     private void botao50reaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao50reaisActionPerformed
-        // TODO add your handling code here:
-
-        double numero = 50;
-        valorRecargaLabel.setText(String.valueOf("R$ " +  numero));
+        double valor = 50;
+        valorRecargaLabel.setText(String.valueOf("R$ " + valor));
         List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
         lblData2.setText(dataHora.get(0));
-        double valorComprado = 50;
-
+        Venda venda = new Venda(null, valor, LocalDateTime.now().toString(), maquina);
+        lblConfirmacao.setText(String.format("Sua recarga é de R$ %.0f,00 ?", valor));
+        lblConfirmacao.setVisible(true);
+        btnConfirmar.setVisible(true);
     }//GEN-LAST:event_botao50reaisActionPerformed
 
-    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
-        // TODO add your handling code here:
-
-        double valor = Double.parseDouble(txtValor.getText());
-        valorRecargaLabel.setText(String.valueOf("R$ " +  valor));
-       
-        List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
-        lblData2.setText(dataHora.get(0));
-
-    }//GEN-LAST:event_btnCarregarActionPerformed
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        ConsultaBD.insertVenda(venda);
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void btnCarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregarActionPerformed
+        double valor = Double.parseDouble(txtValor.getText());
+        valorRecargaLabel.setText(String.valueOf("R$ " + valor));
+        List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
+        lblData2.setText(dataHora.get(0));
+        Venda venda = new Venda(null, valor, LocalDateTime.now().toString(), maquina);
+        lblConfirmacao.setText(String.format("Sua recarga é de R$ %.2f ?", valor));
+        lblConfirmacao.setVisible(true);
+        btnConfirmar.setVisible(true);
+    }//GEN-LAST:event_btnCarregarActionPerformed
+
+    public void atualizarHora() {
+        while (true) {
+            List<String> dataHora = Converssao.dataHoraFormatoBrasileiro(LocalDateTime.now().toString());
+            lblData1.setText(dataHora.get(0));
+            lblHora1.setText(dataHora.get(1));
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -358,11 +363,12 @@ public class TelaRPA extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() 
-        {
-            public void run() 
-            {
-                new TelaRPA(1).setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Localizacao localizacao = new Localizacao(1, "teste", "teste", "teste", 1, null, new ArrayList<>());
+                Usuario usuario = new Usuario(1, "teste", "teste", "teste", "teste", "teste", localizacao);
+                localizacao.setUsuario(usuario);
+                new TelaRPA(new Maquina(1, "teste", "teste", 0.0, "teste", false, "teste", "teste", "teste", "teste", localizacao, new ArrayList<>())).setVisible(true);
             }
         });
     }
@@ -378,20 +384,21 @@ public class TelaRPA extends javax.swing.JFrame
     private javax.swing.JButton botao50reais;
     private javax.swing.JButton botao5reais;
     private javax.swing.JButton btnCarregar;
+    private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnFechar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblConfirmacao;
     private javax.swing.JLabel lblData1;
     private javax.swing.JLabel lblData2;
-    private javax.swing.JLabel lblData3;
+    private javax.swing.JLabel lblEstacao;
     private javax.swing.JLabel lblHora1;
+    private javax.swing.JLabel lblLinha;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel saldoAtualLabel;
     private javax.swing.JTextField txtValor;

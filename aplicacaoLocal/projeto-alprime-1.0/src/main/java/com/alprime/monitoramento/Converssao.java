@@ -52,12 +52,19 @@ public class Converssao {
         return dataHoraFormatada;
     }
 
-    public static String dataHoraLog(LocalDateTime data) {
+    public static String dataHoraLogTitulo(LocalDateTime data) {
+        String dataString = data.toString();
+        String arrayDataHora[] = dataString.split("T");
+        String arrayData[] = arrayDataHora[0].split("-");
+        return String.format("%s%s%s", arrayData[0], arrayData[1], arrayData[2]);
+    }
+    
+    public static String dataHoraLogMensagem(LocalDateTime data) {
         String dataString = data.toString();
         String arrayDataHora[] = dataString.split("T");
         String arrayData[] = arrayDataHora[0].split("-");
         String arrayHora[] = arrayDataHora[1].split(":");
         String segundos[] = arrayHora[2].split("");
-        return String.format("%s%s%s%s%s%s%s", arrayData[0], arrayData[1], arrayData[2], arrayHora[0], arrayHora[1], segundos[0], segundos[1]);
+        return String.format("%s/%s/%s-%s:%s:%s%s", arrayData[2], arrayData[1], arrayData[0], arrayHora[0], arrayHora[1], segundos[0], segundos[1]);
     }
 }

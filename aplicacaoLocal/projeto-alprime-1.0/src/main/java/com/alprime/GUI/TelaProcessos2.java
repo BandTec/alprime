@@ -5,8 +5,11 @@
  */
 package com.alprime.GUI;
 
+import com.alprime.bancoDados.tabelas.Localizacao;
+import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
 import java.awt.Toolkit;
-import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,12 +20,15 @@ import java.util.logging.Logger;
  */
 public class TelaProcessos2 extends javax.swing.JFrame {
 
+    private Maquina maquina;
+
     /**
      * Creates new form TelaProcessos2
      */
-    public TelaProcessos2() {
+    public TelaProcessos2(Maquina maquina) {
+        this.maquina = maquina;
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_alprime_reduzido.png")));
         ProcessosTableModel model = new ProcessosTableModel();
         tblProcessos.setModel(model);
         lblAtualizar.setVisible(false);
@@ -40,6 +46,10 @@ public class TelaProcessos2 extends javax.swing.JFrame {
             try {
                 Thread.sleep(6000);
             } catch (InterruptedException e) {
+                Log log = new Log(maquina.getIdMaquina(), 1);
+                String mensagem = String.format("Interrupção inesperada na atualização dos processos");
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICA");
+                log.escrever(mensagemLog);
             }
             ProcessosTableModel model2 = new ProcessosTableModel();
             tblProcessos.setModel(model2);
@@ -52,6 +62,10 @@ public class TelaProcessos2 extends javax.swing.JFrame {
         try {
             Thread.sleep(2500);
         } catch (InterruptedException e) {
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Interrupção inesperada na animação do aviso");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "ATENÇÃO");
+            log.escrever(mensagemLog);
         }
         lblAviso4.setVisible(false);
 
@@ -59,41 +73,50 @@ public class TelaProcessos2 extends javax.swing.JFrame {
 
     public void atualizar() {
         while (true) {
-
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Interrupção inesperada na animação do aviso");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "ATENÇÃO");
             lblAtualizar.setVisible(true);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando.setVisible(true);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando2.setVisible(true);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando3.setVisible(true);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando.setVisible(false);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando2.setVisible(false);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizando3.setVisible(false);
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
             lblAtualizar.setVisible(false);
             lblAtualizando.setVisible(false);
@@ -102,6 +125,7 @@ public class TelaProcessos2 extends javax.swing.JFrame {
             try {
                 Thread.sleep(4600);
             } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
             }
         }
     }
@@ -237,15 +261,24 @@ public class TelaProcessos2 extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         int coluna = tblProcessos.getSelectedColumn();
         int linha = tblProcessos.getSelectedRow();
+        Log log = new Log(maquina.getIdMaquina(), 1);
+
         if (linha < 0) {
             Thread threadAviso = new Thread(this::mostrarAviso);
             threadAviso.start();
         } else {
             Object valor = tblProcessos.getValueAt(linha, 1);
+            Object nomeProcesso = tblProcessos.getValueAt(linha, 1);
             try {
                 Processos.matar(Integer.valueOf(valor.toString()));
+                String mensagem = String.format("Processo %s interrompido com sucesso", nomeProcesso.toString());
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
+                log.escrever(mensagemLog);
             } catch (IOException ex) {
-                Logger.getLogger(TelaProcessos2.class.getName()).log(Level.SEVERE, null, ex);
+                String mensagem = String.format("Falha ao interromper processo", nomeProcesso.toString());
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICAL");
+                log.escrever(mensagemLog);
+
             }
         }
     }//GEN-LAST:event_btnFinalizarActionPerformed
@@ -253,41 +286,6 @@ public class TelaProcessos2 extends javax.swing.JFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaProcessos2().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFechar;

@@ -5,6 +5,9 @@
  */
 package com.alprime.telegram;
 
+import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -24,16 +27,21 @@ import org.springframework.web.client.RestTemplate;
 public class BotTelegram {
 
     private String CHAT_ID;
-    private static final String TOKEN = "1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g";
+//    private static final String TOKEN = "1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g";
+    private static final String Vieira = "1082235353:AAGBDsa3I_EMnzwnWgV0fB8vkxP6pJHumqo";
+    private Maquina maquina;
 
-    public BotTelegram(String CHAT_ID) {
+    public BotTelegram(Maquina maquina, String CHAT_ID) {
         this.CHAT_ID = CHAT_ID;
+        this.maquina = maquina;
     }
-    public BotTelegram() {
+
+    public BotTelegram(Maquina maquina) {
         this.CHAT_ID = this.getNovoIdChat();
+        this.maquina = maquina;
     }
-    
-    public String enviarMensagem(String mensagem) {
+
+    public String enviarMensagem(String mensagemTelegram) {
         HttpClient client = HttpClient.newBuilder()
                 .connectTimeout(Duration.ofSeconds(5))
                 .version(HttpClient.Version.HTTP_2)
@@ -43,34 +51,44 @@ public class BotTelegram {
                 .fromUri("https://api.telegram.org")
                 .path("/{token}/sendMessage")
                 .queryParam("chat_id", CHAT_ID)
-                .queryParam("text", mensagem);
+                .queryParam("text", mensagemTelegram);
 
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-                .uri(builder.build("bot" + TOKEN))
+                .uri(builder.build("bot" + Vieira))
                 .timeout(Duration.ofSeconds(5))
                 .build();
 
         try {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-                    return response.body();
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Mensagem sobre a maquina '%d', enviada para o chat: %s",this.maquina.getIdMaquina() ,this.CHAT_ID);
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
+            log.escrever(mensagemLog);
+            return response.body();
         } catch (IOException ex) {
-            Logger.getLogger(BotTelegram.class.getName()).log(Level.SEVERE, null, ex);
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Erro ao enviar mensagem");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICO");
+            log.escrever(mensagemLog);
             return null;
         } catch (InterruptedException ex) {
-            Logger.getLogger(BotTelegram.class.getName()).log(Level.SEVERE, null, ex);
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Ocorreu uma interrupção ao enviar a mensagem");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICO");
+            log.escrever(mensagemLog);
             return null;
         }
     }
-    
-    public String getNovoIdChat(){
+
+    public String getNovoIdChat() {
         String uri = String.format("https://api.telegram.org/bot1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g/getUpdates");
         RestTemplate restTemplate = new RestTemplate();
         String json = restTemplate.getForObject(uri, String.class);
         Gson g = new Gson();
         ApiTelegram bot = g.fromJson(json, ApiTelegram.class);;
-        return String.valueOf(bot.getResult().get(bot.getResult().size()-1).getMessage().getChat().getId());
+        return String.valueOf(bot.getResult().get(bot.getResult().size() - 1).getMessage().getChat().getId());
     }
 
     public String getCHAT_ID() {
@@ -84,6 +102,6 @@ public class BotTelegram {
     @Override
     public String toString() {
         return "BotTelegram{" + "CHAT_ID=" + CHAT_ID + '}';
-    }    
-    
+    }
+
 }

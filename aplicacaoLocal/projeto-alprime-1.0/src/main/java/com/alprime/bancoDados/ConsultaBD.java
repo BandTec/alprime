@@ -9,6 +9,7 @@ import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Registro;
 import com.alprime.bancoDados.tabelas.Usuario;
+import com.alprime.bancoDados.tabelas.Venda;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -93,7 +94,11 @@ public class ConsultaBD {
                             null, registro.getDataHora(),registro.getPorcProcessador(),registro.getPorcDisco(),
                             registro.getPorcMemoria(), registro.getTempCpu(), registro.getPorcRam(),
                             registro.getMaquina().getIdMaquina());
-        
+    }
+
+    public static void insertVenda(Venda venda){
+        jdbcTemplate.update("insert into venda values (?,?,?,?)",
+                            null, venda.getValor(),venda.getDataHora(),venda.getMaquina().getIdMaquina());
     }
     
     public static void atualizarMaquina(Integer idMaquina, Maquina maquina){

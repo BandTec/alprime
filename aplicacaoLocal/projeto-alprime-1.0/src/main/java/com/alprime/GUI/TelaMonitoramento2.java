@@ -9,6 +9,8 @@ import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Registro;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
 import com.alprime.monitoramento.Converssao;
 import com.alprime.totem.InformacoesComputador;
 import java.awt.Toolkit;
@@ -34,7 +36,7 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
 
     public TelaMonitoramento2(Integer idMaquina) {
         initComponents();
-setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_alprime_reduzido.png")));
         maquinaBD = ConsultaBD.procurarIdMaquina(idMaquina);
         System.out.println(ConsultaBD.procurarIdMaquina(idMaquina));
         localizacao = maquinaBD.getLocalizacao();
@@ -138,6 +140,10 @@ setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_
             try {
                 Thread.sleep(tempo);
             } catch (InterruptedException e) {
+                 Log log = new Log(maquinaBD.getIdMaquina(),1);
+                    String mensagem = String.format("Interrupção inesperada na atualização dos dados");
+                    MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "CRITICA");
+                    log.escrever(mensagemLog);
             }
         }
     }
@@ -571,8 +577,8 @@ setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_
     }//GEN-LAST:event_btnMonitorarActionPerformed
 
     private void btnProcessosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessosActionPerformed
-            TelaProcessos2 janelaProcessos = new TelaProcessos2();
-            janelaProcessos.setVisible(true);
+        TelaProcessos2 janelaProcessos = new TelaProcessos2(maquinaBD);
+        janelaProcessos.setVisible(true);
     }//GEN-LAST:event_btnProcessosActionPerformed
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed

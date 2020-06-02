@@ -2,6 +2,8 @@ package com.alprime.GUI;
 
 import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -17,7 +19,7 @@ public class TelaInicial2 extends javax.swing.JFrame {
 
     public TelaInicial2() {
         initComponents();
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_reduzido.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_alprime_reduzido.png")));
         lblSucesso.setVisible(false);
         lblErroSenha.setVisible(false);
         lblSucesso.setVisible(false);
@@ -156,6 +158,10 @@ public class TelaInicial2 extends javax.swing.JFrame {
                     lblErroSenha.setVisible(false);
                     lblErroCodigo.setVisible(false);
                     statusTelaInicial = false;
+                    Log log = new Log(maquina.getIdMaquina(),1);
+                    String mensagem = String.format("Usuario %s logado com sucesso", maquina.getLocalizacao().getUsuario().getNomeUsuario());
+                    MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
+                    log.escrever(mensagemLog);
                 } else {
                     lblErroSenha.setText("Senha Incorreta");
                     lblErroSenha.setVisible(true);
