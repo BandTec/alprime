@@ -13,7 +13,6 @@
     
     <build>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -24,10 +23,9 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.minehash.main.App</mainClass>
+                            <mainClass>com.alprime.GUI.TelaInicial2</mainClass>
                         </manifest>
                     </archive>
-
                 </configuration>
                 <executions>
                     <execution>
@@ -39,10 +37,8 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
-    <!-- https://mvnrepository.com/artifact/com.github.oshi/oshi-core -->
     
     <dependencies>
 
