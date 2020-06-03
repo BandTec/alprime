@@ -20,6 +20,16 @@ select{
     color: white;
     transition: 0.5s;
 }
+.espaco{
+    height: 220px;
+    text-align: -webkit-center;
+}
+.espaco h1{
+    color: #6f2c91;
+    font-style: italic;
+    margin-top: 140px;
+    font-size: 3.5em;
+}
 .status{
     display: none;
     margin-left: 100px;
@@ -29,7 +39,13 @@ select{
 }
 .status img{
     width: 70%;
-    margin-left: 15%;
+}
+.lbl{
+    font-size: larger;
+    font-weight: bold;
+}
+.titulozinho{
+    color: #6f2c91;
 }
 .campoOnOff{
     align-items: center;

@@ -38,6 +38,10 @@ function entrar() {
     return false;
 }
 
+function entra(){
+    window.location.href = 'UserADM.html';
+}
+
 function logoff() {
     finalizar_sessao();
     sessionStorage.clear();

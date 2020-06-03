@@ -11,7 +11,12 @@ Alter table registro add fk_maquina int ;
 alter table registro add foreign key (fk_maquina)references maquina(id_maquina) ;
 
 insert into usuarios values(2,'diovana','123','diovana@bandtec.com.br','123','comum');
-insert into localizacao values (null,'consolação','verde','haddllock lobo');
+insert into localizacao values (null,'Tucuruvi','azul','Dr. Antônio Maria Laet');
+insert into localizacao values (null,'Jabaquara','azul','Rua dos Jequitibás');
+insert into localizacao values (null,'Vila Madalena','verde','Dr. Paulo Vieira');
+insert into localizacao values (null,'Sacomã','verde','Praça Altemar Dutra');
+insert into localizacao values (null,'palmeiras barra funda','vermelho','Bento Teobaldo Ferraz');
+insert into localizacao values (null,'corinthians itaquera','vermelho','Cidade Antônio Estêvão de Carvalho');
 insert into maquina values (null, "aa", 2,"Windows","1");
 insert into registro values (null,"02:10",2,3,4,1);
 insert into registro values (null,"03:10",20,43,41,1);
@@ -29,7 +34,6 @@ update maquina set fk_localizacao = 1 where id_maquina = 1;
 
 delete from registro where id_registro >0;
 delete from maquina where id_maquina > 5;
-delete from localizacao where id_localizacao = 2;
 select idUsuario, nomeUsuario, cpfUsuario, emailUsuario, senhaUsuario, tipoUsuario from usuarios order by idUsuario desc;
 
 

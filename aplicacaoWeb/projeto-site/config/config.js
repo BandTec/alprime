@@ -10,7 +10,7 @@ module.exports = {
   //Colocar os nossos dados
   production: {
     username: 'root',
-    password: 'bandtec',
+    password: '01101999',
     database: 'alprime',
     host: 'localhost',
   //

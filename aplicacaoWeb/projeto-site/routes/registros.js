@@ -6,7 +6,7 @@ const selectQueryType = {
 	type: sequelize.QueryTypes.SELECT
 };
 /* Recuperar as últimas N leituras */
-router.get('/ultimos/:id_maquina', function(req, res, next) {
+router.get('/ultimas/:id_maquina', function(req, res, next) {
 	
 	// quantas são as últimas leituras que quer? 8 está bom?
 	const limite_linhas = 7;
@@ -30,5 +30,52 @@ router.get('/ultimos/:id_maquina', function(req, res, next) {
 });
 
 
+router.get('/Linha', function(req, res, next) {
+
+	const instrucaoSql = `SELECT DISTINCT(tipo_linha) FROM localizacao;`;
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/estacoes/:linha', function(req, res, next) {
+	
+	const instrucaoSql = `select nome_localizacao from localizacao where tipo_linha = "${req.params.linha}";`;
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/buscar/:Estacoes', function(req, res, next) {
+	
+	const instrucaoSql = `select tipo_linha,nome_localizacao,status from maquina, localizacao where fk_localizacao = id_localizacao and nome_localizacao = "${req.params.Estacoes}";`;
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
 
 module.exports = router;

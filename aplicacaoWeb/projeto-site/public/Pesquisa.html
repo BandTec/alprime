@@ -26,27 +26,29 @@
             <h3>Busque agora por totens online na região desejada:</h3><br>
             <select onchange="estacoes()" id="Linha">
                 <option value='0'>-- Escolha uma linha de trem --</option>
-                <option value='1'>Linha 1 - Azul</option>
-                <option value='2'>Linha 2 - Verde</option>
-                <option value='3'>Linha 3 - Vermelha</option>
             </select>
             <select id="Estacao"><option value='0'>-- Selecione uma Linha --</option></select>
             <button onclick="perquisar()">Pesquisar</button>
         </div>
 
-        <div id="campoInfo" class="status">
-            <img id="fotoLinha" src="" alt="ERRO LINHA">
+        <div class="espaco" id="espaco">
+            <h1>escolha uma linha e estação</h1>
+        </div>
+
+        <div id="campoInfo" class="status"><br>
+            <label class="lbl" id="lblEstacao"></label><br>
+            <img style="margin-left: 15%;" id="fotoLinha" src="" alt="ERRO LINHA">
             <h1 style="color: blueviolet;">Status:</h1>
             <div  class="campoOnOff">
                 <div class="on">
                     <img src="./Imagens/On.png" alt="ERRO IMAGEM">
                     <h1>online: </h1>
-                    <h2 id="totalOn">4</h2>
+                    <h2 id="totalOn"></h2>
                 </div>
                 <div class="off">
                     <img src="./Imagens/Off.png" alt="ERRO IMAGEM">
                     <h1>Offline: </h1>
-                    <h2 id="totalOff">3</h2>
+                    <h2 id="totalOff"></h2>
                 </div>
             </div>
         </div>
@@ -81,53 +83,4 @@
     </div>
 </body>
 </html>
-<script>
-    onload=function(){
-    document.body.style.visibility="visible"
-}
-
-var linhas,Estacoes;
-
-function estacoes(){
-    linhas = Number(Linha.value);
-    if (linhas == 1){
-        Estacao.innerHTML = "<option value='1'>Tucuruvi</option>"+
-        "<option value='2'>Jabaquara</option>";
-    }
-    else if(linhas == 2) {
-        Estacao.innerHTML = "<option value='3'>Vila Madalena</option>"+
-        "<option value='4'>Vila Prudente</option>";
-    }
-    else if (linhas == 3){
-        Estacao.innerHTML = "<option value='5'>Palmeiras–Barra Funda</option>"+
-        "<option value='6'>Corinthians–Itaquera</option>";
-    }
-    else{
-        Estacao.innerHTML = "<option value='0'>-- Selecione uma Linha --</option>";
-    }
-    campoInfo.style.display = 'none';
-}
-
-function perquisar() {
-    Estacoes = Number(Estacao.value);
-    if (Estacoes == 1 || Estacoes == 2){
-        fotoLinha.src = "./Imagens/linha1-Azul.png";
-        totalOn.innerHTML = 1; totalOff.innerHTML = 1;
-        campoInfo.style.display = 'block';
-    }
-    else if(Estacoes == 3 || Estacoes == 4) {
-        fotoLinha.src = "./Imagens/linha2-Verde.png";
-        totalOn.innerHTML = 2; totalOff.innerHTML = 2;
-        campoInfo.style.display = 'block';
-    }
-    else if (Estacoes == 5 || Estacoes == 6){
-        fotoLinha.src = "./Imagens/linha3-Vermelho.png";
-        totalOn.innerHTML = 3; totalOff.innerHTML = 3;
-        campoInfo.style.display = 'block';
-    }
-    else{
-        Estacoes.innerHTML = "<option value='0'>-- Selecione uma Linha --</option>";
-        campoInfo.style.display = 'none';
-    }
-}
-</script>
+<script src="./JavaScript/Pesquisar.js"></script>

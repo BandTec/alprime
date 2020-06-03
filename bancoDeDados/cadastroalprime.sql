@@ -1,5 +1,6 @@
 create database alprime;
 use alprime;
+-- drop database  alprime;
 
 create table usuario (id_usuario int primary key auto_increment, nome_usuario varchar(45),cpf_usuario varchar(45),email_usuario varchar(45),senha_usuario varchar(45),telefone varchar(45), chat_id varchar(30));
 create table localizacao (id_localizacao int primary key auto_increment, nome_localizacao varchar(45), tipo_linha varchar(45),endereco varchar(70),total_maquina INT);
@@ -24,9 +25,31 @@ select * from venda;
 
 select registro.* from registro, maquina where id_maquina = 1 AND fk_maquina = id_maquina order by id_registro desc limit 10;
 select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = 1;
-insert into localizacao values (null, "Giovanni Gronchi", "Lilás","Jardim Mirante, São Paulo - SP, 05801-110, ‎Av. João Dias, 3569",0);
+insert into localizacao values (null,'Tucuruvi','azul','Dr. Antônio Maria Laet',0);
+insert into localizacao values (null,'Jabaquara','azul','Rua dos Jequitibás',0);
+insert into localizacao values (null,'Vila Madalena','verde','Dr. Paulo Vieira',0);
+insert into localizacao values (null,'Sacomã','verde','Praça Altemar Dutra',0);
+insert into localizacao values (null,'palmeiras barra funda','vermelho','Bento Teobaldo Ferraz',0);
+insert into localizacao values (null,'corinthians itaquera','vermelho','Cidade Antônio Estêvão de Carvalho',0);
 insert into usuario values (null,"Gabriel","123.456.789-01","gabriel.oliveira@bandtec.com.br","123","(11)96452-2405",1,null);
 insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",1);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",1);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",1);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",2);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",2);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",2);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",3);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",3);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",3);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",4);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",4);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",4);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",5);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",5);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",5);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",6);
+insert into maquina values (null,"teste","teste",0,"teste",false,"teste","teste","teste","teste",6);
+insert into maquina values (null,"teste","teste",0,"teste",true,"teste","teste","teste","teste",6);
 insert into registro values (null,'1000-01-01 00:00:00',0,0,0,0,0,1);
 insert into venda values (null,10,'1000-01-01 04:00:00',1);
 insert into venda values (null,10,'1000-01-01 02:02:00',2);
@@ -48,3 +71,4 @@ select * from venda where convert(data_hora, date) between '1000-01-01' and '202
 select count(id_venda), hour(data_hora) from venda, maquina where fk_maquina = id_maquina And id_maquina = 1 group by hour(data_hora);
 select sum(valor) as totalDinheiro, count(id_venda) as totalUsuarios from venda where convert(data_hora, date) between '1000-01-01' and '2020-01-01';
 select * from venda, maquina where fk_maquina = id_maquina and id_maquina = 1;
+select * from maquina, localizacao where fk_localizacao = id_localizacao;
