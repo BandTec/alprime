@@ -7,7 +7,8 @@ create table localizacao (id_localizacao int primary key auto_increment, nome_lo
 create table maquina (id_maquina int primary key auto_increment,cod_maquina varchar(45), tipo_processador varchar(45), capacidade_memoria double, sistema_operacional varchar(45), status tinyint, hostname varchar(45), fabricante varchar(45), modelo varchar(45), ram_total varchar(45));
 create table registro (id_registro int primary key auto_increment, data_hora datetime, porc_processador double, porc_disco double, porc_memoria double,temp_cpu double ,porc_ram double);
 create table venda (id_venda int primary key auto_increment, valor double, data_hora datetime);
-
+select * from maquina;
+update maquina set fk_localizacao = 1 where id_maquina = 5;
 Alter table venda add fk_maquina int ;
 alter table venda add foreign key (fk_maquina) references maquina(id_maquina) ;
 Alter table usuario add fk_localizacao int ;
@@ -22,7 +23,7 @@ select * from localizacao;
 select * from maquina;
 select * from registro; 
 select * from venda;
-
+select localizacao.* from maquina, localizacao where fk_localizacao = id_localizacao AND id_maquina = 1;
 select registro.* from registro, maquina where id_maquina = 1 AND fk_maquina = id_maquina order by id_registro desc limit 10;
 select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = 1;
 insert into localizacao values (null,'Tucuruvi','azul','Dr. Antônio Maria Laet',0);
@@ -65,7 +66,7 @@ delete from usuario where id_usuario > 3;
 insert into usuario values(null,'Teste Cadastro','111','testeCadastro','111','111',null,null);
 
 insert into localizacao values (null, "Giovanni Gronchi", "Lilás","Jardim Mirante, São Paulo - SP, 05801-110, ‎Av. João Dias, 3569",0);
-
+update usuario set chat_id = null where id_usuario = 8;
 select usuario.telefone from maquina, usuario, localizacao where usuario.fk_localizacao = id_localizacao and maquina.fk_localizacao = id_localizacao and id_maquina = 1;
 select * from venda where convert(data_hora, date) between '1000-01-01' and '2020-01-01';
 select count(id_venda), hour(data_hora) from venda, maquina where fk_maquina = id_maquina And id_maquina = 1 group by hour(data_hora);

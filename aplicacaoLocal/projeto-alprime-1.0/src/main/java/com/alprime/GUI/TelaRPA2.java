@@ -366,10 +366,7 @@ public class TelaRPA2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Localizacao localizacao = new Localizacao(1, "teste", "teste", "teste", 1, null, new ArrayList<>());
-                Usuario usuario = new Usuario(1, "teste", "teste", "teste", "teste", "teste", localizacao);
-                localizacao.setUsuario(usuario);
-                new TelaRPA2(new Maquina(1, "teste", "teste", 0.0, "teste", false, "teste", "teste", "teste", "teste", localizacao, new ArrayList<>())).setVisible(true);
+                new TelaRPA2(ConsultaBD.procurarIdMaquina(1)).setVisible(true);
             }
         });
     }

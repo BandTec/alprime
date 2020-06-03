@@ -16,12 +16,13 @@ public class Usuario {
  private String emailUsuario;
  private String senhaUsuario;
  private String telefone;
+ private String chatId;
  private Localizacao localizacao;
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String nomeUsuario, String cpfUsuario, String emailUsuario, String senhaUsuario, String telefone, Localizacao localizacao) {
+    public Usuario(Integer idUsuario, String nomeUsuario, String cpfUsuario, String emailUsuario, String senhaUsuario, String telefone, Localizacao localizacao, String chatId) {
         this.idUsuario = idUsuario;
         this.nomeUsuario = nomeUsuario;
         this.cpfUsuario = cpfUsuario;
@@ -29,6 +30,7 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
         this.telefone = telefone;
         this.localizacao = localizacao;
+        this.chatId = chatId;
     }
 
     public Integer getIdUsuario() {
@@ -87,10 +89,20 @@ public class Usuario {
         this.localizacao = localizacao;
     }
 
+    public String getChatId() {
+        return chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nomeUsuario=" + nomeUsuario + ", cpfUsuario=" + cpfUsuario + ", emailUsuario=" + emailUsuario + ", senhaUsuario=" + senhaUsuario + ", telefone=" + telefone + ", localizacao=" + localizacao + '}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nomeUsuario=" + nomeUsuario + ", cpfUsuario=" + cpfUsuario + ", emailUsuario=" + emailUsuario + ", senhaUsuario=" + senhaUsuario + ", telefone=" + telefone + ", chatId=" + chatId + ", idLocalizacao=" + localizacao.getIdLocalizacao() + '}';
     }
+
+    
 
     
 }

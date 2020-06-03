@@ -5,6 +5,7 @@
  */
 package com.alprime.telegram;
 
+import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
 import java.io.IOException;
@@ -15,10 +16,12 @@ import java.util.ArrayList;
  */
 public class teste {
     public static void main(String[] args) throws IOException, InterruptedException {
-        Maquina m = new Maquina(1,"teste","teste",0.0,"teste",false,"teste","teste","teste","teste",new Localizacao(),new ArrayList<>());
-        BotTelegram botTelegram = new BotTelegram(m);
-        botTelegram.enviarMensagem("aaaaaaaaa");
-        System.out.println(botTelegram);
+        Maquina maquina = ConsultaBD.procurarIdMaquina(1);
+        System.out.println(maquina);
+        BotTelegram botTelegram = new BotTelegram(maquina);
+            botTelegram.enviarMensagem("hm Ta bom");
+//        botTelegram.getNovoIdChat();
+//        System.out.println(botTelegram);
     }
 
 }

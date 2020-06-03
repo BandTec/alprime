@@ -5,6 +5,7 @@
  */
 package com.alprime.GUI;
 
+import com.alprime.alerta.TemperaturaAlerta;
 import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
@@ -12,6 +13,7 @@ import com.alprime.bancoDados.tabelas.Registro;
 import com.alprime.log.Log;
 import com.alprime.log.MensagemLog;
 import com.alprime.monitoramento.Converssao;
+import com.alprime.telegram.BotTelegram;
 import com.alprime.totem.InformacoesComputador;
 import java.awt.Toolkit;
 import java.text.DateFormat;
@@ -120,10 +122,43 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
     public void atualizarDados() {
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
         Integer tempo = (valor - 5) * 1000;
+        int contadorAlerta = 0;
+        int contadorPerigo = 0;
         while (monitorando) {
             Registro registro = new Registro(maquinaBD);
             ConsultaBD.insertRegistro(registro);
-
+            TemperaturaAlerta temperaturaAlerta = ConsultaBD.mediaTemperatura(maquinaBD);
+            registro.setTempCpu(111.0);
+            if (registro.getTempCpu() >= temperaturaAlerta.getTempPerigo()) {
+                
+                if(contadorAlerta%10==0){
+                BotTelegram botTelegram = new BotTelegram(maquinaBD, maquinaBD.getLocalizacao().getUsuario().getChatId());
+                botTelegram.enviarMensagem(temperaturaAlerta.mensagemPerigo(maquinaBD, registro));
+                Log log = new Log(maquinaBD.getIdMaquina(), 1);
+                String mensagem = String.format("Alerta de temperatura sobre a maquina '%d', enviada para o chat: %s", maquinaBD.getIdMaquina(), maquinaBD.getLocalizacao().getUsuario().getChatId());
+                MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "ALERTA");
+                log.escrever(mensagemLog);
+                }
+                
+                contadorPerigo++;
+                System.out.println("contadorPerigo: " + contadorPerigo);
+                System.out.println("contadorPerigo%10 == 0?: " + contadorPerigo%10);
+                
+            } else if (registro.getTempCpu() >= temperaturaAlerta.getTempAtencao()) {
+                if(contadorPerigo%20==0){
+                BotTelegram botTelegram = new BotTelegram(maquinaBD, maquinaBD.getLocalizacao().getUsuario().getChatId());
+                botTelegram.enviarMensagem(temperaturaAlerta.mensagemAtencao(maquinaBD, registro));
+                Log log = new Log(maquinaBD.getIdMaquina(), 1);
+                String mensagem = String.format("Aviso urgênte de temperatura sobre a maquina '%d', enviada para o chat: %s", maquinaBD.getIdMaquina(), maquinaBD.getLocalizacao().getUsuario().getChatId());
+                MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "PERIGO");
+                log.escrever(mensagemLog);
+                }
+                contadorAlerta++;
+                System.out.println("contadorPerigo: " + contadorAlerta);
+                System.out.println("contadorPerigo%10: " + contadorAlerta%10);
+                
+            }
+            System.out.println(temperaturaAlerta);
 //Uso do Disco e uso da CPU estão errados
             lblUsoProcessador.setText(String.valueOf(registro.getPorcProcessador()));
 //        pgbTempCPU.setValue(registro.getPorcProcessador().intValue());
@@ -140,10 +175,10 @@ public class TelaMonitoramento2 extends javax.swing.JFrame {
             try {
                 Thread.sleep(tempo);
             } catch (InterruptedException e) {
-                 Log log = new Log(maquinaBD.getIdMaquina(),1);
-                    String mensagem = String.format("Interrupção inesperada na atualização dos dados");
-                    MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "CRITICA");
-                    log.escrever(mensagemLog);
+                Log log = new Log(maquinaBD.getIdMaquina(), 1);
+                String mensagem = String.format("Interrupção inesperada na atualização dos dados");
+                MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "CRITICA");
+                log.escrever(mensagemLog);
             }
         }
     }

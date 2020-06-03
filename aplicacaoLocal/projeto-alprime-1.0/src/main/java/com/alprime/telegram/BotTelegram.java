@@ -5,7 +5,9 @@
  */
 package com.alprime.telegram;
 
+import com.alprime.bancoDados.ConsultaBD;
 import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.bancoDados.tabelas.Usuario;
 import com.alprime.log.Log;
 import com.alprime.log.MensagemLog;
 import com.google.gson.Gson;
@@ -27,8 +29,7 @@ import org.springframework.web.client.RestTemplate;
 public class BotTelegram {
 
     private String CHAT_ID;
-//    private static final String TOKEN = "1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g";
-    private static final String Vieira = "1082235353:AAGBDsa3I_EMnzwnWgV0fB8vkxP6pJHumqo";
+    private static final String TOKEN = "1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g";
     private Maquina maquina;
 
     public BotTelegram(Maquina maquina, String CHAT_ID) {
@@ -37,8 +38,8 @@ public class BotTelegram {
     }
 
     public BotTelegram(Maquina maquina) {
-        this.CHAT_ID = this.getNovoIdChat();
         this.maquina = maquina;
+        this.CHAT_ID = this.getNovoIdChat();
     }
 
     public String enviarMensagem(String mensagemTelegram) {
@@ -55,17 +56,13 @@ public class BotTelegram {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-                .uri(builder.build("bot" + Vieira))
+                .uri(builder.build("bot" + TOKEN))
                 .timeout(Duration.ofSeconds(5))
                 .build();
 
         try {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            Log log = new Log(maquina.getIdMaquina(), 1);
-            String mensagem = String.format("Mensagem sobre a maquina '%d', enviada para o chat: %s",this.maquina.getIdMaquina() ,this.CHAT_ID);
-            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
-            log.escrever(mensagemLog);
             return response.body();
         } catch (IOException ex) {
             Log log = new Log(maquina.getIdMaquina(), 1);
@@ -87,8 +84,20 @@ public class BotTelegram {
         RestTemplate restTemplate = new RestTemplate();
         String json = restTemplate.getForObject(uri, String.class);
         Gson g = new Gson();
-        ApiTelegram bot = g.fromJson(json, ApiTelegram.class);;
-        return String.valueOf(bot.getResult().get(bot.getResult().size() - 1).getMessage().getChat().getId());
+        ApiTelegram bot = g.fromJson(json, ApiTelegram.class);
+
+        try {
+            String chatIdJson = String.valueOf(bot.getResult().get(bot.getResult().size() - 1).getMessage().getChat().getId());
+            this.setCHAT_ID(chatIdJson);  
+            ConsultaBD.updateChatId(this.maquina.getLocalizacao().getUsuario(), this.CHAT_ID);
+            return chatIdJson;
+        } catch (IndexOutOfBoundsException e) {
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Não foi possivel capturar o id pois não foi feita nenhum update recentemente");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICO");
+            log.escrever(mensagemLog);
+            return null;
+        }
     }
 
     public String getCHAT_ID() {
