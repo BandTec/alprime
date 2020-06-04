@@ -23,7 +23,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.alprime.GUI.TelaInicial2</mainClass>
+                            <mainClass>com.alprime.GUI.TelaInicial</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

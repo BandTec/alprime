@@ -5,7 +5,7 @@
  */
 package com.alprime.telegram;
 
-import com.alprime.bancoDados.ConsultaBD;
+import com.alprime.bancoDados.QueryBD;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Usuario;
 import com.alprime.log.Log;
@@ -89,7 +89,7 @@ public class BotTelegram {
         try {
             String chatIdJson = String.valueOf(bot.getResult().get(bot.getResult().size() - 1).getMessage().getChat().getId());
             this.setCHAT_ID(chatIdJson);  
-            ConsultaBD.updateChatId(this.maquina.getLocalizacao().getUsuario(), this.CHAT_ID);
+            QueryBD.updateChatId(this.maquina.getLocalizacao().getUsuario(), this.CHAT_ID);
             return chatIdJson;
         } catch (IndexOutOfBoundsException e) {
             Log log = new Log(maquina.getIdMaquina(), 1);

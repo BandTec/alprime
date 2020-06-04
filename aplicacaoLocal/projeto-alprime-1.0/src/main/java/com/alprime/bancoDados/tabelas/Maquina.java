@@ -5,7 +5,7 @@
  */
 package com.alprime.bancoDados.tabelas;
 
-import com.alprime.totem.InformacoesComputador;
+import com.alprime.monitoramento.InformacoesComputador;
 import java.util.List;
 
 /**

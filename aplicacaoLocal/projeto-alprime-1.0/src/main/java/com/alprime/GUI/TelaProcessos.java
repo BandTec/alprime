@@ -1,197 +1,302 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.alprime.GUI;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import javax.swing.table.DefaultTableModel;
 
+import com.alprime.bancoDados.tabelas.Maquina;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
+import java.awt.Toolkit;
+import java.io.IOException;
+/**
+ *
+ * @author Gabriel Vieira
+ */
+public class TelaProcessos extends javax.swing.JFrame {
 
-public class TelaProcessos extends javax.swing.JFrame 
-{
-    Processos processos = new Processos();
-    int idSwing[] = new int[21];
-    String nomeSwing[] = new String[21];
-    int prioridadeSwing[] = new int[21];
-    
-    public void enviarTabelaProcessos()
-    {
-//        processos.enviarProcessos(idSwing, nomeSwing, prioridadeSwing);
-        DefaultTableModel model = (DefaultTableModel) tabelaProcessos.getModel();
-        
-        String[] cols = {"Nome do Processo", "PID", "Prioridade"};
-        String[][] data = 
-        {
-            {(nomeSwing[1]), String.valueOf(idSwing[1]), String.valueOf(prioridadeSwing[1])},
-            {nomeSwing[2], String.valueOf(idSwing[2]), String.valueOf(prioridadeSwing[2])},
-            {nomeSwing[3], String.valueOf(idSwing[3]), String.valueOf(prioridadeSwing[3])},
-            {nomeSwing[4], String.valueOf(idSwing[4]), String.valueOf(prioridadeSwing[4])},
-            {nomeSwing[5], String.valueOf(idSwing[5]), String.valueOf(prioridadeSwing[5])},
-            {nomeSwing[6], String.valueOf(idSwing[6]), String.valueOf(prioridadeSwing[6])},
-            {nomeSwing[7], String.valueOf(idSwing[7]), String.valueOf(prioridadeSwing[7])},
-            {nomeSwing[8], String.valueOf(idSwing[8]), String.valueOf(prioridadeSwing[8])},
-            {nomeSwing[9], String.valueOf(idSwing[9]), String.valueOf(prioridadeSwing[9])},
-            {nomeSwing[10], String.valueOf(idSwing[10]), String.valueOf(prioridadeSwing[10])},
-            {nomeSwing[11], String.valueOf(idSwing[11]), String.valueOf(prioridadeSwing[11])},
-            {nomeSwing[12], String.valueOf(idSwing[12]), String.valueOf(prioridadeSwing[12])},
-            {nomeSwing[13], String.valueOf(idSwing[13]), String.valueOf(prioridadeSwing[13])},
-            {nomeSwing[14], String.valueOf(idSwing[14]), String.valueOf(prioridadeSwing[14])},
-            {nomeSwing[15], String.valueOf(idSwing[15]), String.valueOf(prioridadeSwing[15])},
-            {nomeSwing[16], String.valueOf(idSwing[16]), String.valueOf(prioridadeSwing[16])},
-            {nomeSwing[17], String.valueOf(idSwing[17]), String.valueOf(prioridadeSwing[17])},
-            {nomeSwing[18], String.valueOf(idSwing[18]), String.valueOf(prioridadeSwing[18])},
-            {nomeSwing[19], String.valueOf(idSwing[19]), String.valueOf(prioridadeSwing[19])},
-            {nomeSwing[20], String.valueOf(idSwing[20]), String.valueOf(prioridadeSwing[20])}
-        };
-        
-        model.setDataVector(data, cols);
-        
-        
-    }
-    
-    
-    
+    private Maquina maquina;
 
-    public TelaProcessos() 
-    {
+    /**
+     * Creates new form TelaProcessos2
+     */
+    public TelaProcessos(Maquina maquina) {
+        this.maquina = maquina;
         initComponents();
-       
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/logo_alprime_reduzido.png")));
+        ProcessosTableModel model = new ProcessosTableModel();
+        tblProcessos.setModel(model);
+        lblAtualizar.setVisible(false);
+        lblAviso4.setVisible(false);
+
+        Thread threadAtualizar = new Thread(this::atualizar);
+        threadAtualizar.start();
+
+        Thread threadDados = new Thread(this::atualizarDados);
+        threadDados.start();
     }
 
+    public void atualizarDados() {
+        while (true) {
+            try {
+                Thread.sleep(6000);
+            } catch (InterruptedException e) {
+                Log log = new Log(maquina.getIdMaquina(), 1);
+                String mensagem = String.format("Interrupção inesperada na atualização dos processos");
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICA");
+                log.escrever(mensagemLog);
+            }
+            ProcessosTableModel model2 = new ProcessosTableModel();
+            tblProcessos.setModel(model2);
 
+        }
+    }
+
+    public void mostrarAviso() {
+        lblAviso4.setVisible(true);
+        try {
+            Thread.sleep(2500);
+        } catch (InterruptedException e) {
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Interrupção inesperada na animação do aviso");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "ATENÇÃO");
+            log.escrever(mensagemLog);
+        }
+        lblAviso4.setVisible(false);
+
+    }
+
+    public void atualizar() {
+        while (true) {
+            Log log = new Log(maquina.getIdMaquina(), 1);
+            String mensagem = String.format("Interrupção inesperada na animação do aviso");
+            MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "ATENÇÃO");
+            lblAtualizar.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando2.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando3.setVisible(true);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando2.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizando3.setVisible(false);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+            lblAtualizar.setVisible(false);
+            lblAtualizando.setVisible(false);
+            lblAtualizando2.setVisible(false);
+            lblAtualizando3.setVisible(false);
+            try {
+                Thread.sleep(4600);
+            } catch (InterruptedException e) {
+                log.escrever(mensagemLog);
+            }
+        }
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        jScrollBar1 = new javax.swing.JScrollBar();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        lblAtualizando3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelaProcessos = new javax.swing.JTable();
+        tblProcessos = new javax.swing.JTable();
+        btnFinalizar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        lblAtualizar = new javax.swing.JLabel();
+        lblAtualizando = new javax.swing.JLabel();
+        lblAtualizando2 = new javax.swing.JLabel();
+        lblAviso4 = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(110, 42, 182));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(77, 166, 53));
-        jButton1.setForeground(new java.awt.Color(77, 166, 53));
-        jButton1.setText("Monitorar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 160, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(77, 166, 53));
-        jButton2.setForeground(new java.awt.Color(77, 166, 53));
-        jButton2.setText("Finalizar tarefa(s) selecionadas");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 230, -1));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        lblAtualizando3.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
+        lblAtualizando3.setForeground(new java.awt.Color(111, 44, 145));
+        lblAtualizando3.setText("o");
+        jPanel1.add(lblAtualizando3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 20, -1));
 
-        tabelaProcessos.setBackground(new java.awt.Color(255, 255, 255));
-        tabelaProcessos.setForeground(new java.awt.Color(0, 0, 0));
-        tabelaProcessos.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_editado.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 180, 80));
+
+        tblProcessos.setAutoCreateRowSorter(true);
+        tblProcessos.setFont(new java.awt.Font("Dubai", 1, 11)); // NOI18N
+        tblProcessos.setForeground(new java.awt.Color(111, 45, 145));
+        tblProcessos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome do Processo", "PID", "Prioridade"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelaProcessos.setGridColor(new java.awt.Color(77, 166, 53));
-        tabelaProcessos.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        tabelaProcessos.setSelectionForeground(new java.awt.Color(77, 166, 53));
-        tabelaProcessos.setShowGrid(false);
-        jScrollPane1.setViewportView(tabelaProcessos);
+        tblProcessos.setDoubleBuffered(true);
+        tblProcessos.setDragEnabled(true);
+        tblProcessos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblProcessos.setShowGrid(true);
+        tblProcessos.setSurrendersFocusOnKeystroke(true);
+        jScrollPane1.setViewportView(tblProcessos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 650, 440));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 520, 270));
+
+        btnFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_finalizar_processo.png"))); // NOI18N
+        btnFinalizar.setBorderPainted(false);
+        btnFinalizar.setContentAreaFilled(false);
+        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFinalizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, 30));
+
+        jLabel3.setFont(new java.awt.Font("Dubai Light", 3, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(111, 44, 145));
+        jLabel3.setText("Gerenciamento de processos");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 230, -1));
+
+        lblAtualizar.setFont(new java.awt.Font("Dubai Light", 3, 12)); // NOI18N
+        lblAtualizar.setForeground(new java.awt.Color(111, 44, 145));
+        lblAtualizar.setText("     Atualizando ");
+        jPanel1.add(lblAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 40));
+
+        lblAtualizando.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
+        lblAtualizando.setForeground(new java.awt.Color(111, 44, 145));
+        lblAtualizando.setText("o");
+        jPanel1.add(lblAtualizando, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 10, 10));
+
+        lblAtualizando2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
+        lblAtualizando2.setForeground(new java.awt.Color(111, 44, 145));
+        lblAtualizando2.setText("o");
+        jPanel1.add(lblAtualizando2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 10, -1));
+
+        lblAviso4.setFont(new java.awt.Font("Dubai", 0, 11)); // NOI18N
+        lblAviso4.setForeground(new java.awt.Color(176, 47, 0));
+        lblAviso4.setText("Selecione um processo");
+        jPanel1.add(lblAviso4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 110, 30));
+
+        btnFechar.setBackground(new java.awt.Color(111, 44, 145));
+        btnFechar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        btnFechar.setForeground(new java.awt.Color(111, 44, 145));
+        btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fechar.png"))); // NOI18N
+        btnFechar.setText("Fechar");
+        btnFechar.setBorder(null);
+        btnFechar.setBorderPainted(false);
+        btnFechar.setContentAreaFilled(false);
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        enviarTabelaProcessos();
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
+        int coluna = tblProcessos.getSelectedColumn();
+        int linha = tblProcessos.getSelectedRow();
+        Log log = new Log(maquina.getIdMaquina(), 1);
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        //int row = table.getSelectedRow();
-        //int column = table.getSelectedColumn();
-        //ObjectType o = (ObjectType)target.getValueAt(row, column) );
-        //int matarProc = tabelaProcessos.getValueAt(int row, int column)
-        //processos.matarProcesso(matarProc + ".exe");
-    }//GEN-LAST:event_jButton2MouseClicked
+        if (linha < 0) {
+            Thread threadAviso = new Thread(this::mostrarAviso);
+            threadAviso.start();
+        } else {
+            Object valor = tblProcessos.getValueAt(linha, 1);
+            Object nomeProcesso = tblProcessos.getValueAt(linha, 1);
+            try {
+                Processos.matar(Integer.valueOf(valor.toString()));
+                String mensagem = String.format("Processo %s interrompido com sucesso", nomeProcesso.toString());
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
+                log.escrever(mensagemLog);
+            } catch (IOException ex) {
+                String mensagem = String.format("Falha ao interromper processo", nomeProcesso.toString());
+                MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "CRITICAL");
+                log.escrever(mensagemLog);
 
-    public static void main(String args[]) 
-    {
-   
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaProcessos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+    }//GEN-LAST:event_btnFinalizarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() 
-        {
-            public void run() 
-            {
-                new TelaProcessos().setVisible(true);
-            }
-        });
-    }
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnFecharActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnFechar;
+    private javax.swing.JButton btnFinalizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable tabelaProcessos;
+    private javax.swing.JLabel lblAtualizando;
+    private javax.swing.JLabel lblAtualizando2;
+    private javax.swing.JLabel lblAtualizando3;
+    private javax.swing.JLabel lblAtualizar;
+    private javax.swing.JLabel lblAviso4;
+    private javax.swing.JTable tblProcessos;
     // End of variables declaration//GEN-END:variables
 }

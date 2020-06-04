@@ -1,6 +1,5 @@
 package com.alprime.monitoramento;
 
-import com.alprime.totem.InformacoesComputador;
 import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Cpu;
 import com.profesorfalken.jsensors.model.components.Disk;
@@ -15,12 +14,12 @@ import oshi.util.Util;
 
 public class Consumo {
 
-    List<Cpu> cpus;
-    List<Disk> disco;
-    int cpuSize, tamanhoDisco;
-    Double cpu, tempCPU, consumoDisco, cpuUso, consumoRAM;
-    Double consumoMemoria;
-    InformacoesComputador comp = new InformacoesComputador();
+    private List<Cpu> cpus;
+    private List<Disk> disco;
+    private int cpuSize, tamanhoDisco;
+    private Double cpu, tempCPU, consumoDisco, cpuUso, consumoRAM;
+    private Double consumoMemoria;
+    private InformacoesComputador comp = new InformacoesComputador();
     private static final SystemInfo INFO_SISTEMA = new SystemInfo();
     private static final HardwareAbstractionLayer INFO_HARDWARE = INFO_SISTEMA.getHardware();
     private static final CentralProcessor PROCESSOR = INFO_HARDWARE.getProcessor();

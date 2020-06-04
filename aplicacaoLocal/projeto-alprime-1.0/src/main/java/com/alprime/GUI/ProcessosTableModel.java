@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.alprime.GUI;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import oshi.software.os.OSProcess;
@@ -14,16 +8,16 @@ import oshi.software.os.OSProcess;
  *
  * @author Gabriel Vieira
  */
-public class ProcessosTableModel extends AbstractTableModel{
-Processos processo = new Processos();
+public class ProcessosTableModel extends AbstractTableModel {
+
+    private Processos processo = new Processos();
     private List<OSProcess> dados = processo.getListaProcessos();
-String[] colunas = {"Nome do Processo", "PID", "Prioridade","Usuario","Estado"};
+    private String[] colunas = {"Nome do Processo", "PID", "Prioridade", "Usuario", "Estado"};
 
     @Override
     public String getColumnName(int column) {
         return colunas[column]; //To change body of generated methods, choose Tools | Templates.
     }
-
 
     @Override
     public int getRowCount() {
@@ -37,14 +31,14 @@ String[] colunas = {"Nome do Processo", "PID", "Prioridade","Usuario","Estado"};
 
     @Override
     public Object getValueAt(int linha, int coluna) {
-        switch(coluna){
+        switch (coluna) {
             case 0:
                 return dados.get(linha).getName();
             case 1:
                 return dados.get(linha).getProcessID();
             case 2:
                 return dados.get(linha).getPriority();
-             case 3:
+            case 3:
                 return dados.get(linha).getUser();
             case 4:
                 return dados.get(linha).getState();
@@ -53,17 +47,17 @@ String[] colunas = {"Nome do Processo", "PID", "Prioridade","Usuario","Estado"};
     }
 
     public List<OSProcess> getDados() {
-        
+
         return dados;
     }
 
     public void setDados(List<OSProcess> dados) {
         this.dados = dados;
     }
-    
+
     public List<OSProcess> getDadosAtuais() {
-        
+
         return processo.getListaProcessos();
     }
-    
+
 }

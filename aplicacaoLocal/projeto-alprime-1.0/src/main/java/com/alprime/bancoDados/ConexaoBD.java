@@ -22,13 +22,4 @@ public class ConexaoBD {
     public BasicDataSource getDataSource() {
         return dataSource;
     }
-
-    public void FazerLogin() {
-
-    }
-
-    public void EnviarDadosBD() {
-
-    }
-
 }
