@@ -151,7 +151,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
 
 //            registro.setPorcProcessador(91.0);
 //            registro.setPorcRam(91.0);
-            registro.setTempCpu(100.0);
+//            registro.setTempCpu(100.0);
 //            registro.setTempCpu(111.0);
             if (pgbUsoCpu.getValue() > 50 && pgbUsoCpu.getValue() < 80) {
                 pgbUsoCpu.setForeground(new Color(215, 217, 58));
