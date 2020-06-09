@@ -5,11 +5,14 @@
  */
 package com.alprime.GUI;
 
+import com.alprime.bancoDados.Query.QueryBD;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.log.Log;
 import com.alprime.log.MensagemLog;
+import com.mysql.cj.Query;
 import java.awt.Toolkit;
 import java.io.IOException;
+
 /**
  *
  * @author Gabriel Vieira
@@ -148,11 +151,12 @@ public class TelaProcessos extends javax.swing.JFrame {
         lblAtualizando = new javax.swing.JLabel();
         lblAtualizando2 = new javax.swing.JLabel();
         lblAviso4 = new javax.swing.JLabel();
-        btnFechar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,11 +165,11 @@ public class TelaProcessos extends javax.swing.JFrame {
         lblAtualizando3.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
         lblAtualizando3.setForeground(new java.awt.Color(111, 44, 145));
         lblAtualizando3.setText("o");
-        jPanel1.add(lblAtualizando3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 20, -1));
+        jPanel1.add(lblAtualizando3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 20, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_editado.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, 180, 80));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 180, 80));
 
         tblProcessos.setAutoCreateRowSorter(true);
         tblProcessos.setFont(new java.awt.Font("Dubai", 1, 11)); // NOI18N
@@ -188,68 +192,49 @@ public class TelaProcessos extends javax.swing.JFrame {
         tblProcessos.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(tblProcessos);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 520, 270));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 520, 270));
 
         btnFinalizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_finalizar_processo.png"))); // NOI18N
         btnFinalizar.setBorderPainted(false);
         btnFinalizar.setContentAreaFilled(false);
+        btnFinalizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFinalizar.setFocusPainted(false);
         btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, 30));
+        jPanel1.add(btnFinalizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 220, 30));
 
-        jLabel3.setFont(new java.awt.Font("Dubai Light", 3, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dubai", 3, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(111, 44, 145));
-        jLabel3.setText("Gerenciamento de processos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 230, -1));
+        jLabel3.setText("Gerenciamento de Processos");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 320, 70));
 
         lblAtualizar.setFont(new java.awt.Font("Dubai Light", 3, 12)); // NOI18N
         lblAtualizar.setForeground(new java.awt.Color(111, 44, 145));
         lblAtualizar.setText("     Atualizando ");
-        jPanel1.add(lblAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 100, 40));
+        jPanel1.add(lblAtualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 100, 40));
 
         lblAtualizando.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
         lblAtualizando.setForeground(new java.awt.Color(111, 44, 145));
         lblAtualizando.setText("o");
-        jPanel1.add(lblAtualizando, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 10, 10));
+        jPanel1.add(lblAtualizando, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 10, 10));
 
         lblAtualizando2.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 1, 8)); // NOI18N
         lblAtualizando2.setForeground(new java.awt.Color(111, 44, 145));
         lblAtualizando2.setText("o");
-        jPanel1.add(lblAtualizando2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 10, -1));
+        jPanel1.add(lblAtualizando2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 10, -1));
 
         lblAviso4.setFont(new java.awt.Font("Dubai", 0, 11)); // NOI18N
         lblAviso4.setForeground(new java.awt.Color(176, 47, 0));
         lblAviso4.setText("Selecione um processo");
-        jPanel1.add(lblAviso4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 110, 30));
+        jPanel1.add(lblAviso4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 110, 40));
 
-        btnFechar.setBackground(new java.awt.Color(111, 44, 145));
-        btnFechar.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        btnFechar.setForeground(new java.awt.Color(111, 44, 145));
-        btnFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fechar.png"))); // NOI18N
-        btnFechar.setText("Fechar");
-        btnFechar.setBorder(null);
-        btnFechar.setBorderPainted(false);
-        btnFechar.setContentAreaFilled(false);
-        btnFechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFecharActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/processos.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 130));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,7 +249,7 @@ public class TelaProcessos extends javax.swing.JFrame {
             threadAviso.start();
         } else {
             Object valor = tblProcessos.getValueAt(linha, 1);
-            Object nomeProcesso = tblProcessos.getValueAt(linha, 1);
+            Object nomeProcesso = tblProcessos.getValueAt(linha, 0);
             try {
                 Processos.matar(Integer.valueOf(valor.toString()));
                 String mensagem = String.format("Processo %s interrompido com sucesso", nomeProcesso.toString());
@@ -279,14 +264,10 @@ public class TelaProcessos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
-    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnFecharActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnFinalizar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -299,4 +280,37 @@ public class TelaProcessos extends javax.swing.JFrame {
     private javax.swing.JLabel lblAviso4;
     private javax.swing.JTable tblProcessos;
     // End of variables declaration//GEN-END:variables
+ public static void main(String args[]) {
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        TelaProcessos telaProcessos = new TelaProcessos(QueryBD.procurarIdMaquina(1));
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                telaProcessos.setVisible(true);
+            }
+        });
+
+    }
 }

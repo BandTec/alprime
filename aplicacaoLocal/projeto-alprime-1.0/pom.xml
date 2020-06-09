@@ -42,14 +42,14 @@
     
     <dependencies>
 
-        
+        <!--Captura de informações-->
         <dependency>
             <groupId>com.github.oshi</groupId>
             <artifactId>oshi-core</artifactId>
             <version>4.6.1</version>
         </dependency>
        
-        
+                <!--Captura de informações-->
         <dependency>
             <groupId>com.profesorfalken</groupId>
             <artifactId>jSensors</artifactId>
@@ -61,7 +61,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>5.2.4.RELEASE</version>
+            <version>5.0.5.RELEASE</version>
         </dependency>
 
         <dependency>
@@ -82,7 +82,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.13</version>
         </dependency>
-        
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.2.2.jre8</version>
+            <!-- ou versão 7.2.2.jre11, se sua JDK for a 11 -->
+            <!-- ou versão que já existir na .m2 local -->
+        </dependency>
         <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>AbsoluteLayout</artifactId>

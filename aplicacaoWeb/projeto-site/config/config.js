@@ -9,12 +9,12 @@ module.exports = {
   },
   //Colocar os nossos dados
   production: {
-    username: 'root',
-    password: 'bandtec',
+    username: 'alprimeadmin',
+    password: '#Gfgrupo9',
     database: 'alprime',
-    host: 'localhost',
+    host: 'alprime.database.windows.net',
   //
-    dialect: 'mysql',
+    dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
       options: {

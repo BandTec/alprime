@@ -3,15 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alprime.bancoDados;
+package com.alprime.bancoDados.Query;
 
 import com.alprime.alerta.TemperaturaAlerta;
+import com.alprime.bancoDados.ConexaoBD;
+import com.alprime.bancoDados.Query.Administrativo;
+import com.alprime.bancoDados.tabelas.Aviso;
 import com.alprime.bancoDados.tabelas.Localizacao;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Registro;
 import com.alprime.bancoDados.tabelas.Usuario;
 import com.alprime.bancoDados.tabelas.Venda;
+import com.alprime.log.Log;
+import com.alprime.log.MensagemLog;
 import java.util.List;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -21,8 +28,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
  */
 public class QueryBD {
 
-    private static final ConexaoBD conexao = new ConexaoBD();
-    private static final JdbcTemplate jdbcTemplate = new JdbcTemplate(conexao.getDataSource());
+    private static final ConexaoBD CONEXAO = new ConexaoBD();
+    private static final JdbcTemplate jdbcTemplate = new JdbcTemplate(CONEXAO.getDataSource());
 
     public static List<Maquina> procurarTodasMaquinas() {
         List<Maquina> resultado = jdbcTemplate.query("select * from maquina",
@@ -49,8 +56,10 @@ public class QueryBD {
     }
 
     public static Maquina procurarIdMaquina(Integer idMaquina) {
+
         Maquina resultado = jdbcTemplate.queryForObject("select * from maquina where id_maquina = ?",
                 new BeanPropertyRowMapper<Maquina>(Maquina.class), idMaquina);
+
         Localizacao localizacao = jdbcTemplate.queryForObject("select localizacao.* from maquina, localizacao where fk_localizacao = id_localizacao AND id_maquina = ?",
                 new BeanPropertyRowMapper<Localizacao>(Localizacao.class), idMaquina);
         Usuario usuario = jdbcTemplate.queryForObject("select usuario.* from maquina, localizacao, usuario where maquina.fk_localizacao = id_localizacao AND usuario.fk_localizacao = id_localizacao AND id_maquina = ?",
@@ -59,6 +68,7 @@ public class QueryBD {
         resultado.setLocalizacao(localizacao);
         usuario.setLocalizacao(localizacao);
         return resultado;
+
     }
 
     public static Registro procurarIdRegistro(Integer idRegistro) {
@@ -80,23 +90,23 @@ public class QueryBD {
     }
 
     public static void inserirMaquina(Maquina maquina) {
-        jdbcTemplate.update("insert into maquina values (?,?,?,?,?,?,?,?,?,?,?)",
-                null, maquina.getSenhaMaquina(), maquina.getTipoProcessador(),
+        jdbcTemplate.update("insert into maquina values (?,?,?,?,?,?,?,?,?,?)",
+                maquina.getCodMaquina(), maquina.getTipoProcessador(),
                 maquina.getCapacidadeMemoria(), maquina.getSistemaOperacional(),
                 maquina.isStatus(), maquina.getHostname(), maquina.getFabricante(),
                 maquina.getModelo(), maquina.getRamTotal(), maquina.getLocalizacao().getIdLocalizacao());
     }
 
     public static void insertRegistro(Registro registro) {
-        jdbcTemplate.update("insert into registro values (?,?,?,?,?,?,?,?)",
-                null, registro.getDataHora(), registro.getPorcProcessador(), registro.getPorcDisco(),
+        jdbcTemplate.update("insert into registro values (?,?,?,?,?,?,?)",
+                registro.getDataHora(), registro.getPorcProcessador(), registro.getPorcDisco(),
                 registro.getPorcMemoria(), registro.getTempCpu(), registro.getPorcRam(),
                 registro.getMaquina().getIdMaquina());
     }
 
     public static void insertVenda(Venda venda) {
-        jdbcTemplate.update("insert into venda values (?,?,?,?)",
-                null, venda.getValor(), venda.getDataHora(), venda.getMaquina().getIdMaquina());
+        jdbcTemplate.update("insert into venda values (?,?,?)",
+                venda.getValor(), venda.getDataHora(), venda.getMaquina().getIdMaquina());
     }
 
     public static void atualizarMaquina(Integer idMaquina, Maquina maquina) {
@@ -116,5 +126,15 @@ public class QueryBD {
     public static TemperaturaAlerta mediaTemperatura(Maquina maquina) {
         return jdbcTemplate.queryForObject("select avg(temp_cpu) as tempMedia, avg(temp_cpu) * 1.2 as tempAtencao, avg(temp_cpu) * 1.5 as tempPerigo from registro where fk_maquina = ?;",
                 new BeanPropertyRowMapper<TemperaturaAlerta>(TemperaturaAlerta.class), maquina.getIdMaquina());
+    }
+
+    public static Administrativo mediaAdministrativo(Maquina maquina) {
+        return jdbcTemplate.queryForObject("select sum(valor) as total_venda, count(id_venda) as media_clientes, (select count(id_venda) from venda where convert(date,data_hora) = convert(date,CURRENT_TIMESTAMP)) as clientes_dia from venda where fk_maquina = ?;",
+                new BeanPropertyRowMapper<Administrativo>(Administrativo.class), maquina.getIdMaquina());
+    }
+    
+    public static void inserirAviso(Aviso aviso){
+        jdbcTemplate.update("insert into aviso values (?,?,?,?,?)",
+                aviso.getCategoria(),aviso.getMensagem(),aviso.isResolvido(),aviso.getMaquina().getIdMaquina(),aviso.getDataHora());
     }
 }

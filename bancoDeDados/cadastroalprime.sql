@@ -21,6 +21,7 @@ select * from usuario where email_usuario='gabriel.oliveira@bandtec.com.br' and 
 select * from usuario;
 select * from localizacao;
 select * from maquina;
+select count(id_maquina) from maquina;
 select * from registro; 
 select * from venda;
 select localizacao.* from maquina, localizacao where fk_localizacao = id_localizacao AND id_maquina = 1;
@@ -73,3 +74,6 @@ select count(id_venda), hour(data_hora) from venda, maquina where fk_maquina = i
 select sum(valor) as totalDinheiro, count(id_venda) as totalUsuarios from venda where convert(data_hora, date) between '1000-01-01' and '2020-01-01';
 select * from venda, maquina where fk_maquina = id_maquina and id_maquina = 1;
 select * from maquina, localizacao where fk_localizacao = id_localizacao;
+select * from registro;
+select avg(temp_cpu) as mediaTemperatura, avg(temp_cpu) * 1.2 as tempAtencao, avg(temp_cpu) * 1.5 as tempPerigo from registro where fk_maquina = 1;
+select sum(valor) as total_venda, count(id_venda) as media_clientes, count(id_venda)/30 as cliente_dia from venda where fk_maquina = 1;

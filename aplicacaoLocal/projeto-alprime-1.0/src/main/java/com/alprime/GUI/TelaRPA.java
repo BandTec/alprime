@@ -1,6 +1,6 @@
 package com.alprime.GUI;
 
-import com.alprime.bancoDados.QueryBD;
+import com.alprime.bancoDados.Query.QueryBD;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Venda;
 import com.alprime.monitoramento.Converssao;
@@ -109,6 +109,7 @@ public class TelaRPA extends javax.swing.JFrame {
         btnConfirmarVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_confirmar_pequeno.png"))); // NOI18N
         btnConfirmarVoltar.setBorderPainted(false);
         btnConfirmarVoltar.setContentAreaFilled(false);
+        btnConfirmarVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirmarVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarVoltarActionPerformed(evt);
@@ -119,6 +120,7 @@ public class TelaRPA extends javax.swing.JFrame {
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_cancelar.png"))); // NOI18N
         btnCancelar.setBorderPainted(false);
         btnCancelar.setContentAreaFilled(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -152,6 +154,7 @@ public class TelaRPA extends javax.swing.JFrame {
         btnFinalizarCompra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_finalizar.png"))); // NOI18N
         btnFinalizarCompra.setBorderPainted(false);
         btnFinalizarCompra.setContentAreaFilled(false);
+        btnFinalizarCompra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnFinalizarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalizarCompraActionPerformed(evt);
@@ -189,7 +192,10 @@ public class TelaRPA extends javax.swing.JFrame {
         botao50reais.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         botao50reais.setForeground(new java.awt.Color(102, 0, 102));
         botao50reais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btn_50_reais.png"))); // NOI18N
+        botao50reais.setBorderPainted(false);
         botao50reais.setContentAreaFilled(false);
+        botao50reais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botao50reais.setFocusPainted(false);
         botao50reais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botao50reaisActionPerformed(evt);
@@ -203,6 +209,7 @@ public class TelaRPA extends javax.swing.JFrame {
         botao5reais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btn_5_reais.png"))); // NOI18N
         botao5reais.setBorderPainted(false);
         botao5reais.setContentAreaFilled(false);
+        botao5reais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botao5reais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botao5reaisActionPerformed(evt);
@@ -216,6 +223,7 @@ public class TelaRPA extends javax.swing.JFrame {
         botao20reais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/btn_20_reais.png"))); // NOI18N
         botao20reais.setBorderPainted(false);
         botao20reais.setContentAreaFilled(false);
+        botao20reais.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botao20reais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botao20reaisActionPerformed(evt);
@@ -233,6 +241,7 @@ public class TelaRPA extends javax.swing.JFrame {
         btnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_confirmar.png"))); // NOI18N
         btnConfirmar.setBorderPainted(false);
         btnConfirmar.setContentAreaFilled(false);
+        btnConfirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfirmarActionPerformed(evt);
@@ -288,7 +297,9 @@ public class TelaRPA extends javax.swing.JFrame {
         btnCarregar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCarregar.setForeground(new java.awt.Color(102, 0, 102));
         btnCarregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_ok.png"))); // NOI18N
+        btnCarregar.setBorderPainted(false);
         btnCarregar.setContentAreaFilled(false);
+        btnCarregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCarregarActionPerformed(evt);
@@ -309,6 +320,8 @@ public class TelaRPA extends javax.swing.JFrame {
         btnFechar.setBorder(null);
         btnFechar.setBorderPainted(false);
         btnFechar.setContentAreaFilled(false);
+        btnFechar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnFechar.setFocusPainted(false);
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFecharActionPerformed(evt);
@@ -348,6 +361,7 @@ public class TelaRPA extends javax.swing.JFrame {
     private void botao20reaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao20reaisActionPerformed
         double valor = 20;
         venda = new Venda(null, valor, LocalDateTime.now().toString(), maquinaBD);
+        System.out.println(venda);
         lblConfirmacao.setText(String.format("Sua recarga é de R$ %.0f,00 ?", valor));
         lblConfirmacao.setVisible(true);
         btnConfirmar.setVisible(true);
@@ -395,7 +409,7 @@ public class TelaRPA extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFinalizarCompraActionPerformed
 
     private void btnConfirmarVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarVoltarActionPerformed
-        if (txtSenha.getText().equals(maquinaBD.getSenhaMaquina())) {
+        if (txtSenha.getText().equals(maquinaBD.getCodMaquina())) {
             statusMonitoramento = false;
             lblSucesso.setText("Senha aceita");
             lblSucesso.setVisible(true);

@@ -50,14 +50,14 @@ public class TemperaturaAlerta {
         return String.format("O Totem %d está com a temperatura acima do normal."
                            + "\n Temperatura Atual: %.2f"
                            + "\n Temperatura Média: %.2f"
-                           + "\n Envie um técnico para uma avalição preventiva", maquina.getIdMaquina(), registro.getTempCpu(), this.tempMedia);
+                           + "\n Envie um técnico para uma avaliação preventiva", maquina.getIdMaquina(), registro.getTempCpu(), this.tempMedia);
     }
     
     public String mensagemPerigo(Maquina maquina, Registro registro){
         return String.format("O Totem %d está com a temperatura muito acima do normal."
                            + "\n Temperatura Atual: %.2f"
                            + "\n Temperatura Média: %.2f"
-                           + "\n Envie um técnico para uma avalição urgente", maquina.getIdMaquina(), registro.getTempCpu(), this.tempMedia);
+                           + "\n Envie um técnico para uma avaliação urgente", maquina.getIdMaquina(), registro.getTempCpu(), this.tempMedia);
     }
     
 }

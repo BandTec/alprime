@@ -5,9 +5,7 @@
  */
 package com.alprime.bancoDados.tabelas;
 
-import com.alprime.monitoramento.Consumo;
 import com.alprime.monitoramento.Converssao;
-import java.time.LocalDateTime;
 
 
 public class Venda 
@@ -23,7 +21,7 @@ public class Venda
     public Venda(Integer idVenda, Double valor, String dataHora, Maquina maquina) {
         this.idVenda = idVenda;
         this.valor = valor;
-        this.dataHora = dataHora;
+        this.dataHora = Converssao.dataHoraSqlServer(dataHora);
         this.maquina = maquina;
     }
 

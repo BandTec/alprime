@@ -58,7 +58,7 @@ public class Converssao {
         String arrayData[] = arrayDataHora[0].split("-");
         return String.format("%s%s%s", arrayData[0], arrayData[1], arrayData[2]);
     }
-    
+
     public static String dataHoraLogMensagem(LocalDateTime data) {
         String dataString = data.toString();
         String arrayDataHora[] = dataString.split("T");
@@ -66,5 +66,10 @@ public class Converssao {
         String arrayHora[] = arrayDataHora[1].split(":");
         String segundos[] = arrayHora[2].split("");
         return String.format("%s/%s/%s-%s:%s:%s%s", arrayData[2], arrayData[1], arrayData[0], arrayHora[0], arrayHora[1], segundos[0], segundos[1]);
+    }
+
+    public static String dataHoraSqlServer(String dataHora) {
+        String dataHoraSplit[] = dataHora.split("[.]");
+        return dataHoraSplit[0];
     }
 }

@@ -5,7 +5,7 @@
  */
 package com.alprime.telegram;
 
-import com.alprime.bancoDados.QueryBD;
+import com.alprime.bancoDados.Query.QueryBD;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Usuario;
 import com.alprime.log.Log;

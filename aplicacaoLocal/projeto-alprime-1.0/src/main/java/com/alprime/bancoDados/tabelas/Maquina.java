@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Maquina {
     private Integer idMaquina;
-    private String senhaMaquina;
+    private String codMaquina;
     private String tipoProcessador;
     private Double capacidadeMemoria;
     private String sistemaOperacional;
@@ -29,9 +29,9 @@ public class Maquina {
     public Maquina() {
     }
 
-    public Maquina(Integer idMaquina, String senhaMaquina, String tipoProcessador, Double capacidadeMemoria, String sistemaOperacional, boolean status, String hostname, String fabricante, String modelo, String ramTotal, Localizacao fkLocalizacao, List<Registro> registros) {
+    public Maquina(Integer idMaquina, String codMaquina, String tipoProcessador, Double capacidadeMemoria, String sistemaOperacional, boolean status, String hostname, String fabricante, String modelo, String ramTotal, Localizacao fkLocalizacao, List<Registro> registros) {
         this.idMaquina = idMaquina;
-        this.senhaMaquina = senhaMaquina;
+        this.codMaquina = codMaquina;
         this.tipoProcessador = tipoProcessador;
         this.capacidadeMemoria = capacidadeMemoria;
         this.sistemaOperacional = sistemaOperacional;
@@ -48,7 +48,7 @@ public class Maquina {
     public Maquina(Localizacao localizacao){
         InformacoesComputador computador = new InformacoesComputador();
         this.idMaquina = null;
-        this.senhaMaquina = null;
+        this.codMaquina = null;
         this.tipoProcessador = computador.getProcessador();
         this.capacidadeMemoria = computador.getDisco();
         this.sistemaOperacional = computador.getSistemaOperacional();
@@ -69,12 +69,12 @@ public class Maquina {
         this.idMaquina = idMaquina;
     }
 
-    public String getSenhaMaquina() {
-        return senhaMaquina;
+    public String getCodMaquina() {
+        return codMaquina;
     }
 
-    public void setSenhaMaquina(String senhaMaquina) {
-        this.senhaMaquina = senhaMaquina;
+    public void setCodMaquina(String codMaquina) {
+        this.codMaquina = codMaquina;
     }
 
     public String getTipoProcessador() {
@@ -159,7 +159,7 @@ public class Maquina {
 
     @Override
     public String toString() {
-        return "Maquina{" + "idMaquina=" + idMaquina + ", senhaMaquina=" + senhaMaquina + ", tipoProcessador=" + tipoProcessador + ", capacidadeMemoria=" + capacidadeMemoria + ", sistemaOperacional=" + sistemaOperacional + ", status=" + status + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", ramTotal=" + ramTotal + ", localizacao=" + fkLocalizacao + ", registros=" + registros + '}';
+        return "Maquina{" + "idMaquina=" + idMaquina + ", codMaquina=" + codMaquina + ", tipoProcessador=" + tipoProcessador + ", capacidadeMemoria=" + capacidadeMemoria + ", sistemaOperacional=" + sistemaOperacional + ", status=" + status + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", ramTotal=" + ramTotal + ", localizacao=" + fkLocalizacao + ", registros=" + registros + '}';
     }
 
     

@@ -17,26 +17,6 @@ public class Processos {
         listaProcessos = Arrays.asList(comp.getInfoSO().getProcesses());
     }
 
-    public static boolean matarProcesso(String processo) {
-        try {
-            String line;
-            Process p = Runtime.getRuntime().exec("tasklist.exe /fo csv /nh");
-            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            while ((line = input.readLine()) != null) {
-                if (!line.trim().equals("")) {
-                    if (line.substring(1, line.indexOf("\"", 1)).equalsIgnoreCase(processo)) {
-                        Runtime.getRuntime().exec("taskkill /F /IM " + line.substring(1, line.indexOf("\"", 1)));
-                        return true;
-                    }
-                }
-            }
-            input.close();
-        } catch (Exception err) {
-            err.printStackTrace();
-        }
-        return false;
-    }
-
     public List<OSProcess> getListaProcessos() {
         return listaProcessos;
     }

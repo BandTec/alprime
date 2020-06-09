@@ -5,6 +5,12 @@
  */
 package com.alprime.bancoDados;
 
+//import com.microsoft.sqlserver.jdbc.SQLServerXADataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class ConexaoBD {
@@ -13,13 +19,20 @@ public class ConexaoBD {
 
     public ConexaoBD() {
         this.dataSource = new BasicDataSource();
-        dataSource​.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource​.setUrl("jdbc:mysql://localhost:3306/alprime?useTimezone=true&serverTimezone=UTC&useSSL=false");
-        dataSource​.setUsername("root");
-        dataSource​.setPassword("bandtec");
+        this.dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        this.dataSource.setUrl("jdbc:sqlserver://alprime.database.windows.net:1433;database=alprime;user=alprimeadmin@alprime;password=#Gfgrupo9;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+        this.dataSource.setUsername("alprimeadmin");
+        this.dataSource.setPassword("#Gfgrupo9");
+
     }
 
     public BasicDataSource getDataSource() {
         return dataSource;
     }
+
+    public void setDataSource(BasicDataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+    
 }

@@ -1,6 +1,6 @@
 package com.alprime.GUI;
 
-import com.alprime.bancoDados.QueryBD;
+import com.alprime.bancoDados.Query.QueryBD;
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.log.Log;
 import com.alprime.log.MensagemLog;
@@ -47,8 +47,8 @@ public class TelaInicial extends javax.swing.JFrame {
         lblErroSenha = new javax.swing.JLabel();
         lblSucesso = new javax.swing.JLabel();
         lblErroCodigo = new javax.swing.JLabel();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        btnVendaBilhete = new javax.swing.JRadioButton();
+        btnMonitoramento = new javax.swing.JRadioButton();
         jLabel10 = new javax.swing.JLabel();
         btnMostrarSenha = new javax.swing.JCheckBox();
         txtSenha = new javax.swing.JPasswordField();
@@ -93,6 +93,7 @@ public class TelaInicial extends javax.swing.JFrame {
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/botao_login.png"))); // NOI18N
         btnLogin.setBorderPainted(false);
         btnLogin.setContentAreaFilled(false);
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -102,7 +103,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_editado.png"))); // NOI18N
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 180, 80));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 360, 180, 80));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/totenicone.png"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -132,27 +133,28 @@ public class TelaInicial extends javax.swing.JFrame {
         lblErroCodigo.setText("Erro");
         jPanel1.add(lblErroCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, -1, 30));
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(111, 44, 145));
-        jRadioButton2.setText("Venda de bilhete");
-        jRadioButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(111, 44, 145), 3));
-        jRadioButton2.setContentAreaFilled(false);
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(btnVendaBilhete);
+        btnVendaBilhete.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnVendaBilhete.setForeground(new java.awt.Color(111, 44, 145));
+        btnVendaBilhete.setText("Venda de bilhete");
+        btnVendaBilhete.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(111, 44, 145), 3));
+        btnVendaBilhete.setContentAreaFilled(false);
+        btnVendaBilhete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVendaBilhete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                btnVendaBilheteActionPerformed(evt);
             }
         });
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
-        jRadioButton2.getAccessibleContext().setAccessibleName("Venda de bilhete");
+        jPanel1.add(btnVendaBilhete, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(111, 44, 145));
-        jRadioButton1.setText("Monitoramento");
-        jRadioButton1.setActionCommand("  Tela de Monitoramento");
-        jRadioButton1.setContentAreaFilled(false);
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
+        buttonGroup1.add(btnMonitoramento);
+        btnMonitoramento.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
+        btnMonitoramento.setForeground(new java.awt.Color(111, 44, 145));
+        btnMonitoramento.setText("Monitoramento");
+        btnMonitoramento.setActionCommand("  Tela de Monitoramento");
+        btnMonitoramento.setContentAreaFilled(false);
+        btnMonitoramento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(btnMonitoramento, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(111, 44, 145));
@@ -165,12 +167,13 @@ public class TelaInicial extends javax.swing.JFrame {
         btnMostrarSenha.setText("  Mostrar Senha");
         btnMostrarSenha.setActionCommand("     Mostrar Senha");
         btnMostrarSenha.setContentAreaFilled(false);
+        btnMostrarSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMostrarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMostrarSenhaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMostrarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, -1, 20));
+        jPanel1.add(btnMostrarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, 20));
 
         txtSenha.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         txtSenha.setForeground(new java.awt.Color(82, 186, 54));
@@ -201,18 +204,19 @@ public class TelaInicial extends javax.swing.JFrame {
         }
 
         // Se o botão da Tela de Monitoramento estiver clicado
-        if (jRadioButton1.isSelected()) {
+        if (btnMonitoramento.isSelected()) {
             if (idMaquina > 0) {
                 Maquina maquina = new Maquina();
                 try {
                     maquina = QueryBD.procurarIdMaquina(idMaquina);
-                    if (maquina.getSenhaMaquina().equals(txtSenha.getText())) {
+                    if (maquina.getCodMaquina().equals(txtSenha.getText())) {
                         lblSucesso.setText("Login Aceito");
                         lblSucesso.setVisible(true);
                         lblErroSenha.setVisible(false);
                         lblErroCodigo.setVisible(false);
                         statusTelaInicial = false;
                         botaoEscolhido = 1;
+                        System.out.println("Botão Tela de Monitoramento escolhido");
                         Log log = new Log(maquina.getIdMaquina(), 1);
                         String mensagem = String.format("Usuario %s logado com sucesso", maquina.getLocalizacao().getUsuario().getNomeUsuario());
                         MensagemLog mensagemLog = new MensagemLog(maquina.getIdMaquina(), mensagem, "INFO");
@@ -226,19 +230,25 @@ public class TelaInicial extends javax.swing.JFrame {
                     lblErroCodigo.setText("Código da maquina inválido");
                     lblErroCodigo.setVisible(true);
                     lblErroSenha.setVisible(false);
+                } catch (NullPointerException e) {
+                    lblErroCodigo.setText("Erro de conexão");
+                    lblErroCodigo.setVisible(true);
+                    lblErroSenha.setVisible(false);
                 }
             }
-        }else if (jRadioButton2.isSelected()) {
+        } else if (btnVendaBilhete.isSelected()) {
             if (idMaquina > 0) {
                 Maquina maquina = new Maquina();
                 try {
                     maquina = QueryBD.procurarIdMaquina(idMaquina);
-                    if (maquina.getSenhaMaquina().equals(txtSenha.getText())) {
+                    if (maquina.getCodMaquina().equals(txtSenha.getText())) {
                         lblSucesso.setText("Login Aceito");
                         lblSucesso.setVisible(true);
                         lblErroSenha.setVisible(false);
                         lblErroCodigo.setVisible(false);
                         botaoEscolhido = 2;
+                        System.out.println("Botão Tela de Venda Bilhete escolhido");
+
                         statusTelaInicial = false;
                         Log log = new Log(maquina.getIdMaquina(), 1);
                         String mensagem = String.format("Usuario %s logado com sucesso", maquina.getLocalizacao().getUsuario().getNomeUsuario());
@@ -260,16 +270,16 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnMostrarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarSenhaActionPerformed
-       if(btnMostrarSenha.isSelected()){
-            txtSenha.setEchoChar((char)0);
-       }else{
+        if (btnMostrarSenha.isSelected()) {
+            txtSenha.setEchoChar((char) 0);
+        } else {
             txtSenha.setEchoChar('*');
-       }
+        }
     }//GEN-LAST:event_btnMostrarSenhaActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void btnVendaBilheteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendaBilheteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_btnVendaBilheteActionPerformed
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
@@ -298,7 +308,6 @@ public class TelaInicial extends javax.swing.JFrame {
     public JTextField getTxtSenha() {
         return txtSenha;
     }
-
 
     public JLabel getLblSucesso() {
         return lblSucesso;
@@ -340,6 +349,7 @@ public class TelaInicial extends javax.swing.JFrame {
             public void loopEntrar() {
                 while (true) {
                     System.out.print("");
+                    System.out.println("");
                     if (statusTelaInicial == false && botaoEscolhido == 1) {
                         TelaMonitoramento monitoramento = new TelaMonitoramento(telaLogin.getIdMaquina());
                         monitoramento.setVisible(true);
@@ -358,6 +368,7 @@ public class TelaInicial extends javax.swing.JFrame {
                             System.out.print("");
                         }
                         statusTelaInicial = true;
+                        System.out.print("");
                     }
 
                     if (statusTelaInicial == false && botaoEscolhido == 2) {
@@ -386,7 +397,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JRadioButton btnMonitoramento;
     private javax.swing.JCheckBox btnMostrarSenha;
+    private javax.swing.JRadioButton btnVendaBilhete;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -399,8 +412,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lblErroCodigo;
     private javax.swing.JLabel lblErroSenha;
     private javax.swing.JLabel lblSucesso;
