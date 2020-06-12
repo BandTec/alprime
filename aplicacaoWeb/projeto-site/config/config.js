@@ -16,12 +16,15 @@ module.exports = {
   //
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
-    dialectOptions: {
-      options: {
+    dialectOptions: 
+    {
+      options: 
+      {
         encrypt: true
       }
     },
-    pool: { 
+    pool: 
+    { 
       max: 5,
       min: 1,
       acquire: 5000,

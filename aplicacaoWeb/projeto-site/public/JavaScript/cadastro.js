@@ -4,7 +4,8 @@ let emailCadastro;
 let telefoneCadastro;
 let cpfCadastro;
 let senhaCadastro;
-onload = function () {
+onload = function () 
+{
   document.body.style.visibility = "visible"
 }
 
