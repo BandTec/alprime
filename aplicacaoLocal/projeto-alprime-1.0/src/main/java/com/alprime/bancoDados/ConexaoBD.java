@@ -19,10 +19,10 @@ public class ConexaoBD {
 
     public ConexaoBD() {
         this.dataSource = new BasicDataSource();
-        this.dataSource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        this.dataSource.setUrl("jdbc:sqlserver://alprime.database.windows.net:1433;database=alprime;user=alprimeadmin@alprime;password=#Gfgrupo9;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-        this.dataSource.setUsername("alprimeadmin");
-        this.dataSource.setPassword("#Gfgrupo9");
+        this.dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        this.dataSource.setUrl("jdbc:mysql://52.200.199.88:3306/alprime?useSSL=false");
+        this.dataSource.setUsername("root");
+        this.dataSource.setPassword("urubu100");
 
     }
 

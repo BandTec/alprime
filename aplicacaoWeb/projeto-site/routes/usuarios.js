@@ -51,95 +51,39 @@ router.post("/cadastrarUsuario", function (req, res, next) {
   var email = req.body.email;
   var senha = req.body.senha;
   var telefone = req.body.telefone;
-  var estacao = req.body.estacao;
-  var linha = req.body.linha;
-  var endereco = req.body.endereco;
   const instrucaoSql1 = `
-  insert into usuario values(null,'${nome}','${cpf}','${email}','${senha}','${telefone}',null,null);`
-  const instrucaoSql2 = ` insert into localizacao values(null,'${estacao}','${linha}','${endereco}',0);`;
+  insert into usuario values(null,'${nome}','${cpf}','${email}','${senha}','${telefone}',null,(select max(id_localizacao) from localizacao));`
   sequelize.query(instrucaoSql1, {
       model: Usuario,
-      Localizacao,
       mapToModel: true,
     })
     .then((resultado) => {
       console.log(`Encontrados: ${resultado.length}`);
-    //   res.json(resultado);
-    })
-    .catch((erro) => {
-      console.error(erro);
-      res.status(500).send(erro.message);
-	});
-	
-	sequelize.query(instrucaoSql2, {
-		model: Localizacao,
-		mapToModel: true,
-	  })
-	  .then((resultado) => {
-		console.log(`Encontrados: ${resultado.length}`);
-		res.json(resultado);
-	  })
-	  .catch((erro) => {
-		console.error(erro);
-		res.status(500).send(erro.message);
-	  });
-
-
-});
-
-
-router.get("/todos1234", function (req, res, next) {
-  // alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
-
-  const instrucaoSql = `select * from usuarios;`;
-
-  // sequelize.query('select * from usuarios;').then(([results,metadata])=>{
-  // 	console.log("results:",results);
-  // 	console.log("metadata:",metadata);
-
-  // })
-
-  // sequelize.query("select * from usuarios;", { type: sequelize.QueryTypes.SELECT }).then(results => {
-  // 	// SELECT query - use then
-  // 			console.log("results:",results);
-
-  //   })
-
-  sequelize
-    .query(instrucaoSql, selectQueryType, {
-      model: Usuario,
-      mapToModel: true,
-    })
-    .then((resultado) => {
-      console.log(`Encontrados: ${resultado}`);
       res.json(resultado);
     })
     .catch((erro) => {
       console.error(erro);
       res.status(500).send(erro.message);
-    });
+	});
 });
 
-/* Verificação de usuário */
-router.get("/sessao/:login", function (req, res, next) {
-  let login = req.params.NomeUsuario;
-  console.log(`Verificando se o usuário ${login} tem sessão`);
-
-  let tem_sessao = false;
-  for (let u = 0; u < sessoes.length; u++) {
-    if (sessoes[u] == login) {
-      tem_sessao = true;
-      break;
-    }
-  }
-
-  if (tem_sessao) {
-    let mensagem = `Usuário ${login} possui sessão ativa!`;
-    console.log(mensagem);
-    res.send(mensagem);
-  } else {
-    res.sendStatus(403);
-  }
+router.get("/getUsuario/:cpfUsuario", function (req, res, next) {
+  console.log("Recuperando um usuário");
+  var cpfUsuario = req.params.cpfUsuario;
+  const instrucaoSql1 = `
+  select * from usuario where cpf_usuario = ${cpfUsuario};`
+  sequelize.query(instrucaoSql1, selectQueryType, {
+      model: Usuario,
+      mapToModel: true,
+    })
+    .then((resultado) => {
+      console.log(`Encontrados: ${resultado.length}`);
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.error(erro);
+      res.status(500).send(erro.message);
+	});
 });
 
 /* Logoff de usuário */

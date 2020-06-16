@@ -17,8 +17,8 @@ public class Administrativo {
     private Double mediaClientes;
     private Integer clientesDia;
 
-    public Administrativo(Double lucro, Double totalVenda, Double gasto, Double mediaClientes, Integer clientesDia) {
-        this.lucro = lucro;
+    public Administrativo(Double totalVenda, Double gasto, Double mediaClientes, Integer clientesDia) {
+        this.lucro = this.calcularLucro();
         this.totalVenda = totalVenda;
         this.gasto = gasto;
         this.mediaClientes = mediaClientes;

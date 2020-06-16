@@ -98,14 +98,14 @@ public class QueryBD {
     }
 
     public static void insertRegistro(Registro registro) {
-        jdbcTemplate.update("insert into registro values (?,?,?,?,?,?,?)",
-                registro.getDataHora(), registro.getPorcProcessador(), registro.getPorcDisco(),
+        jdbcTemplate.update("insert into registro values (null,?,?,?,?,?,?,?)",
+                registro.getDataHora(), registro.getPorcProcessador(),
                 registro.getPorcMemoria(), registro.getTempCpu(), registro.getPorcRam(),
-                registro.getMaquina().getIdMaquina());
+                registro.getMaquina().getIdMaquina(),registro.getPorcDisco());
     }
 
     public static void insertVenda(Venda venda) {
-        jdbcTemplate.update("insert into venda values (?,?,?)",
+        jdbcTemplate.update("insert into venda values (null,?,?,?)",
                 venda.getValor(), venda.getDataHora(), venda.getMaquina().getIdMaquina());
     }
 
@@ -129,12 +129,12 @@ public class QueryBD {
     }
 
     public static Administrativo mediaAdministrativo(Maquina maquina) {
-        return jdbcTemplate.queryForObject("select sum(valor) as total_venda, count(id_venda) as media_clientes, (select count(id_venda) from venda where convert(date,data_hora) = convert(date,CURRENT_TIMESTAMP)) as clientes_dia from venda where fk_maquina = ?;",
+        return jdbcTemplate.queryForObject("select sum(valor) as total_venda, count(id_venda) as media_clientes, (select count(id_venda) from venda where convert(data_hora,date) = convert(now(),date))  as clientes_dia from venda where fk_maquina = ?;",
                 new BeanPropertyRowMapper<Administrativo>(Administrativo.class), maquina.getIdMaquina());
     }
     
     public static void inserirAviso(Aviso aviso){
-        jdbcTemplate.update("insert into aviso values (?,?,?,?,?)",
-                aviso.getCategoria(),aviso.getMensagem(),aviso.isResolvido(),aviso.getMaquina().getIdMaquina(),aviso.getDataHora());
+        jdbcTemplate.update("insert into aviso values (null,?,?,?,?,?)",
+                aviso.getCategoria(),aviso.getDataHora(),aviso.getMensagem(),aviso.isResolvido(),aviso.getMaquina().getIdMaquina());
     }
 }

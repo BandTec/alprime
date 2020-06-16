@@ -8,13 +8,21 @@ module.exports = {
     storage: ":memory:"
   },
   //Colocar os nossos dados
+  
   production: {
-    username: 'alprimeadmin',
-    password: '#Gfgrupo9',
+  // Banco de Dados na Amazon
+    username: 'root',
+    password: 'urubu100',
     database: 'alprime',
-    host: 'alprime.database.windows.net',
-  //
-    dialect: 'mssql',
+    host: '52.200.199.88',
+    dialect: 'mysql',
+    port: "3306",
+  // Banco de Dados na Azure
+    // username: 'alprimeadmin',
+    // password: '#Gfgrupo9',
+    // database: 'alprime',
+    // host: 'alprime.database.windows.net',
+    // dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: 
     {

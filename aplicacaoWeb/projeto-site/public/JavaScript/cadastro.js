@@ -1,4 +1,3 @@
-
 let nomeCadastro;
 let emailCadastro;
 let telefoneCadastro;
@@ -9,7 +8,7 @@ onload = function ()
   document.body.style.visibility = "visible"
 }
 
-function guardarDados(){
+function guardarDados() {
   sessionStorage.nomeCadastro = nome.value;
   sessionStorage.emailCadastro = email.value;
   sessionStorage.telefoneCadastro = telefone.value;
@@ -20,49 +19,62 @@ function guardarDados(){
 }
 
 function cadastrar() {
-  var formulario= new URLSearchParams(new FormData(form_localizacao));
-  formulario.append('nome', sessionStorage.getItem('nomeCadastro'));
-  formulario.append('telefone', sessionStorage.getItem('telefoneCadastro'));
-  formulario.append('cpf', sessionStorage.getItem('cpfCadastro'));
-  formulario.append('email', sessionStorage.getItem('emailCadastro'));
-  formulario.append('senha', sessionStorage.getItem('senhaCadastro'));
-  var form = new URLSearchParams(formulario);
-  fetch("/usuarios/cadastrarUsuario", {
+  var formulario_localizacao = new URLSearchParams(
+    new FormData(form_localizacao)
+  );
+  var formulario = new URLSearchParams(new FormData());
+  formulario.append("nome", sessionStorage.getItem("nomeCadastro"));
+  formulario.append("telefone", sessionStorage.getItem("telefoneCadastro"));
+  formulario.append("cpf", sessionStorage.getItem("cpfCadastro"));
+  formulario.append("email", sessionStorage.getItem("emailCadastro"));
+  formulario.append("senha", sessionStorage.getItem("senhaCadastro"));
+  var form_usuario = new URLSearchParams(formulario);
+  
+  // Cadastrando localizacao
+  fetch("/localizacoes/cadastrarLocalizacao", {
     method: "POST",
-    body: form
-  }).then(function(response) {
+    body: formulario_localizacao,
+  }).then(function (response) {
     if (response.ok) {
-      alert("Usuario cadastrado com sucesso");
-  window.location.assign("./Cadastro2.html");
-
+      alert("Localizacao cadastrado com sucesso");
     } else {
       alert("Erro de cadastro!");
-      response.text().then(function(resposta) {});
+      response.text().then(function (resposta) {});
+      console.log("Erro ao cadastrar Localizacao");
+    }
+  });
+  // Cadastrando usuario
+  fetch("/usuarios/cadastrarUsuario", {
+    method: "POST",
+    body: form_usuario,
+  }).then(function (response) {
+    if (response.ok) {
+      alert("Usuario cadastrado com sucesso");
+      window.location.assign("./login.html");
+    } else {
+      alert("Erro de cadastro!");
+      response.text().then(function (resposta) {});
       console.log("Erro ao cadastrar usuario");
     }
   });
-
+  
 }
-function verificarNome() {
+  function verificarNome() {
   if (nome.value.length >= 6) {
-console.log("TA CERTO");
-  }
-  else if (nome.value.length == 0) {
+    console.log("TA CERTO");
+  } else if (nome.value.length == 0) {
     console.log("NEUTRO");
-  }
-  else {
+  } else {
     console.log("Deve conter no mínimo 6 caracteres");
   }
-  }
+}
 
 function verificarSenha() {
   if (nome.value.length == 0) {
     console.log("NEUTRO");
-  }
-  else if (senha.value.length >= 8) {
+  } else if (senha.value.length >= 8) {
     console.log("TA CERTO");
-  }
-  else {
+  } else {
     console.log("Deve conter no mínimo 8 caracteres");
   }
 }
@@ -70,63 +82,61 @@ function verificarSenha() {
 function verificarSenhaRep() {
   if (senha_repetida.value == senha.value) {
     console.log("TA CERTO");
-  }
-  else if (senha_repetida.value.length == 0) {
+  } else if (senha_repetida.value.length == 0) {
     console.log("NEUTRO");
-  }
-  else {
+  } else {
     console.log("Deve ser igual a senha acima");
   }
 }
 
 function verificarEmail() {
-  if (email.value.indexOf('@') >= 0) {
-      if (email.value.indexOf('@') >= 1) {
-          if (email.value.length >= 11) {
-              if (email.value.endsWith('.com') || email.value.endsWith('.br')) {
-                console.log("TA CERTO");
-              } else {
-                  // deve terminar em .com ou .br
-                  console.log("Deve terminar em '.com' ou '.br'");
-              }
-          } else {
-              //   deve conter no minimo 11 caracteres
-              console.log("Deve conter no mínimo 11 caracteres");
-          }
+  if (email.value.indexOf("@") >= 0) {
+    if (email.value.indexOf("@") >= 1) {
+      if (email.value.length >= 11) {
+        if (email.value.endsWith(".com") || email.value.endsWith(".br")) {
+          console.log("TA CERTO");
+        } else {
+          // deve terminar em .com ou .br
+          console.log("Deve terminar em '.com' ou '.br'");
+        }
       } else {
-          //    insira algo antes do @
-          console.log("Insira algo antes do '@'");
+        //   deve conter no minimo 11 caracteres
+        console.log("Deve conter no mínimo 11 caracteres");
       }
+    } else {
+      //    insira algo antes do @
+      console.log("Insira algo antes do '@'");
+    }
   } else {
-      // o email precisa conter "@"
-      console.log("O email precisa conter '@'");
+    // o email precisa conter "@"
+    console.log("O email precisa conter '@'");
   }
 }
 
 function arrancar_mascara() {
-    var tamanho = cpf.value.length;
-    if (tamanho == 14) {
-        var parte1 = cpf.value.slice(0, 3);
-        var parte2 = cpf.value.slice(4, 7);
-        var parte3 = cpf.value.slice(8, 11);
-        var parte4 = cpf.value.slice(12, 14);
-        cpf.value = `${parte1}${parte2}${parte3}${parte4}`
-    }
+  var tamanho = cpf.value.length;
+  if (tamanho == 14) {
+    var parte1 = cpf.value.slice(0, 3);
+    var parte2 = cpf.value.slice(4, 7);
+    var parte3 = cpf.value.slice(8, 11);
+    var parte4 = cpf.value.slice(12, 14);
+    cpf.value = `${parte1}${parte2}${parte3}${parte4}`;
+  }
 }
 
 function colocar_mascara() {
   var tamanho = cpf.value.length;
   if (cpf.value == "") {
     console.log("Digite seu cpf completo");
-  }else if (tamanho == 11) {
-      var parte1 = cpf.value.slice(0, 3);
-      var parte2 = cpf.value.slice(3, 6);
-      var parte3 = cpf.value.slice(6, 9);
-      var parte4 = cpf.value.slice(9, 12);
+  } else if (tamanho == 11) {
+    var parte1 = cpf.value.slice(0, 3);
+    var parte2 = cpf.value.slice(3, 6);
+    var parte3 = cpf.value.slice(6, 9);
+    var parte4 = cpf.value.slice(9, 12);
 
-      cpf.value = `${parte1}.${parte2}.${parte3}-${parte4}`;
+    cpf.value = `${parte1}.${parte2}.${parte3}-${parte4}`;
     console.log("Ta certo");
-  }else {
+  } else {
     console.log("Ta errado , Digite seu cpf sem pontos");
   }
 }

@@ -16,19 +16,17 @@ public class Localizacao {
     private String nomeLocalizacao;
     private String tipoLinha;
     private String endereco;
-    private Integer totalMaquinas;
     private Usuario usuario;
     private List<Maquina> maquinas;
 
     public Localizacao() {
     }
 
-    public Localizacao(Integer idLocalizacao, String nomeLocalizacao, String tipoLinha, String endereco, Integer totalMaquinas, Usuario usuario, List<Maquina> maquinas) {
+    public Localizacao(Integer idLocalizacao, String nomeLocalizacao, String tipoLinha, String endereco, Usuario usuario, List<Maquina> maquinas) {
         this.idLocalizacao = idLocalizacao;
         this.nomeLocalizacao = nomeLocalizacao;
         this.tipoLinha = tipoLinha;
         this.endereco = endereco;
-        this.totalMaquinas = totalMaquinas;
         this.usuario = usuario;
         this.maquinas = maquinas;
     }
@@ -65,14 +63,6 @@ public class Localizacao {
         this.endereco = endereco;
     }
 
-    public Integer getTotalMaquinas() {
-        return totalMaquinas;
-    }
-
-    public void setTotalMaquinas(Integer totalMaquinas) {
-        this.totalMaquinas = totalMaquinas;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -91,7 +81,7 @@ public class Localizacao {
 
     @Override
     public String toString() {
-        return "Localizacao{" + "idLocalizacao=" + idLocalizacao + ", nomeLocalizacao=" + nomeLocalizacao + ", tipoLinha=" + tipoLinha + ", endereco=" + endereco + ", totalMaquinas=" + totalMaquinas + ", usuario=" + usuario + ", maquinas=" + maquinas + '}';
+        return "Localizacao{" + "idLocalizacao=" + idLocalizacao + ", nomeLocalizacao=" + nomeLocalizacao + ", tipoLinha=" + tipoLinha + ", endereco=" + endereco + ", usuario=" + usuario + ", maquinas=" + maquinas + '}';
     }
 
     

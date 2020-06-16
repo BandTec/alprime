@@ -24,13 +24,13 @@
             </div>
             <h1 class="titulo1">Cadastre-se e controle seus totens</h1>
             <h2 class="titulo2">Parte 2/2 - Localização</h2>
-            <form id="form_localizacao" return onsubmit="cadastrar()">
+            <form id="form_localizacao">
                 <div class="cadastrar">
                     <div class="esquerda ">
                         <label>Endereço:</label><br>
                         <input placeholder="  Rua São José de Camargo" name="endereco" type="text"><br>
                         <label>Linha de metrô:</label><br>
-                        <input placeholder="  Linha azul" name="linha" type="text"><br>
+                        <input placeholder="  Linha azul" name="linha" id="linha" type="text"><br>
 
                     </div>
                     <div class="direita">
@@ -40,7 +40,7 @@
                         <input placeholder="  Tucuruvi" name="estacao" type="text"><br>
                     </div>
                 </div>
-                <button type="submit" class="continuar">Cadastrar</button>
+                <button type="button" onclick="cadastrar()" class="continuar">Cadastrar </button>
             </form>
 
             <div class="fotos">
@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <script src="cadastro.js"></script>
+    <script src="./JavaScript/cadastro.js"></script>
 </body>
 
 </html>

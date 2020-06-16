@@ -15,6 +15,7 @@ com\alprime\GUI\TelaInicial.class
 com\alprime\bancoDados\Query\QueryBD.class
 com\alprime\GUI\TelaRPA$4.class
 com\alprime\monitoramento\Consumo.class
+.netbeans_automatic_build
 com\alprime\GUI\TelaInicial$4.class
 com\alprime\GUI\Processos.class
 com\alprime\telegram\From.class

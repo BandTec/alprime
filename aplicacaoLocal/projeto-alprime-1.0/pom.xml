@@ -41,6 +41,12 @@
     </build>
     
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.534</version>
+        </dependency>
 
         <!--Captura de informações-->
         <dependency>
@@ -49,7 +55,7 @@
             <version>4.6.1</version>
         </dependency>
        
-                <!--Captura de informações-->
+        <!--Captura de informações-->
         <dependency>
             <groupId>com.profesorfalken</groupId>
             <artifactId>jSensors</artifactId>
