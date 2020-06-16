@@ -27,12 +27,14 @@
             <select onchange="estacoes()" id="Linha">
                 <option value='0'>-- Escolha uma linha de trem --</option>
             </select>
-            <select id="Estacao"><option value='0'>-- Selecione uma Linha --</option></select>
+            <select id="Estacao">
+                <option value='0'>-- Selecione uma Linha --</option>
+            </select>
             <button onclick="perquisar()">Pesquisar</button>
         </div>
 
         <div class="espaco" id="espaco">
-            <h1>escolha uma linha e estação</h1>
+            <h1>Escolha uma linha e estação</h1>
         </div>
 
         <div id="campoInfo" class="status"><br>
@@ -42,7 +44,7 @@
             <div  class="campoOnOff">
                 <div class="on">
                     <img src="./Imagens/On.png" alt="ERRO IMAGEM">
-                    <h1>online: </h1>
+                    <h1>Online: </h1>
                     <h2 id="totalOn"></h2>
                 </div>
                 <div class="off">
@@ -79,6 +81,12 @@
                 <a href="">Rua Haddok Lobo, 624 - Jardins São Paulo (SP)</a><br><br>
                 <a href="">Cep: 09284-030</a><br><br>
             </div>
+        </div>
+        <div class="barBottom">
+            <button onclick="window.location.href='Home.html';">Home</button>
+            <button onclick="window.location.href='SobreNos.html';">Sobre Nós</button>
+            <button>Nosso Produto</button>
+            <button>Seja nossa Parceira</button>
         </div>
     </div>
 </body>

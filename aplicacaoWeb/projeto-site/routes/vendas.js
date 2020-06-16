@@ -56,8 +56,7 @@ router.get('/relatorio/:startDate/:endDate', function(req, res, next) {
 	
 
 	sequelize.query(instrucaoSql,selectQueryType, {
-		model: Venda,
-		mapToModel: true 	
+		model: Venda,Model: true 	
 	  })
 	  .then(resultado => {
 			console.log(`Encontrados: ${resultado}`);

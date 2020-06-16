@@ -1,4 +1,4 @@
-html{min-width: 740px;}
+html{min-width: 350px;}
 
 body{
     visibility:hidden;
@@ -75,7 +75,6 @@ body{
 }
 .finalInfo{
     width: 100%;
-    
 }
 .finalInfo h1{
     text-align: -webkit-center;
@@ -86,6 +85,22 @@ body{
     text-decoration: none;
     font-weight: bold;
 }
+.barBottom{
+    display: none;
+    background-color: #6f2c91;
+    justify-content: space-evenly;
+    text-align: -webkit-center;
+    height: 50px;
+}
+.barBottom button{
+    background-color: #6f2c91;
+    color: white;
+    border: 0px;
+    margin-top: 1%;
+    height: 80%;
+    border: ridge;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .options a{
@@ -100,5 +115,38 @@ body{
         margin-top: 60px;
         margin-left: -22px;
         transition: 0.5s;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .central{
+        width: 100%;
+        margin-left: 0%;
+    }
+    .topo img{
+        margin-left: 35% !important;
+        transition: 0.5s;
+    }
+    .options a{
+        display: none;
+    }
+    .options button{
+        display: none;
+    }
+    .finalInfo h1{
+        font-size: smaller;
+    }
+    .finalInfo a{
+        font-size: smaller;
+    }
+    .fotos{
+        height: 100px;
+    }
+    .fotos img{
+        height: 60% !important;
+        width: 20% !important;
+    }
+    .barBottom{
+        display: flex;
     }
 }
