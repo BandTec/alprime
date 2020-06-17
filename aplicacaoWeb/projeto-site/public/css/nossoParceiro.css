@@ -1,0 +1,88 @@
+.info{
+    text-align: -webkit-center;
+    width: 60%;
+}
+.info2{
+    border: 2px solid rebeccapurple;
+    border-radius: 25px;
+    height: 45vw;
+    margin-left: 45vw;
+    margin-right: 1vw;  
+    margin-top: 10vw; 
+    text-align: center;
+}
+.preco {
+    color: #4DB033;
+    font-size: 80px;
+}
+.topico {
+    text-align: justify;
+    color: black;
+    font-size: 20px;
+}
+.info h1{
+    margin-top: -50vw;
+    color: #4DB033;
+    font-size: 3em;
+}
+.escrita{
+    width: 75%;
+    font-size: 1.2em;
+    transition: 0.5s;
+    margin-bottom: 15px;
+    text-align: justify;
+    margin-left: 0vw;
+}
+.escrita2 {
+    margin-top: 55px;
+    color: rebeccapurple;
+    font-size: 1.4em;
+}
+.logo1{
+    transition: 0.5s;
+    width: 40%;
+    margin-top: 50px;
+    margin-left: -10px;
+}
+button{
+    background-color: rebeccapurple;
+    color: white;
+    width: 190px;
+    margin-top: 0px;
+    border-radius: 40px;
+    margin-left: 215px;
+    padding: 12px; 
+    margin-bottom: 5vw;
+    font-size: 85%;
+}
+button:hover{
+    color: #4DB033;
+    transition: 0.5s;
+}
+
+@media only screen and (max-width: 1200px) {
+    .options a{
+    font-size: large;
+    transition: 0.5s;
+    }
+    .escrita{
+        width: 100%;
+        font-size: 1.5em;
+    }
+    .escrita2{
+        width: 100%;
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .escrita{
+        width: 100%;
+        font-size: 1.3em;
+        transition: 0.5s;
+    }
+    .logo{
+        margin-top: 100px;
+        transition: 0.5s;
+    }
+}

@@ -1,0 +1,64 @@
+.info{
+    text-align: -webkit-center;
+    width: 60%;
+}
+.info h1{
+    color: #4DB033;
+    font-size: 3em;
+}
+.escrita{
+    margin-left: 3vw;
+    font-size: 1.5em;
+    transition: 0.5s;
+    margin-bottom: 15px;
+    text-align: justify;
+    word-spacing: 3px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+button{
+    background-color: rebeccapurple;
+    color: white;
+    width: 190px;
+    margin-top: 40px;
+    border-radius: 40px;
+    margin-left: 230px;
+    padding: 12px; 
+    margin-bottom: 5vw;
+    font-size: 85%;
+}
+.info button:hover{
+    color: #4DB033;
+    transition: 0.5s;
+}
+.logo{
+    transition: 0.5s;
+    margin-top: 200px;
+    margin-left: 60px;
+}
+@media only screen and (max-width: 1200px) {
+    .options a{
+    font-size: large;
+    transition: 0.5s;
+    }
+    .escrita{
+        width: 100%;
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .escrita{
+        width: 100%;
+        font-size: 1.3em;
+        transition: 0.5s;
+    }
+    .topo img{
+        height: 160px;
+        margin-top: 60px;
+        margin-left: -22px;
+    }
+    .logo2-1{
+        margin-top: 100px;
+        transition: 0.5s;
+    }
+}
