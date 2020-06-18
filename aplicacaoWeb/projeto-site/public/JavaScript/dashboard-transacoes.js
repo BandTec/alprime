@@ -1,42 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
-    <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
-    <script src="Chart.min.js"></script>
-    <script src="utils.js"></script>
-
-    <head>
-        <title>Line Chart</title>
-      
-        <style>
-            canvas {
-                z-index: 4;
-                -moz-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-            }
-        </style>
-    </head>
-
-<body onload="atualizarGrafico();">
-    <div style="width:50%;">
-        <canvas id="canvas_grafico"></canvas>
-    </div>
-    <input id="input" type="month">
-    <br>
-    <br>
-  
-</body>
-
-</html>
-
-<script>
-    var exibiu_grafico = false;
+var exibiu_grafico = false;
     function botao(){
     console.log(input.value);
     }
@@ -184,5 +146,3 @@
             options: configurarGrafico()
         });
     }
-
-</script>
