@@ -4,3 +4,10 @@ canvas {
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+.grafico{
+width: 70%;
+margin-left: 15%;
+margin-top: 150px;
+margin-bottom: 100px;
+}
