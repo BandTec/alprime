@@ -80,3 +80,4 @@ select * from venda where convert(data_hora,date) = convert(now(),date);
 insert into venda values(null,1,now(),1);
 select * from venda;
 select sum(valor) as total_venda, count(id_venda) as media_clientes, (select count(id_venda) from venda where convert(data_hora,date) = convert(now(),date))  as cliente_dia from venda where fk_maquina = 1;
+select count(id_venda) as totalUsuario, hour(data_hora) as hora from venda where data_hora = '2020-06-05' group by hour(data_hora) order by hora desc;
