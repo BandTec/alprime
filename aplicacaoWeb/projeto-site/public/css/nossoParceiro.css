@@ -1,62 +1,64 @@
 .info{
     text-align: -webkit-center;
-    width: 60%;
-}
-.info2{
-    border: 2px solid rebeccapurple;
-    border-radius: 25px;
-    height: 45vw;
-    margin-left: 45vw;
-    margin-right: 1vw;  
-    margin-top: 10vw; 
-    text-align: center;
-}
-.preco {
-    color: #4DB033;
-    font-size: 80px;
-}
-.topico {
-    text-align: justify;
-    color: black;
-    font-size: 20px;
+    width: 58%;
 }
 .info h1{
-    margin-top: -50vw;
-    color: #4DB033;
+    color: blueviolet;
     font-size: 3em;
+    margin-bottom: 5px;
 }
 .escrita{
-    width: 75%;
-    font-size: 1.2em;
-    transition: 0.5s;
-    margin-bottom: 15px;
+    width: 90% !important;
     text-align: justify;
-    margin-left: 0vw;
+    font-size: x-large;
+    margin-bottom: 25px;
 }
-.escrita2 {
-    margin-top: 55px;
-    color: rebeccapurple;
-    font-size: 1.4em;
-}
-.logo1{
-    transition: 0.5s;
-    width: 40%;
-    margin-top: 50px;
-    margin-left: -10px;
-}
-button{
-    background-color: rebeccapurple;
-    color: white;
-    width: 190px;
-    margin-top: 0px;
-    border-radius: 40px;
-    margin-left: 215px;
-    padding: 12px; 
-    margin-bottom: 5vw;
-    font-size: 85%;
-}
-button:hover{
+.escrita2{
     color: #4DB033;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+label{
+    color: blueviolet;
+    font-size: 3em;
+}
+.info2{
+    height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    border: dotted blueviolet;
+    border-radius: 20px;
+    width: 40%;
+}
+.escrita3{
+    text-align: center;
+}
+.titulo{
+    font-size: 3em;
+    color: #4DB033;
+}
+.preco{
+    font-size: 3em;
+    color: #4DB033;
+}
+.topico{
+    font-size: larger;
+    color: black;
+}
+.btnComprar{
+    margin: 40px !important;
+    background-color: blueviolet;
+    border-radius: 20px;
+    width: 20%;
+    height: 30px;
+    font-weight: bold;
+    transition: 0.5s;
+    min-width: min-content;
+}
+.btnComprar:hover{
+    color: white;
     transition: 0.5s;
 }
 
@@ -81,8 +83,45 @@ button:hover{
         font-size: 1.3em;
         transition: 0.5s;
     }
-    .logo{
-        margin-top: 100px;
+    .logo{  
         transition: 0.5s;
+    }
+    .escrita2{
+        font-size: 1.3em;
+        transition: 0.5s;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .escrita{
+        width: 100%;
+        font-size: 1.3em;
+        transition: 0.5s;
+    }
+    .escrita2{
+        font-size: 1.3em;
+        transition: 0.5s;
+    }
+    label{  
+        font-size: 1.2em;
+    }
+    .titulo{
+        font-size: 1.3em;
+        color: #4DB033;
+    }
+    .preco{
+        font-size: 1.3em;
+        color: #4DB033;
+    }
+    .topico{
+        font-size: ;
+    }
+    .btnComprar{
+        color: white;
+        width: 60%;
+    }
+    .info2{
+        margin-top: 15%;
+        margin-bottom: 15%;
     }
 }

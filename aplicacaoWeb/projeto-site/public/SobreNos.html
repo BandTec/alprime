@@ -16,8 +16,8 @@
             <div class="options">
                 <a href="Home.html">Home</a>
                 <a href="SobreNos.html">Sobre Nós</a>
-                <a href="">Nosso Produto</a>
-                <a href="">Seja um Parceiro</a>
+                <a href="nossoProduto.html">Nosso Produto</a>
+                <a href="nossoParceiro.html">Seja um Parceiro</a>
                 <button onclick="window.location.href='Login.html';">LOGAR</button>
             </div>
         </div>
@@ -42,29 +42,36 @@
 
         <div class="equipe">
             <h2 style="display: flexbox;">Conheça nossa equipe:</h2>
-            <div class="display">
+            <div class="display" style="justify-content: space-evenly;">
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/daniele-rocha-ab3964192/"><img src="./Imagens/LinkDaniele.jpg" alt="ERRO FOTO"></a>
+                    <a href="https://www.linkedin.com/in/daniele-rocha-ab3964192/"><img src="./Imagens/LinkDaniele.jpg"
+                            alt="ERRO FOTO"></a>
                     <h6>Daniele dos Santos</h6>
                     <h4>Desenvolvedor Front-end</h4>
                 </div>
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/diogo-ivan-7081a9174/"><img src="./Imagens/LinkDiogo.jpg" alt="ERRO FOTO"></a>
+                    <a href="https://www.linkedin.com/in/diogo-ivan-7081a9174/"><img src="./Imagens/LinkDiogo.jpg"
+                            alt="ERRO FOTO"></a>
                     <h6>Diogo Ivan</h6>
                     <h4>Desenvolvedor Front-end</h4>
                 </div>
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/gabriel-selotto-72b03a193/"><img src="./Imagens/LinkSelotto.jpg" alt="ERRO FOTO"></a>
+                    <a href="https://www.linkedin.com/in/gabriel-selotto-72b03a193/"><img
+                            src="./Imagens/LinkSelotto.jpg" alt="ERRO FOTO"></a>
                     <h6>Gabriel Selotto</h6>
                     <h4>Desenvolvedor Back-end</h4>
                 </div>
+            </div>
+            <div class="display" style="width: 80%; justify-content: space-evenly;">
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/gabriel-vieira-rodrigues-de-oliveira-27009b17b"><img src="./Imagens/LinkVieira.jpg" alt="ERRO FOTO"></a>
+                    <a href="https://www.linkedin.com/in/gabriel-vieira-rodrigues-de-oliveira-27009b17b"><img
+                            src="./Imagens/LinkVieira.jpg" alt="ERRO FOTO"></a>
                     <h6>Gabriel Vieira</h6>
                     <h4>Scrum Master</h4>
                 </div>
                 <div class="link">
-                    <a href="https://www.linkedin.com/in/gabriel-vieira-rodrigues-de-oliveira-27009b17b"><img src="./Imagens/LinkMatheus.PNG" alt="ERRO FOTO"></a>
+                    <a href="https://www.linkedin.com/in/gabriel-vieira-rodrigues-de-oliveira-27009b17b"><img
+                            src="./Imagens/LinkMatheus.PNG" alt="ERRO FOTO"></a>
                     <h6>Matheus Fernandes</h6>
                     <h4>Product Owner</h4>
                 </div>
@@ -81,12 +88,6 @@
 
         <div class="finalDisplay">
             <div class="finalInfo vertical">
-                <h1>Institucional</h1>
-                <a href="">Sobre nós</a><br><br>
-                <a href="">Nosso Produto</a><br><br>
-                <a href="">Seja um Parceiro</a><br><br>
-            </div>
-            <div class="finalInfo vertical">
                 <h1>Contato</h1>
                 <a href="">Tel: +55 (11) 94002-8922</a><br><br>
                 <a href="">Email: alprime@bandtec.com.br</a><br><br>
@@ -99,16 +100,17 @@
         </div>
 
         <div class="barBottom">
-            <button onclick="window.location.href='Home.html';">Home</button>
+            <button style="border-left: none;" onclick="window.location.href='Home.html';">Home</button>
             <button onclick="window.location.href='SobreNos.html';">Sobre Nós</button>
-            <button>Nosso Produto</button>
-            <button>Seja nossa Parceira</button>
+            <button onclick="window.location.href='nossoProduto.html';">Nosso Produto</button>
+            <button onclick="window.location.href='nossoParceiro.html';">Seja nossa Parceira</button>
         </div>
     </div>
 </body>
+
 </html>
 <script>
-    onload=function(){
-    document.body.style.visibility="visible"
-}
+    onload = function () {
+        document.body.style.visibility = "visible"
+    }
 </script>

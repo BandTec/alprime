@@ -1,4 +1,4 @@
-html{min-width: 350px;}
+html{min-width: 750px;}
 
 body{
     visibility:hidden;
@@ -74,6 +74,7 @@ body{
     justify-content: space-evenly;
 }
 .finalInfo{
+    text-align: -webkit-center;
     width: 100%;
 }
 .finalInfo h1{
@@ -97,8 +98,8 @@ body{
     color: white;
     border: 0px;
     margin-top: 1%;
-    height: 80%;
-    border: ridge;
+    height: 80%;    
+    border-left: outset;
 }
 
 
@@ -119,12 +120,13 @@ body{
 }
 
 @media only screen and (max-width: 600px){
+    html{min-width: 350px;}
     .central{
         width: 100%;
         margin-left: 0%;
     }
     .topo img{
-        margin-left: 35% !important;
+        margin-left: 30% !important;
         transition: 0.5s;
     }
     .options a{
@@ -143,7 +145,7 @@ body{
         height: 100px;
     }
     .fotos img{
-        height: 60% !important;
+        height: 50% !important;
         width: 20% !important;
     }
     .barBottom{
