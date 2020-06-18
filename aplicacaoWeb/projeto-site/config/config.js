@@ -14,7 +14,7 @@ module.exports = {
     username: 'root',
     password: 'urubu100',
     database: 'alprime',
-    host: '52.200.199.88',
+    host: '3.92.85.73',
     dialect: 'mysql',
     port: "3306",
   // Banco de Dados na Azure
