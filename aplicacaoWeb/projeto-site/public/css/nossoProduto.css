@@ -15,25 +15,27 @@
     word-spacing: 3px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-button{
-    background-color: rebeccapurple;
-    color: white;
-    width: 190px;
-    margin-top: 40px;
-    border-radius: 40px;
-    margin-left: 230px;
-    padding: 12px; 
-    margin-bottom: 5vw;
-    font-size: 85%;
+.info button{
+    background-color: blueviolet;
+    border-radius: 20px;
+    font-weight: bold;
+    height: 40px;
+    margin-left: 75%;
+    min-width: 160px;
+    margin-bottom: 30px;
+    transition: 0.5s;
 }
 .info button:hover{
-    color: #4DB033;
+    color: white;
     transition: 0.5s;
 }
 .logo{
     transition: 0.5s;
     margin-top: 200px;
     margin-left: 60px;
+}
+.logo img{
+    width: 100%;
 }
 @media only screen and (max-width: 1200px) {
     .options a{
@@ -43,6 +45,10 @@ button{
     .escrita{
         width: 100%;
         font-size: 1.5em;
+    }
+    .logo img{
+        margin-top: 20%;
+        transition: 0.5s;
     }
 }
 
@@ -57,8 +63,31 @@ button{
         margin-top: 60px;
         margin-left: -22px;
     }
-    .logo2-1{
-        margin-top: 100px;
+    .logo img{
+        margin-top: 40%;
         transition: 0.5s;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px){
+    .logo img{
+        display: none;
+    }
+    .info{
+        width: 120%;
+    }
+    .info h1{
+        
+        margin-left: 10%;
+        width: 100%;
+    }
+    .info button{
+    margin-left: 20%;
+    color: white;
+    }
+    .escrita{
+        margin-left: 10%;
     }
 }
