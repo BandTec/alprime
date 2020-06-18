@@ -29,8 +29,9 @@ public class InformacoesComputador {
     private final OperatingSystem infoSO = infoSistema.getOperatingSystem();
 
     // Aqui são fica o nome de todas variáveis a serem puxadas na hora de pegar os dados do PC.
+    //infoSO.getProcess(0).getUser()
     public InformacoesComputador() {
-        usuario = infoSO.getProcess(0).getUser();
+        usuario = "Gabriel";
         hostname = infoSO.getNetworkParams().getHostName();
         fabricante = infoHardware.getComputerSystem().getManufacturer();
         modelo = infoHardware.getComputerSystem().getModel();
