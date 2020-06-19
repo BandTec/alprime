@@ -45,7 +45,8 @@ public class Maquina {
     }
     
     
-    public Maquina(Localizacao localizacao){
+    public Maquina(Localizacao localizacao)
+    {
         InformacoesComputador computador = new InformacoesComputador();
         this.idMaquina = null;
         this.codMaquina = null;
