@@ -20,7 +20,7 @@ public class ConexaoBD {
     public ConexaoBD() {
         this.dataSource = new BasicDataSource();
         this.dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        this.dataSource.setUrl("jdbc:mysql://52.200.199.88:3306/alprime?useSSL=false");
+        this.dataSource.setUrl("jdbc:mysql://3.92.85.73:3306/alprime?useSSL=false");
         this.dataSource.setUsername("root");
         this.dataSource.setPassword("urubu100");
 

@@ -10,9 +10,9 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath com.alprime.GUI.TelaInicial2</exec.args>
+                <exec.args>-classpath %classpath com.alprime.GUI.TelaInicial</exec.args>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal</exec.workingdir>
+                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\RepositÃ³rios git\alprime\aplicacaoLocal</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -25,10 +25,10 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath com.alprime.GUI.TelaInicial2</exec.args>
+                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath com.alprime.GUI.TelaInicial</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
-                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal</exec.workingdir>
+                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\RepositÃ³rios git\alprime\aplicacaoLocal</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -41,9 +41,9 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath com.alprime.GUI.TelaInicial2</exec.args>
+                <exec.args>-classpath %classpath com.alprime.GUI.TelaInicial</exec.args>
                 <exec.executable>java</exec.executable>
-                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\Repositórios git\alprime\aplicacaoLocal</exec.workingdir>
+                <exec.workingdir>C:\Users\Gabriel Vieira\Documents\RepositÃ³rios git\alprime\aplicacaoLocal</exec.workingdir>
             </properties>
         </action>
     </actions>

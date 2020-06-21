@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Corpo.css" >
+    <link rel="stylesheet" href="./css/Corpo.css">
     <link rel="stylesheet" href="./css/nossoParceiro.css">
-    <title>Seja nosso parceiro</title>
+    <title>Seja parceiro</title>
 </head>
 
 <body>
@@ -16,26 +16,9 @@
             <div class="options">
                 <a href="Home.html">Home</a>
                 <a href="SobreNos.html">Sobre Nós</a>
-                <a href="">Nosso Produto</a>
-                <a href="">Seja um Parceiro</a>
+                <a href="nossoProduto.html">Nosso Produto</a>
+                <a href="nossoParceiro.html">Seja um Parceiro</a>
                 <button onclick="window.location.href='Login.html';">LOGAR</button>
-            </div>
-        </div>
-
-        <div class="info2">
-            <div class="escrita2">
-                <strong>
-                <a class="titulo">Pacote mensal:</a> <br>
-                <a class="preco">R$ 350,00</a> <br><br>
-                Benefícios: <br><br>
-            </strong>
-               <a class="topico">
-                - Graficos atualizados sobre a movimentação de uma estação; <br>
-                - Relatórios financeiros com balanços mensais e diários; <br>
-                - Previsibilidade sobre a saúde dos totens; <br>
-                - Diminuição de riscos de sistema fora do ar;<br>
-                - Alertas a todo momento sobre a situação dos totens.
-            </a>
             </div>
         </div>
 
@@ -43,20 +26,40 @@
             <div class="info">
                 <h1>Seja um Parceiro!</h1><br>
                 <div class="escrita">
-                    A Alprime vende seu software como produto, onde o mesmo, após a 
+                    A Alprime vende seu software como produto, onde o mesmo, após a
                     compra, é enviado de forma totalmente segura, podendo ser instalado
                     e iniciado pelo comprador, o resto é com a gente!
                 </div>
                 <div class="escrita2">
                     <b>Adquira o produto agora mesmo!<br>
-                    Certifique-se de ter um cadastro antes!</b>
+                        Certifique-se de ter um cadastro antes!</b>
                 </div>
                 <div class="logo">
                     <img class="logo1" src="./Imagens/parceiro.png" alt="ERRO LOGO">
                 </div>
+                <button class="btnComprar" onclick="window.location.href='nossoProduto.html';">Comprar</button>
+            </div>
+
+            <div class="info2">
+                <div class="escrita3">
+                    <strong class="centro">
+                        <a class="titulo">Pacote mensal:</a> <br>
+                        <a class="preco">R$ 350,00</a> <br><br>
+                        <label for="">Benefícios:</label><br><br>
+                    </strong>
+                    <a class="topico">
+                        - Graficos atualizados sobre a movimentação de uma estação; <br>
+                        - Relatórios financeiros com balanços mensais e diários; <br>
+                        - Previsibilidade sobre a saúde dos totens; <br>
+                        - Diminuição de riscos de sistema fora do ar;<br>
+                        - Alertas a todo momento sobre a situação dos totens.
+                    </a>
+                </div>
             </div>
         </div>
-        <button onclick="window.location.href='nossoProduto.html';">Comprar</button>
+
+        
+
         <div class="fotos">
             <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
             <img src="./Imagens/BOM.png" alt="ERRO LOGO" style="height: 100%;">
@@ -66,12 +69,6 @@
 
 
         <div class="finalDisplay">
-            <div class="finalInfo vertical">
-                <h1>Institucional</h1>
-                <a href="">Sobre nós</a><br><br>
-                <a href="">Nosso Produto</a><br><br>
-                <a href="">Seja um Parceiro</a><br><br>
-            </div>
             <div class="finalInfo vertical">
                 <h1>Contato</h1>
                 <a href="">Tel: +55 (11) 94002-8922</a><br><br>
@@ -83,11 +80,19 @@
                 <a href="">Cep: 09284-030</a><br><br>
             </div>
         </div>
+
+        <div class="barBottom">
+            <button style="border-left: none;" onclick="window.location.href='Home.html';">Home</button>
+            <button onclick="window.location.href='SobreNos.html';">Sobre Nós</button>
+            <button onclick="window.location.href='nossoProduto.html';">Nosso Produto</button>
+            <button onclick="window.location.href='nossoParceiro.html';">Seja nossa Parceira</button>
+        </div>
     </div>
 </body>
+
 </html>
 <script>
-    onload=function(){
-    document.body.style.visibility="visible"
-}
+    onload = function () {
+        document.body.style.visibility = "visible"
+    }
 </script>

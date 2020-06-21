@@ -15,7 +15,6 @@ com\alprime\GUI\TelaInicial.class
 com\alprime\bancoDados\Query\QueryBD.class
 com\alprime\GUI\TelaRPA$4.class
 com\alprime\monitoramento\Consumo.class
-.netbeans_automatic_build
 com\alprime\GUI\TelaInicial$4.class
 com\alprime\GUI\Processos.class
 com\alprime\telegram\From.class
@@ -23,8 +22,8 @@ com\alprime\GUI\TelaRPA$5.class
 com\alprime\GUI\TelaInicial$3.class
 com\alprime\bancoDados\tabelas\Usuario.class
 com\alprime\telegram\ApiTelegram.class
+com\alprime\monitoramento\processador.class
 com\alprime\GUI\TelaMonitoramento$1.class
-teste.class
 com\alprime\GUI\TelaMonitoramento$2.class
 com\alprime\GUI\TelaRPA$11.class
 com\alprime\GUI\TelaRPA$9.class

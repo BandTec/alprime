@@ -17,8 +17,8 @@
                 <div class="options">
                     <a href="Home.html">Home</a>
                     <a href="SobreNos.html">Sobre Nós</a>
-                    <a href="">Nosso Produto</a>
-                    <a href="">Seja um Parceiro</a>
+                    <a href="nossoProduto.html">Nosso Produto</a>
+                    <a href="nossoParceiro.html">Seja um Parceiro</a>
                     <button onclick="window.location.href='Login.html';">LOGAR</button>
                 </div>
             </div>
@@ -32,23 +32,20 @@
                         <label>Nome:</label><br>
                         <input placeholder="  Pedro Alvares Cabral" id="nome" name="nome" type="text"
                             onkeyup="verificarNome()"><br>
-                        <label>CPF:</label><br>
-                        <input name="cpf" id="cpf" type="text" onblur="colocar_mascara()" onfocus="arrancar_mascara()"
-                            placeholder="Ex:111.211.141-75" maxlength="14"
-                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"><br>
                         <label>senha:</label><br>
-                        <input id="senha" name="senha" type="password" onkeyup="verificarSenha()">
+                        <input id="senha" name="senha" type="password" onkeyup="verificarSenha()"><br>
+                        <label>Confirmar Senha:</label><br>
+                        <input id="senha_repetida" type="password" onkeyup="verificarSenhaRep()">
                     </div>
                     <div class="direita">
                         <label>Email:</label><br>
                         <input id="email" name="email" type="email" onkeyup="verificarEmail()"><br>
                         <label>Telefone:</label><br>
                         <input id="telefone" name="telefone" type="text" onkeyup=""><br>
-                        <label>Confirmar Senha:</label><br>
-                        <input id="senha_repetida" type="password" onkeyup="verificarSenhaRep()">
+                        <button onclick="guardarDados()" class="continuar">Continuar</button>
                     </div>
                 </div>
-                <button onclick="guardarDados()" class="continuar">Continuar</button>
+                
 
             <div class="fotos">
                 <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
@@ -59,12 +56,6 @@
 
 
             <div class="finalDisplay">
-                <div class="finalInfo vertical">
-                    <h1>Institucional</h1>
-                    <a href="">Sobre nós</a><br><br>
-                    <a href="">Nosso Produto</a><br><br>
-                    <a href="">Seja um Parceiro</a><br><br>
-                </div>
                 <div class="finalInfo vertical">
                     <h1>Contato</h1>
                     <a href="">Tel: +55 (11) 94002-8922</a><br><br>

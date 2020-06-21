@@ -252,14 +252,22 @@ public class TelaMonitoramento extends javax.swing.JFrame {
             lblUsoProcessador.setText(String.valueOf(registro.getPorcProcessador()));
             pgbTempCPU.setValue(registro.getTempCpu().intValue());
             lblTempCPU.setText(String.valueOf(registro.getTempCpu().intValue()) + "ºC");
-            lblUsoRAM.setText(String.format("%.2f %%", registro.getPorcRam()));
-            pgbUsoRAM.setValue(registro.getPorcRam().intValue());
             pgbUsoCpu.setValue(registro.getPorcProcessador().intValue());
             lblUsoProcessador.setText(String.format("%.2f %%", registro.getPorcProcessador()));
-            pgbUsoDisco.setValue(registro.getPorcDisco().intValue());
-            lblUsoDisco.setText(String.format("%.2f %%", registro.getPorcDisco()));
+            
+            
+            lblUsoRAM.setText(String.format("%.2f %%", registro.getPorcRam()));
+            pgbUsoRAM.setValue(registro.getPorcRam().intValue());
+            
             pgbUsoMemoria.setValue(registro.getPorcMemoria().intValue());
             lblUsoMemoria.setText(String.format("%.2f %%", registro.getPorcMemoria()));
+            
+            
+            pgbUsoDisco.setValue(registro.getPorcDisco().intValue());
+            lblUsoDisco.setText(String.format("%.2f %%", registro.getPorcDisco()));
+            
+            
+            
             Administrativo adm = QueryBD.mediaAdministrativo(maquinaBD);
             lblLucro.setText(String.format("R$%.2f", adm.calcularLucro()));
             lblGasto.setText(String.format("R$%.2f", adm.getGasto()));
@@ -267,7 +275,9 @@ public class TelaMonitoramento extends javax.swing.JFrame {
             lblMediaMes.setText(String.format("%.1f clientes/mês", adm.getMediaClientes()));
             try {
                 Thread.sleep(tempo);
-            } catch (InterruptedException e) {
+            } 
+            catch (InterruptedException e) 
+            {
                 Log log = new Log(maquinaBD.getIdMaquina(), 1);
                 String mensagem = String.format("Interrupção inesperada na atualização dos dados");
                 MensagemLog mensagemLog = new MensagemLog(maquinaBD.getIdMaquina(), mensagem, "CRITICA");
@@ -746,7 +756,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         lblUsoMemoria.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoMemoria.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoMemoria.setText("0%");
-        jPanel5.add(lblUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 60, 40));
+        jPanel5.add(lblUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 60, 40));
 
         lblUsoDisco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoDisco.setForeground(new java.awt.Color(111, 44, 145));
@@ -754,7 +764,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         jPanel5.add(lblUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 80, 20));
 
         pgbUsoMemoria.setForeground(new java.awt.Color(82, 186, 54));
-        jPanel5.add(pgbUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 20));
+        jPanel5.add(pgbUsoMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 20));
 
         pgbUsoCpu.setForeground(new java.awt.Color(82, 186, 54));
         jPanel5.add(pgbUsoCpu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 150, 20));
@@ -765,7 +775,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(111, 44, 145));
         jLabel24.setText("Uso de RAM");
-        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 70, 40));
+        jPanel5.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, 40));
 
         pgbUsoDisco.setForeground(new java.awt.Color(82, 186, 54));
         jPanel5.add(pgbUsoDisco, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 150, 20));
@@ -773,20 +783,20 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         lblUsoRAM.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblUsoRAM.setForeground(new java.awt.Color(111, 44, 145));
         lblUsoRAM.setText("0%");
-        jPanel5.add(lblUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 70, 20));
+        jPanel5.add(lblUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 70, 20));
 
         pgbUsoRAM.setForeground(new java.awt.Color(82, 186, 54));
-        jPanel5.add(pgbUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 150, 20));
+        jPanel5.add(pgbUsoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 20));
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(111, 44, 145));
-        jLabel21.setText("Uso de Memoria");
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 100, 40));
+        jLabel21.setText("Uso Mém. de Massa");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, 40));
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(111, 44, 145));
-        jLabel22.setText("Uso do Disco");
-        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 80, 40));
+        jLabel22.setText("Uso do Disco Principal");
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 40));
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(111, 44, 145));
@@ -938,9 +948,12 @@ public class TelaMonitoramento extends javax.swing.JFrame {
     private void btnMonitorarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMonitorarActionPerformed
         Integer valor = Integer.valueOf(spnAtualizacao.getValue().toString());
         if (!monitorando) {
-            if (valor < 6) {
+            if (valor < 6) 
+            {
                 spnAtualizacao.setValue(6);
-            } else {
+            } 
+            else 
+            {
                 Thread threadMonitoramento = new Thread(this::atualizarDados);
                 Thread threadReticencias = new Thread(this::reticencias);
 

@@ -41,10 +41,10 @@
 .continuar{
     background-color: blueviolet;
     border-radius: 10px;
-    margin-left: 45%;
+    margin-left: 35%;
     font-weight: bold;
     font-size: large;
-    height: 40px;
+    height: 45px;
     margin-bottom: 20px;
     text-align: -webkit-center !important;
     transition: 0.5s;

@@ -15,20 +15,9 @@
     <script src="./graficos-transacoes/utils.js"></script>
     <script src="JavaScript/dashboard-transacoes.js"></script>
 
-    <head>
-        <title>Line Chart</title>
-      
-        <style>
-            canvas {
-                z-index: 4;
-                -moz-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-            }
-        </style>
-    </head>
+</head>
     
-<body onload="atualizarGrafico();">
+<body>
     <div class="display">
         <div class="central">
             <div class="topo">
@@ -42,8 +31,9 @@
                 </div>
             </div>
             <div class="display">
-                <div style="display: flex;">
-                <canvas id="canvas_grafico"></canvas>
+
+                <div class="grafico">
+                    <canvas id="canvas_grafico"></canvas>
                 </div>
             </div>
             <div class="fotos">
@@ -56,18 +46,18 @@
 
             <div class="finalDisplay">
                 <div class="finalInfo vertical">
-                    <h1>Institucional</h1>
+                    <h2>Institucional</h2>
                     <a href="">Sobre nós</a><br><br>
                     <a href="">Nosso Produto</a><br><br>
                     <a href="">Seja um Parceiro</a><br><br>
                 </div>
                 <div class="finalInfo vertical">
-                    <h1>Contato</h1>
+                    <h2>Contato</h2>
                     <a href="">Tel: +55 (11) 94002-8922</a><br><br>
                     <a href="">Email: alprime@bandtec.com.br</a><br><br>
                 </div>
                 <div class="finalInfo">
-                    <h1>Endereço</h1>
+                    <h2>Endereço</h2>
                     <a href="">Rua Haddok Lobo, 624 - Jardins São Paulo (SP)</a><br><br>
                     <a href="">Cep: 09284-030</a><br><br>
                 </div>
@@ -86,6 +76,7 @@
 </html>
 <script>
     onload = function () {
-        document.body.style.visibility = "visible"
+        atualizarGrafico();
+        document.body.style.visibility = "visible";
     }
 </script>
