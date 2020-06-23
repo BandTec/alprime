@@ -146,6 +146,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         int contadorPerigoProcessador = 0;
         while (monitorando) {
             Registro registro = new Registro(maquinaBD);
+            System.out.println(registro);
             QueryBD.insertRegistro(registro);
             TemperaturaAlerta temperaturaAlerta = QueryBD.mediaTemperatura(maquinaBD);
 

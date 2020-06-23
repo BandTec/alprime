@@ -27,7 +27,7 @@ public class InformacoesComputador
     //infoSO.getProcess(0).getUser()
     public InformacoesComputador() 
     {
-        usuario = "Gabriel";
+        usuario = infoSO.getNetworkParams().getHostName();
         hostname = infoSO.getNetworkParams().getHostName();
         fabricante = infoHardware.getComputerSystem().getManufacturer();
         modelo = infoHardware.getComputerSystem().getModel();
@@ -121,6 +121,11 @@ public class InformacoesComputador
 
     public OperatingSystem getInfoSO() {
         return infoSO;
+    }
+
+    @Override
+    public String toString() {
+        return "InformacoesComputador{" + "usuario=" + usuario + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", processador=" + processador + ", ramTotal=" + ramTotal + ", sistemaOperacional=" + sistemaOperacional + ", disco=" + disco + ", gpu=" + gpu + ", cpu=" + cpu + ", ds=" + ds + ", cpus=" + cpus + ", cpuLoad=" + cpuLoad + ", infoSistema=" + infoSistema + ", infoHardware=" + infoHardware + ", infoSO=" + infoSO + '}';
     }
     
 }

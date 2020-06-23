@@ -28,7 +28,6 @@ public class Consumo
         
         cpuUso = Consumo.pegarCpu();
         tempCPU = Consumo.getCpuTemperature();
-        
         consumoRAM = Consumo.monitorarRam();
         consumoMemoria = Consumo.monitorarMemoria();
         
@@ -150,6 +149,11 @@ public class Consumo
         porcentagem = (double)((usado / total)*100);
         
         return porcentagem;
+    }
+
+    @Override
+    public String toString() {
+        return "Consumo{" + "cpuSize=" + cpuSize + ", cpuUso=" + cpuUso + ", consumoRAM=" + consumoRAM + ", consumoMemoria=" + consumoMemoria + ", consumoDisco=" + consumoDisco + ", tamanhoDisco=" + tamanhoDisco + ", comp=" + comp + '}';
     }
     
    
