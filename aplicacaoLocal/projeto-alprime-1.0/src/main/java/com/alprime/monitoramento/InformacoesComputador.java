@@ -8,16 +8,11 @@ import oshi.hardware.*;
 import oshi.software.os.*;
 import oshi.util.FormatUtil;
 
-public class InformacoesComputador {
+public class InformacoesComputador 
+{
 
     // Variáveis que os dados vão entrar
-    private String usuario;
-    private String hostname;
-    private String fabricante;
-    private String modelo;
-    private String processador;
-    private String ramTotal;
-    private String sistemaOperacional;
+    private String usuario, hostname, fabricante, modelo, processador, ramTotal, sistemaOperacional;
     private Double disco;
     private Double gpu;
     private Double cpu;
@@ -29,8 +24,10 @@ public class InformacoesComputador {
     private final OperatingSystem infoSO = infoSistema.getOperatingSystem();
 
     // Aqui são fica o nome de todas variáveis a serem puxadas na hora de pegar os dados do PC.
-    public InformacoesComputador() {
-        usuario = infoSO.getProcess(0).getUser();
+    //infoSO.getProcess(0).getUser()
+    public InformacoesComputador() 
+    {
+        usuario = infoSO.getNetworkParams().getHostName();
         hostname = infoSO.getNetworkParams().getHostName();
         fabricante = infoHardware.getComputerSystem().getManufacturer();
         modelo = infoHardware.getComputerSystem().getModel();
@@ -41,7 +38,8 @@ public class InformacoesComputador {
         OSFileStore[] memoria = infoSO.getFileSystem().getFileStores();
         Double totalMemoria = 0.0;
 
-        for (OSFileStore reparticoes : memoria) {
+        for (OSFileStore reparticoes : memoria) 
+        {
             Double memoriaGB = Double.valueOf(reparticoes.getTotalSpace()) / 1000000000;
             totalMemoria += memoriaGB;
         }
@@ -123,6 +121,11 @@ public class InformacoesComputador {
 
     public OperatingSystem getInfoSO() {
         return infoSO;
+    }
+
+    @Override
+    public String toString() {
+        return "InformacoesComputador{" + "usuario=" + usuario + ", hostname=" + hostname + ", fabricante=" + fabricante + ", modelo=" + modelo + ", processador=" + processador + ", ramTotal=" + ramTotal + ", sistemaOperacional=" + sistemaOperacional + ", disco=" + disco + ", gpu=" + gpu + ", cpu=" + cpu + ", ds=" + ds + ", cpus=" + cpus + ", cpuLoad=" + cpuLoad + ", infoSistema=" + infoSistema + ", infoHardware=" + infoHardware + ", infoSO=" + infoSO + '}';
     }
     
 }

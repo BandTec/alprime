@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
  *
  * @author Gabriel Vieira
  */
-public class Registro {
+public class Registro 
+{
     private Integer idRegistro;
     private String dataHora;
     private Double porcProcessador;
@@ -24,10 +25,13 @@ public class Registro {
     private Double porcRam;
     private Maquina maquina;
 
-    public Registro() {
+    public Registro()
+    {
+        
     }
 
-    public Registro(Maquina maquina) {
+    public Registro(Maquina maquina) 
+    {
         Consumo consumo = new Consumo();
         this.idRegistro = null;
         this.dataHora = Converssao.dataHoraFormatoSQL(String.valueOf(LocalDateTime.now()));
@@ -115,7 +119,8 @@ public class Registro {
     }
 
     @Override
-    public String toString() {
+    public String toString() 
+    {
         return "Registro{" + "idRegistro=" + idRegistro + ", dataHora=" + dataHora + ", porcProcessador=" + porcProcessador + ", porcDisco=" + porcDisco + ", porcMemoria=" + porcMemoria + ", tempCpu=" + tempCpu + ", porcRam=" + porcRam + ", maquina=" + maquina + '}';
     }
 
