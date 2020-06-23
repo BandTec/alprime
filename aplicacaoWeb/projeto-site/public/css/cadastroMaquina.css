@@ -2,24 +2,20 @@
     /* text-align: -webkit-center; */
     display: flex;
 }
-.titulo1{
-    color: #4DB033;
-    margin-bottom: 0px;
-    font-weight: bold;
-    text-align: -webkit-center;
-}
-.titulo2{
-    color: #6f2c91;
-    margin-top: 0px;
-    margin-bottom: 50px;
-    font-weight: bold;
-    text-align: -webkit-center;
-}
 .cadastrar input{
     height: 20px;
     margin-top: 0px;
     width: 80%;
     border-radius: 7px;
+    border-color: #4DB033;
+    text-shadow: blue;
+}
+.cadastrar select{
+    height: 23px;
+    margin-top: 0px;
+    width: 41%;
+    border-radius: 7px;
+    border: inset 2px; 
     border-color: #4DB033;
     text-shadow: blue;
 }
@@ -30,12 +26,24 @@
     text-align: left !important;
     margin-left: 0%;
 }
+.titulo1{
+    color: #4DB033;
+    margin-bottom: 0px;
+    font-weight: bold;
+    text-align: -webkit-center;
+    margin-bottom: 40px;
+}
 .esquerda{
     width: 50%;
     margin-left: 8%;
 }
 .direita{
     width: 50%;
+}
+h6{
+    color: red;
+    margin-top: 0px;
+    margin-left: 10px;
 }
 .continuar{
     background-color: blueviolet;
@@ -51,9 +59,4 @@
 .continuar:hover{
     color: white;
     transition: 0.5s;
-}
-h6{
-    color: white;
-    margin-top: 0px;
-    margin-left: 10px;
 }

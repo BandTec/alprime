@@ -27,20 +27,20 @@
             <form id="form_localizacao">
                 <div class="cadastrar">
                     <div class="esquerda ">
-                        <label>Endereço:</label><br>
-                        <input placeholder="  Rua São José de Camargo" name="endereco" type="text"><br>
                         <label>Linha de metrô:</label><br>
                         <input placeholder="  Linha azul" name="linha" id="linha" type="text"><br>
-
+                        <h6 id="AlertaLinha">asasdds</h6>
+                        <label>Endereço:</label><br>
+                        <input placeholder="  Rua São José de Camargo" id="endereco" name="endereco" type="text"><br>
+                        <h6 id="AlertaEndereco">asasdds</h6>
                     </div>
                     <div class="direita">
-                        <label>CEP:</label><br>
-                        <input placeholder="  12345-000" name="" type="email"><br>
                         <label>Estação:</label><br>
-                        <input placeholder="  Tucuruvi" name="estacao" type="text"><br>
+                        <input placeholder="  Tucuruvi" id="estacao" name="estacao" type="text"><br>
+                        <h6 id="AlertaEstacao">asasdds</h6>
+                        <button id="Cadastro2" type="button" onclick="cadastrar()" class="continuar">Cadastrar </button>
                     </div>
                 </div>
-                <button type="button" onclick="cadastrar()" class="continuar">Cadastrar </button>
             </form>
 
             <div class="fotos">
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    <script src="./JavaScript/cadastro.js"></script>
+    
 </body>
-
 </html>
+<script src="./JavaScript/cadastro.js"></script>

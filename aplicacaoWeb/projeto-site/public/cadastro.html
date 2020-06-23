@@ -9,7 +9,7 @@
     <title>Cadastro</title>
 </head>
 
-<body>
+<body >
     <div class="display">
         <div class="central">
             <div class="topo">
@@ -30,22 +30,30 @@
                 <div class="cadastrar">
                     <div class="esquerda ">
                         <label>Nome:</label><br>
-                        <input placeholder="  Pedro Alvares Cabral" id="nome" name="nome" type="text"
-                            onkeyup="verificarNome()"><br>
+                        <input id="nome" name="nome" type="text"><br>
+                        <h6 id="AlertaNome">asasdds</h6>
+                        <label>Telefone:</label><br>
+                        <input id="telefone" name="telefone" type="text"><br>
+                        <h6 id="AlertaTelefone">asasdds</h6>
                         <label>senha:</label><br>
-                        <input id="senha" name="senha" type="password" onkeyup="verificarSenha()"><br>
-                        <label>Confirmar Senha:</label><br>
-                        <input id="senha_repetida" type="password" onkeyup="verificarSenhaRep()">
+                        <input id="senha" name="senha" type="password"><br>
+                        <h6 id="AlertaSenha">asasdds</h6>
+                        
                     </div>
                     <div class="direita">
                         <label>Email:</label><br>
-                        <input id="email" name="email" type="email" onkeyup="verificarEmail()"><br>
-                        <label>Telefone:</label><br>
-                        <input id="telefone" name="telefone" type="text" onkeyup=""><br>
-                        <button onclick="guardarDados()" class="continuar">Continuar</button>
+                        <input id="email" name="email" type="email"><br>
+                        <h6 id="AlertaEmail">asasdds</h6>
+                        <label>CPF:</label><br>
+                        <input id="cpf" name="CPF" type="text"><br>
+                        <h6 id="AlertaCPF">asasdds</h6>
+                        <label>Confirmar Senha:</label><br>
+                        <input id="senha_repetida" type="password">
+                        <h6 id="AlertaConfSenha">asasdds</h6>
                     </div>
                 </div>
                 
+                <button onclick="guardarDados()" class="continuar">Continuar</button>
 
             <div class="fotos">
                 <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">

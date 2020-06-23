@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/Corpo.css">
+    <link rel="stylesheet" href="./css/cadastroMaquina.css">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <div class="display">
+        <div class="central">
+            <div class="topo">
+                <div class="options">
+                    <img src="./Imagens/logo_editado.png" alt="ERRO LOGO">
+                    <a href="Home.html">Home</a>
+                    <a href="SobreNos.html">Sobre Nós</a>
+                    <a href="nossoProduto.html">Nosso Produto</a>
+                    <a href="nossoParceiro.html">Seja um Parceiro</a>
+                    <button onclick="window.location.href='Login.html';">LOGAR</button>
+                </div>
+            </div>
+            <h1 class="titulo1">Cadastre a máquina</h1>
+
+            <form id="form_maquina">
+                <div class="cadastrar">
+                    <div class="esquerda ">
+                        <label>Tipo processador:</label><br>
+                        <input id="processador" name="processador" type="text"><br>
+                        <h6 id="AlertaProcessador">asasdds</h6>
+                        <label>Total de memória RAM:</label><br>
+                        <input id="memoriaRAM" name="memoriaRAM" type="number"><br>
+                        <h6 id="AlertaRAM">asasdds</h6>
+                        <label>Fabricante:</label><br>
+                        <input id="fabricante" name="fabricante" type="text"><br>
+                        <h6 id="AlertaFabricante">asasdds</h6>
+                        <label>Sistema Operacional:</label><br>
+                        <select style="width: 80%;" name="SO" id="SO">
+                            <option value="Windows">Windows</option>
+                            <option value="Linux">Linux</option>
+                            <option value="Mac">Mac</option>
+                        </select><br>
+                        <h6 id="AlertaSO">asasdds</h6>
+                    </div>
+                    <div class="direita">
+                        <label>Capacidade da memória:</label><br>
+                        <input id="memoria" name="memoria" type="number"><br>
+                        <h6 id="AlertaMemoria">asasdds</h6>
+                        <label>Hostname:</label><br>
+                        <input id="hostname" name="hostname" type="text"><br>
+                        <h6 id="AlertaHostname">asasdds</h6>
+                        <label>Modelo:</label><br>
+                        <input id="modelo" name="modelo" type="text"><br>
+                        <h6 id="AlertaModelo">asasdds</h6>
+                        <label>Local:</label><br>
+                        <Select name="tipoLinha" id="tipoLinha">
+                            <option value="0">-- Escolha o metrô --</option>
+                        </Select>
+                        <select name="tipoEstacao" id="tipoEstacao">
+                            <option value="0">-- Escolha a estação --</option>
+                        </select>
+                        <h6 id="AlertaLocal">asasdds</h6>
+                    </div>
+                </div>
+            </form>
+
+            <button onclick="" class="continuar">Cadastrar</button>
+
+            <div class="fotos">
+                <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
+                <img src="./Imagens/BOM.png" alt="ERRO LOGO" style="height: 100%;">
+                <img src="./Imagens/bilhete-unico.png" alt="ERRO LOGO">
+                <img src="./Imagens/SPTrans.png" alt="" style="width: 12%;">
+            </div>
+
+
+            <div class="finalDisplay">
+                <div class="finalInfo vertical">
+                    <h1>Contato</h1>
+                    <a href="">Tel: +55 (11) 94002-8922</a><br><br>
+                    <a href="">Email: alprime@bandtec.com.br</a><br><br>
+                </div>
+                <div class="finalInfo">
+                    <h1>Endereço</h1>
+                    <a href="">Rua Haddok Lobo, 624 - Jardins São Paulo (SP)</a><br><br>
+                    <a href="">Cep: 09284-030</a><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="JavaScript/cadastroMaquina.js"></script>

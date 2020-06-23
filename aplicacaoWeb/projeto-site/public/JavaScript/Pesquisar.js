@@ -2,12 +2,6 @@ onload = function () {
     document.body.style.visibility = "visible";
 
     mostrarLinhas()
-
-    espaco.style.display = 'none';
-        campoInfo.style.display = 'block';
-        totalOn.innerHTML = "2'";
-        totalOff.innerHTML = "3";
-        fotoLinha.src = `./Imagens/linha-verde.png`;
 }
 
 function mostrarLinhas() {
