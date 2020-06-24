@@ -5,7 +5,7 @@
  */
 package com.alprime.bancoDados.Query;
 
-import com.alprime.alerta.TemperaturaAlerta;
+import com.alprime.bancoDados.Query.TemperaturaAlerta;
 import com.alprime.bancoDados.ConexaoBD;
 import com.alprime.bancoDados.Query.Administrativo;
 import com.alprime.bancoDados.tabelas.Aviso;

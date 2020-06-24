@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.alprime.alerta;
+package com.alprime.bancoDados.Query;
 
 import com.alprime.bancoDados.tabelas.Maquina;
 import com.alprime.bancoDados.tabelas.Registro;
 
-/**
- *
- * @author Gabriel Vieira
- */
+
 public class TemperaturaAlerta {
     private Double tempMedia;
     private Double tempAtencao;

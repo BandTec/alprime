@@ -26,7 +26,8 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author matheus.costa
  */
-public class BotTelegram {
+public class BotTelegram 
+{
 
     private String CHAT_ID;
     private static final String TOKEN = "1218586965:AAGOQlenhj8avnFRx6p43n7HnfwDcv-R-6g";

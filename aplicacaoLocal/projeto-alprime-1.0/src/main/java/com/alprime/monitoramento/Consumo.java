@@ -3,7 +3,6 @@ package com.alprime.monitoramento;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
-
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OSFileStore;
 import oshi.software.os.OperatingSystem;
@@ -14,8 +13,9 @@ public class Consumo
 {
    
     private int cpuSize;
-    private Double cpuUso, consumoRAM, consumoMemoria, consumoDisco, tamanhoDisco;
-    private static double tempCPU;
+    private Double cpuUso, consumoRAM, consumoMemoria, consumoDisco, tamanhoDisco, tempCPU;
+    
+    
     private InformacoesComputador comp = new InformacoesComputador();
     private static final SystemInfo INFO_SISTEMA = new SystemInfo();
     private static final HardwareAbstractionLayer INFO_HARDWARE = INFO_SISTEMA.getHardware();
@@ -28,6 +28,7 @@ public class Consumo
         
         cpuUso = Consumo.pegarCpu();
         tempCPU = Consumo.getCpuTemperature();
+        
         consumoRAM = Consumo.monitorarRam();
         consumoMemoria = Consumo.monitorarMemoria();
         
@@ -58,10 +59,7 @@ public class Consumo
         return consumoMemoria;
     }
     
-    public static double getCpuTemperature() 
-    {
-        return INFO_SENSORES.getCpuTemperature();
-    }
+    
     
     
     public Double getTemperaturaCPU()
@@ -74,7 +72,12 @@ public class Consumo
         this.consumoMemoria = consumoMemoria;
     }
     
-     
+    
+    
+    private static Double getCpuTemperature() 
+    {
+        return INFO_SENSORES.getCpuTemperature();
+    }
 
     private static Double pegarCpu() 
     {
@@ -110,7 +113,7 @@ public class Consumo
         return memoriaUsada * 100 / memoriaTotal;
     }
     
-    public static double pegarTamanhoDisco()
+    public static Double pegarTamanhoDisco()
     {
         double totalMemoria = 0.0;
         
