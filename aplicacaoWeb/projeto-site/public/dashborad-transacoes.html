@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/dashboard-transacoes.css">
     <link rel="stylesheet" href="./css/Corpo.css">
     <link rel="stylesheet" href="./css/Home.css">
 
-    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
-    <script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
-    <script src="./graficos-transacoes/Chart.min.js"></script>
-    <script src="./graficos-transacoes/utils.js"></script>
-    <script src="JavaScript/dashboard-transacoes.js"></script>
 
 </head>
     
@@ -30,11 +27,34 @@
                     <button onclick="window.location.href='Login.html';">LOGAR</button>
                 </div>
             </div>
-            <div class="display">
-
-                <div class="grafico">
-                    <canvas id="canvas_grafico"></canvas>
+            <div>
+                <div>
+                    <div  style="margin-top: 25px; text-align: center;">
+                        <h4 style="font-weight: bold; color:#6f2c91; font-family: Arial, Helvetica, sans-serif;">
+                            Estação Giovanni Gronchi
+                        </h4>
+                    </div>
+                        <div style="text-align: center;">
+                    <h5 style="font-family: Arial, Helvetica, sans-serif;">
+                        Gráfico de transações/hora
+                    </h5>
+                        </div>
                 </div>
+                        <div class="grafico">
+                            <canvas id="canvas_grafico"></canvas>
+                        </div>
+
+                        <div class="infos">
+                            <p>Qtd de totens monitorados: <span class="badge badge-alprime">4</span> </p> 
+                            <p>Transações/Hora:  <span class="badge badge-alprime">R$5000,00</span> </p> 
+                            <p>Hora mais lucrativa:  <span class="badge badge-alprime">16h</span> </p> 
+                            <p>Transações totais: <span  class="badge badge-alprime">R$100.000.000,00</span> </p> 
+                        </div>
+
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <button class="btn-voltar">Voltar</button>
+                        </div>
+                
             </div>
             <div class="fotos">
                 <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
@@ -80,3 +100,8 @@
         document.body.style.visibility = "visible";
     }
 </script>
+<script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+<script type="text/javascript" src="https://www.chartjs.org/samples/latest/utils.js"></script>
+<script src="./graficos-transacoes/Chart.min.js"></script>
+<script src="./graficos-transacoes/utils.js"></script>
+<script src="JavaScript/dashboard-transacoes.js"></script>
