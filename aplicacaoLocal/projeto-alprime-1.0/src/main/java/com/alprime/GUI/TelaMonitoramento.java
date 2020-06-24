@@ -192,7 +192,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
                 pgbTempCPU.setForeground(new Color(255,33,77));
             }
             
-            if (registro.getTempCpu() >= temperaturaAlerta.getTempPerigo()) {
+            if (registro.getTemperaturaCpu() >= temperaturaAlerta.getTempPerigo()) {
                 if (contadorPerigoTemperatura == 0) {
                     BotTelegram botTelegram = new BotTelegram(maquinaBD, maquinaBD.getLocalizacao().getUsuario().getChatId());
                     botTelegram.enviarMensagem(temperaturaAlerta.mensagemPerigo(maquinaBD, registro));
@@ -205,7 +205,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
                     QueryBD.inserirAviso(aviso);
                 }
 
-            } else if (registro.getTempCpu() >= temperaturaAlerta.getTempAtencao()) {
+            } else if (registro.getTemperaturaCpu() >= temperaturaAlerta.getTempAtencao()) {
                 if (contadorAlertaTemperatura == 0) {
                     BotTelegram botTelegram = new BotTelegram(maquinaBD, maquinaBD.getLocalizacao().getUsuario().getChatId());
                     botTelegram.enviarMensagem(temperaturaAlerta.mensagemAtencao(maquinaBD, registro));
@@ -251,8 +251,8 @@ public class TelaMonitoramento extends javax.swing.JFrame {
             }
             System.out.println(temperaturaAlerta);
             lblUsoProcessador.setText(String.valueOf(registro.getPorcProcessador()));
-            pgbTempCPU.setValue(registro.getTempCpu().intValue());
-            lblTempCPU.setText(String.valueOf(registro.getTempCpu().intValue()) + "ºC");
+            pgbTempCPU.setValue(registro.getTemperaturaCpu().intValue());
+            lblTempCPU.setText(String.valueOf(registro.getTemperaturaCpu().intValue()) + "ºC");
             pgbUsoCpu.setValue(registro.getPorcProcessador().intValue());
             lblUsoProcessador.setText(String.format("%.2f %%", registro.getPorcProcessador()));
             

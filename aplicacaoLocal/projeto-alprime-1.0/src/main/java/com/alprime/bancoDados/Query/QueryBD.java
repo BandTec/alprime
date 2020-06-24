@@ -100,7 +100,7 @@ public class QueryBD {
     public static void insertRegistro(Registro registro) {
         jdbcTemplate.update("insert into registro values (null,?,?,?,?,?,?,?)",
                 registro.getDataHora(), registro.getPorcProcessador(),
-                registro.getPorcMemoria(), registro.getTempCpu(), registro.getPorcRam(),
+                registro.getPorcMemoria(), registro.getTemperaturaCpu(), registro.getPorcRam(),
                 registro.getMaquina().getIdMaquina(),registro.getPorcDisco());
     }
 

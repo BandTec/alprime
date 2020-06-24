@@ -21,7 +21,7 @@ public class Registro
     private Double porcProcessador;
     private Double porcDisco;
     private Double porcMemoria;
-    private Double tempCpu;
+    private static Double tempCpu;
     private Double porcRam;
     private Maquina maquina;
 
@@ -94,7 +94,8 @@ public class Registro
         this.porcMemoria = porcMemoria;
     }
 
-    public Double getTempCpu() {
+    public Double getTemperaturaCpu() 
+    {
         return tempCpu;
     }
 

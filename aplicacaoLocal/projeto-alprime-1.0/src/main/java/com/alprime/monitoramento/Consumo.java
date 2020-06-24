@@ -13,7 +13,8 @@ public class Consumo
 {
    
     private int cpuSize;
-    private Double cpuUso, consumoRAM, consumoMemoria, consumoDisco, tamanhoDisco, tempCPU;
+    private Double cpuUso, consumoRAM, consumoMemoria, consumoDisco, tamanhoDisco;
+    private static Double tempCPU;
     
     
     private InformacoesComputador comp = new InformacoesComputador();
@@ -27,7 +28,7 @@ public class Consumo
     {
         
         cpuUso = Consumo.pegarCpu();
-        tempCPU = Consumo.getCpuTemperature();
+        tempCPU = Consumo.INFO_SENSORES.getCpuTemperature();
         
         consumoRAM = Consumo.monitorarRam();
         consumoMemoria = Consumo.monitorarMemoria();
@@ -60,8 +61,6 @@ public class Consumo
     }
     
     
-    
-    
     public Double getTemperaturaCPU()
     {
         return tempCPU;
@@ -73,11 +72,11 @@ public class Consumo
     }
     
     
-    
-    private static Double getCpuTemperature() 
-    {
-        return INFO_SENSORES.getCpuTemperature();
-    }
+    //private static Double getCpuTemperature() 
+    //{
+    //    return INFO_SENSORES.getCpuTemperature();
+    //}
+   
 
     private static Double pegarCpu() 
     {
