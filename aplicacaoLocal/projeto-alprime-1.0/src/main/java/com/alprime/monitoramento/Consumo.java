@@ -80,26 +80,19 @@ public class Consumo
     }
     
     
-    private static Double pegarTemperaturaCPU() 
+    public static Double pegarTemperaturaCPU() 
     {
-        Cpu cpu = cpus.get(0);
-        if (cpu.sensors.temperatures != null && cpu.sensors.temperatures.size() > 0) 
-        {
-            
-            for (Temperature temp : cpu.sensors.temperatures) 
-            {
-                if (temp.value != null) 
-                {
-                //We cast and round to integer and convert to String
-                    return Double.valueOf(temp.value.intValue());
-                }
-            }
+        Cpu cpu = JSensors.get.components().cpus.get(0);
+        if (cpu.sensors.temperatures != null && cpu.sensors.temperatures.size() > 0){
+            List<Temperature> temperaturas = cpu.sensors.temperatures;
+            System.out.println(cpu.sensors.temperatures.get(temperaturas.size()-1).name);
+            return cpu.sensors.temperatures.get(temperaturas.size()-1).value;
         }
         return 0.0;
     }
     
     
-    private static Double pegarCpu() 
+    public static Double pegarCpu() 
     {
         long[] prevTicks = PROCESSOR.getSystemCpuLoadTicks();
         long[][] prevProcTicks = PROCESSOR.getProcessorCpuLoadTicks();

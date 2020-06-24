@@ -30,9 +30,7 @@ public class Converssao {
         }else if(tamanho[0].equals("K")){
             multiplicador = 1000;
         }
-        System.out.println("semVirgula " + Arrays.toString(semVirgula));
         String formatado = String.format("%s.%s", semVirgula[0], semVirgula[1]);
-        System.out.println("formatado " + formatado);
         return Double.valueOf(formatado) * multiplicador;
     }
 
