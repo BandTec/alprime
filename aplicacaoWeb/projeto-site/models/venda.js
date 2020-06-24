@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false
 		},
 		valor: {
-			field: "porc_processador",
+			field: "valor",
 			type: DataTypes.DOUBLE,
 			allowNull: false
 		},
