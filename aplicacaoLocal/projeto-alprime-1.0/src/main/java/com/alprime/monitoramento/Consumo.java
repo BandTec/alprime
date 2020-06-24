@@ -126,8 +126,8 @@ public class Consumo
         Double memoriaTotal = 0.0;
         for (OSFileStore reparticoes : memoria) 
         {
-            memoriaRestante += Converssao.bytesParaGigabits(reparticoes.getFreeSpace());
-            memoriaTotal += Converssao.bytesParaGigabits(reparticoes.getTotalSpace());
+            memoriaRestante += Converssao.bytesParaBits(reparticoes.getFreeSpace());
+            memoriaTotal += Converssao.bytesParaBits(reparticoes.getTotalSpace());
         }
         Double memoriaUsada = memoriaTotal - memoriaRestante;
         return memoriaUsada * 100 / memoriaTotal;
@@ -149,9 +149,13 @@ public class Consumo
      
     public static Double monitorarRam() 
     {
-        Double ramTotal = Converssao.bytesParaGigabits(INFO_HARDWARE.getMemory().getTotal());
-        Double ramDisponivel = Converssao.bytesParaGigabits(INFO_HARDWARE.getMemory().getAvailable());
+        Double ramTotal = Converssao.bytesParaBits(INFO_HARDWARE.getMemory().getTotal());
+        System.out.println("ramTotal :" + ramTotal);
+        Double ramDisponivel = Converssao.bytesParaBits(INFO_HARDWARE.getMemory().getAvailable());
+        System.out.println("ramDisponivel:" + ramDisponivel);
         Double ramRestante = ramTotal - ramDisponivel;
+        System.out.println("ramRestante:" + ramRestante);
+
         return ramRestante * 100 / ramTotal;
     }
     

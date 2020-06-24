@@ -17,12 +17,23 @@ import oshi.util.FormatUtil;
  */
 public class Converssao {
 
-    public static Double bytesParaGigabits(long bytes) {
+    public static Double bytesParaBits(long bytes) {
+        Integer multiplicador = 1;
         String restante = FormatUtil.formatBytes(bytes);
         String[] somenteNumero = restante.split(" ");
         String[] semVirgula = somenteNumero[0].split(",");
+        String[] tamanho = somenteNumero[1].split("");
+        if(tamanho[0].equals("G")){
+            multiplicador = 1000000000;
+        }else if(tamanho[0].equals("M")){
+            multiplicador = 1000000;
+        }else if(tamanho[0].equals("K")){
+            multiplicador = 1000;
+        }
+        System.out.println("semVirgula " + Arrays.toString(semVirgula));
         String formatado = String.format("%s.%s", semVirgula[0], semVirgula[1]);
-        return Double.valueOf(formatado);
+        System.out.println("formatado " + formatado);
+        return Double.valueOf(formatado) * multiplicador;
     }
 
     public static String dataHoraFormatoSQL(String dataHora) {

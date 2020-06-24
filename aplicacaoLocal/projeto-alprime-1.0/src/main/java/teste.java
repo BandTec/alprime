@@ -1,4 +1,5 @@
 
+import com.alprime.monitoramento.Consumo;
 import java.util.List;
 import oshi.SystemInfo;
 import oshi.hardware.GlobalMemory;
@@ -17,12 +18,13 @@ import oshi.hardware.VirtualMemory;
 public class teste {
 
     public static void main(String[] args) {
-        SystemInfo si = new SystemInfo();
-        GlobalMemory memory = si.getHardware().getMemory();
-        System.out.println("Physical Memory: \n " + memory.toString());
-        PhysicalMemory[] pmList = memory.getPhysicalMemory();
-            for (PhysicalMemory pm : pmList) {
-                System.out.println(" " + pm.toString());
-            }
+//        SystemInfo si = new SystemInfo();;
+//        GlobalMemory memory = si.getHardware().getMemory();
+//        System.out.println("Physical Memory: \n " + memory.toString());
+//        PhysicalMemory[] pmList = memory.getPhysicalMemory();
+//            for (PhysicalMemory pm : pmList) {
+//                System.out.println(" " + pm.toString());
+//            }
+        System.out.println(Consumo.monitorarRam());
     }
 }
