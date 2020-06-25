@@ -36,7 +36,9 @@ public class Converssao {
         } else {
             if (semVirgula[0].indexOf(".") >= 0) {
                 formatado = String.format("%s.%s", semVirgula[0], semVirgula[2]);
-            } else {
+            } else if (semVirgula[1].equals(",")) {
+                formatado = String.format("%s%s", semVirgula[0], semVirgula[2]);
+            }else {
                 formatado = String.format("%s%s", semVirgula[0], semVirgula[1]);
             }
         }
