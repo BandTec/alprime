@@ -77,8 +77,6 @@ router.get('/buscar/:Estacoes', function(req, res, next) {
 			res.status(500).send(erro.message);
 	  });
 });
-
-<<<<<<< HEAD
 router.get('/maquinas/:usuario', function(req, res, next) {
 	
 	const instrucaoSql = `select id_maquina from maquina where fk_localizacao = ${req.params.usuario}`;
@@ -131,7 +129,6 @@ router.get('/qntmaquinas/:local', function(req, res, next) {
 
 
 module.exports = router;
-=======
 router.get("/getMaquina", function (req, res, next) {
 	console.log("Recuperando uma maquina");
 	
@@ -151,4 +148,3 @@ router.get("/getMaquina", function (req, res, next) {
   });
 
 module.exports = router;
->>>>>>> 2d187d0a58ed2dbf6d410de782073ef75657b97c
