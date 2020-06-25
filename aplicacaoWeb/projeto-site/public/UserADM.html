@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Corpo.css">
+    <link rel="stylesheet" href="./css/CorpoADM.css">
     <link rel="stylesheet" href="./css/UserADM.css">
     <title>Pesquisa</title>
 </head>
@@ -18,14 +18,14 @@
                 <a href="SobreNos.html">Sobre Nós</a>
                 <a href="nossoProduto.html">Nosso Produto</a>
                 <a href="nossoParceiro.html">Seja um Parceiro</a>
-                <button onclick="window.location.href='Home.html';">DESLOGAR</button>
+                <button onclick="logoff()">DESLOGAR</button>
             </div>
         </div>
 
         <div class="opcoes">
-            <button onclick="asd()" id="btn1" class="botao1">Relatórios</button>
-            <button onclick="asd()" id="btn2" class="botao2">Gráficos</button>
-            <button onclick="asd()" id="btn3" class="botao3">Seus Dados</button>
+            <button onclick="asd()" id="btn3" class="botao3">Totens</button>
+            <button onclick="window.location.href='dashborad-transacoes.html';" id="btn2" class="botao2">Gráficos</button>
+            <button onclick="window.location.href='telaAviso.html';" id="btn1" class="botao1">Avisos</button>
         </div>
 
         <div id="resul" class="resultado">
@@ -43,12 +43,6 @@
 
         <div class="finalDisplay">
             <div class="finalInfo vertical">
-                <h1>Institucional</h1>
-                <a href="">Sobre nós</a><br><br>
-                <a href="">Nosso Produto</a><br><br>
-                <a href="">Seja um Parceiro</a><br><br>
-            </div>
-            <div class="finalInfo vertical">
                 <h1>Contato</h1>
                 <a href="">Tel: +55 (11) 94002-8922</a><br><br>
                 <a href="">Email: alprime@bandtec.com.br</a><br><br>
@@ -62,17 +56,4 @@
     </div>
 </body>
 </html>
-<script>
-    onload=function(){
-    document.body.style.visibility="visible"
-}
-
-function asd(){
-    resul.innerHTML = "<h6>digite o id do totem:</h6>"+
-    "<input id='toten' type='text'><button onclick='opcoes()'>Ver Toten</button>"
-}
-
-function opcoes(){
-    resul.innerHTML = "<a onclick='asd()'>Tempo</a><a>Histórioco</a>";
-}
-</script>
+<script src="JavaScript/login.js"></script>

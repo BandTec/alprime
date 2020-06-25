@@ -14,10 +14,11 @@ function entrar() {
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then((json) => {
-        console.log("resposta", json.emailUsuario);
-        sessionStorage.email_alprime = json.emailUsuario;
-        sessionStorage.login_usuario = json.idUsuario;
-        alert("Login aceito");
+        console.log("resposta", json.email_usuario);
+        sessionStorage.email_alprime = json.email_usuario;
+        sessionStorage.login_usuario = json.id_usuario;
+        sessionStorage.localizacao_usuario = json.nome_localizacao;
+        sessionStorage.fk_localizacao = json.fk_localizacao;
         window.location.href = "UserADM.html";
       });
     } else {
@@ -40,7 +41,7 @@ function logoff() {
   redirecionar_login();
 }
 function redirecionar_login() {
-  window.location.href = "login.html";
+  window.location.href = "Home.html";
 }
 function finalizar_sessao() {
   fetch(`/usuarios/sair/${login_usuario}`, { cache: "no-store" });

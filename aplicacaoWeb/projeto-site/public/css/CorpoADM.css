@@ -85,28 +85,11 @@ body{
     color: #4DB033;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 5%;
-    margin-top: 15px;
 }
 .finalInfo a{
     margin-left: 5%;
     text-decoration: none;
     font-weight: bold;
-    color: #6f2c91;
-}
-.barBottom{
-    display: none;
-    background-color: #6f2c91;
-    justify-content: space-evenly;
-    text-align: -webkit-center;
-    height: 50px;
-}
-.barBottom button{
-    background-color: #6f2c91;
-    color: white;
-    border: 0px;
-    margin-top: 1%;
-    height: 80%;    
-    border-left: outset;
 }
 
 
@@ -123,39 +106,5 @@ body{
         margin-top: 60px;
         margin-left: -22px;
         transition: 0.5s;
-    }
-}
-
-@media only screen and (max-width: 600px){
-    html{min-width: 350px;}
-    .central{
-        width: 100%;
-        margin-left: 0%;
-    }
-    .topo img{
-        margin-left: 30% !important;
-        transition: 0.5s;
-    }
-    .options a{
-        display: none;
-    }
-    .options button{
-        display: none;
-    }
-    .finalInfo h1{
-        font-size: smaller;
-    }
-    .finalInfo a{
-        font-size: smaller;
-    }
-    .fotos{
-        height: 100px;
-    }
-    .fotos img{
-        height: 50% !important;
-        width: 20% !important;
-    }
-    .barBottom{
-        display: flex;
     }
 }

@@ -6,6 +6,53 @@ canvas {
 }
 
 .grafico{
+<<<<<<< HEAD
+    width: 70%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inf{
+    text-align: -webkit-center;
+}
+
+.inf h1,h2{
+    color: #6f2c91;
+}
+
+.inf h3{
+    color: #4DB033;
+}
+
+.tabela{
+    width: 60%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    border: double;
+}
+.tabela b{
+    color: #6f2c91;
+}
+.tabela h4{
+    margin-left: 2%;
+}
+
+.voltar{
+    min-width: min-content;
+    background-color: blueviolet;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 45%;
+    width: 10%;
+    height: 35px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+.voltar:hover{
+    color: white;
+    transition: 0.5s;
+=======
 width: 65%;
 margin-left: 16%;
 margin-bottom: 100px;
@@ -39,4 +86,5 @@ border-color: #3f1852;
 background-color: #6f2c91;
 color: white;
 font-weight: bold;
+>>>>>>> 2d187d0a58ed2dbf6d410de782073ef75657b97c
 }
