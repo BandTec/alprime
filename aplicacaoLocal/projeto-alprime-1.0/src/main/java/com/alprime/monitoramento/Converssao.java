@@ -19,18 +19,27 @@ public class Converssao {
 
     public static Double bytesParaBits(long bytes) {
         Integer multiplicador = 1;
+        String formatado = "";
         String restante = FormatUtil.formatBytes(bytes);
         String[] somenteNumero = restante.split(" ");
-        String[] semVirgula = somenteNumero[0].split(",");
+        String[] semVirgula = somenteNumero[0].split("");
         String[] tamanho = somenteNumero[1].split("");
-        if(tamanho[0].equals("G")){
+        if (tamanho[0].equals("G")) {
             multiplicador = 1000000000;
-        }else if(tamanho[0].equals("M")){
+        } else if (tamanho[0].equals("M")) {
             multiplicador = 1000000;
-        }else if(tamanho[0].equals("K")){
+        } else if (tamanho[0].equals("K")) {
             multiplicador = 1000;
         }
-        String formatado = String.format("%s.%s", semVirgula[0], semVirgula[1]);
+        if (semVirgula.length == 1) {
+            formatado = String.format("%s.0", semVirgula[0]);
+        } else {
+            if (semVirgula[0].indexOf(".") >= 0) {
+                formatado = String.format("%s.%s", semVirgula[0], semVirgula[2]);
+            } else {
+                formatado = String.format("%s%s", semVirgula[0], semVirgula[1]);
+            }
+        }
         return Double.valueOf(formatado) * multiplicador;
     }
 

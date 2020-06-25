@@ -14,7 +14,7 @@ public class Processos {
     private List<OSProcess> listaProcessos;
 
     public Processos() {
-        listaProcessos = Arrays.asList(comp.getInfoSO().getProcesses());
+        listaProcessos = comp.getInfoSO().getProcesses();
     }
 
     public List<OSProcess> getListaProcessos() {

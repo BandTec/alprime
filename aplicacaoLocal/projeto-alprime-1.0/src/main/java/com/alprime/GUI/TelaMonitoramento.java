@@ -144,6 +144,7 @@ public class TelaMonitoramento extends javax.swing.JFrame {
         int contadorAlertaProcessador = 0;
         int contadorPerigoTemperatura = 0;
         int contadorPerigoProcessador = 0;
+        System.out.println("Antes de atualizar dados " + monitorando);
         while (monitorando) {
             Registro registro = new Registro(maquinaBD);
             System.out.println(registro);
@@ -957,11 +958,12 @@ public class TelaMonitoramento extends javax.swing.JFrame {
             {
                 Thread threadMonitoramento = new Thread(this::atualizarDados);
                 Thread threadReticencias = new Thread(this::reticencias);
+                monitorando = true;
 
                 threadMonitoramento.start();
                 threadReticencias.start();
 
-                monitorando = true;
+                System.out.println("Acao do botao = " + monitorando);
             }
         }
     }//GEN-LAST:event_btnMonitorarActionPerformed

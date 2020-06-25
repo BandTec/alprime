@@ -16,7 +16,7 @@ public class InformacoesComputador
     private Double disco;
     private Double gpu;
     private Double cpu;
-    private HWDiskStore[] ds;
+    private List<HWDiskStore> ds;
     private List<Cpu> cpus;
     private int cpuLoad;
     private final SystemInfo infoSistema = new SystemInfo();
@@ -31,11 +31,11 @@ public class InformacoesComputador
         hostname = infoSO.getNetworkParams().getHostName();
         fabricante = infoHardware.getComputerSystem().getManufacturer();
         modelo = infoHardware.getComputerSystem().getModel();
-        processador = infoHardware.getProcessor().getName();
+        processador = infoHardware.getProcessor().toString().split("\n")[0];
         ramTotal = FormatUtil.formatBytes(infoHardware.getMemory().getTotal());
         sistemaOperacional = infoSO.getFamily();
         ds = infoHardware.getDiskStores();
-        OSFileStore[] memoria = infoSO.getFileSystem().getFileStores();
+        List<OSFileStore> memoria = infoSO.getFileSystem().getFileStores();
         Double totalMemoria = 0.0;
 
         for (OSFileStore reparticoes : memoria) 
@@ -95,11 +95,11 @@ public class InformacoesComputador
         this.cpu = cpu;
     }
 
-    public HWDiskStore[] getDs() {
+    public List<HWDiskStore> getDs() {
         return ds;
     }
 
-    public void setDs(HWDiskStore[] ds) {
+    public void setDs(List<HWDiskStore> ds) {
         this.ds = ds;
     }
 

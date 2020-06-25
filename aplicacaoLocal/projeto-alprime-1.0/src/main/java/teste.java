@@ -5,9 +5,6 @@ import com.profesorfalken.jsensors.model.components.Cpu;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
 import java.util.List;
 import oshi.SystemInfo;
-import oshi.hardware.GlobalMemory;
-import oshi.hardware.PhysicalMemory;
-import oshi.hardware.VirtualMemory;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,17 +25,24 @@ public class teste {
 //            for (PhysicalMemory pm : pmList) {
 //                System.out.println(" " + pm.toString());
 //            }
-        System.out.println("Pegando temperatura...");
-       for(int i = 0;i<20;i++){
-        Cpu cpu = JSensors.get.components().cpus.get(0);
-        if (cpu.sensors.temperatures != null && cpu.sensors.temperatures.size() > 0){
-            
-            List<Temperature> temperaturas = cpu.sensors.temperatures;
-            System.out.println(cpu.sensors.temperatures.get(temperaturas.size()-1).name);
-            System.out.println(cpu.sensors.temperatures.get(temperaturas.size()-1).value);
-        }else{
-        System.out.println("Deu ruim");
-            }
-       }
+//        System.out.println("Pegando temperatura...");
+//       for(int i = 0;i<20;i++){
+//        Cpu cpu = JSensors.get.components().cpus.get(0);
+//        if (cpu.sensors.temperatures != null && cpu.sensors.temperatures.size() > 0){
+//            
+//            List<Temperature> temperaturas = cpu.sensors.temperatures;
+//            System.out.println(cpu.sensors.temperatures.get(temperaturas.size()-1).name);
+//            System.out.println(cpu.sensors.temperatures.get(temperaturas.size()-1).value);
+//        }else{
+//        System.out.println("Deu ruim");
+//            }
+//       }
+        SystemInfo INFO_SISTEMA = new SystemInfo();
+        System.out.println(INFO_SISTEMA.getHardware().getProcessor().toString().split("\n")[0]);
+//        System.out.println(INFO_SISTEMA.getHardware().getSensors().getCpuTemperature());
+//        System.out.println(String.format("Temperatura|| %.2f", Consumo.pegarTemperaturaOshi()));
+//        System.out.println("pegar disco " + Consumo.pegarTamanhoDisco());
+//        System.out.println("pegar ram " + Consumo.monitorarRam());
+//        System.out.println("memoria de massa " + Consumo.monitorarMemoria());
     }
 }
