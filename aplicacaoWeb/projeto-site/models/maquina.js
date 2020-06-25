@@ -1,6 +1,4 @@
-'use strict';
 
-const { all } = require("../routes/maquinas");
 
 /* 
 lista e explicação dos Datatypes:
