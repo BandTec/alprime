@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/Corpo.css">
-    <link rel="stylesheet" href="./css/Home.css">
-    <script type="text/javascript" src="tabela.js"></script>
+    <link rel="stylesheet" href="./css/CorpoADM.css">
+    <link rel="stylesheet" href="css/telaAviso.css">
     <title>Página Inicial</title>
 </head>
 
@@ -19,21 +18,34 @@
                     <a href="Home.html">Home</a>
                     <a href="SobreNos.html">Sobre Nós</a>
                     <a href="nossoProduto.html">Nosso Produto</a>
-                <a href="nossoParceiro.html">Seja um Parceiro</a>
-                    <button onclick="window.location.href='Login.html';">LOGAR</button>
+                    <a href="nossoParceiro.html">Seja um Parceiro</a>
+                    <button onclick="logoff()">DESLOGAR</button>
                 </div>
             </div>
 
+            <H1 id="local"></H1>
 
-            <b class="tabela">Quantidade de tabelas:</b>
-            <br>
-            <input type="number" id="numero" name="quantidade" min="0" class="tabela">
-            <button onclick="criarTabela()">Atualizar</button>
-            
-            <div id="div">
-                
-            </div>
-            
+            <select onchange="Avisos()" id="boxMaquina">
+                <option value="0">Escolha a máquina</option>
+            </select>
+
+            <table>
+                    <caption>Fila de Avisos</caption>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Tipo</th>
+                            <th>Mensagem</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+
+                <button class="voltar" onclick="window.location.href='UserADM.html'">VOLTAR</button>
+
             <div class="fotos">
                 <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
                 <img src="./Imagens/BOM.png" alt="ERRO LOGO" style="height: 100%;">
@@ -43,12 +55,6 @@
 
 
             <div class="finalDisplay">
-                <div class="finalInfo vertical">
-                    <h1>Institucional</h1>
-                    <a href="">Sobre nós</a><br><br>
-                    <a href="">Nosso Produto</a><br><br>
-                    <a href="">Seja um Parceiro</a><br><br>
-                </div>
                 <div class="finalInfo vertical">
                     <h1>Contato</h1>
                     <a href="">Tel: +55 (11) 94002-8922</a><br><br>
@@ -65,8 +71,5 @@
 </body>
 
 </html>
-<script>
-    onload = function () {
-        document.body.style.visibility = "visible"
-    }
-</script>
+<script src="JavaScript/login.js"></script>
+<script src="JavaScript/telaAviso.js"></script>

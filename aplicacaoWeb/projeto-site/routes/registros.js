@@ -78,6 +78,60 @@ router.get('/buscar/:Estacoes', function(req, res, next) {
 	  });
 });
 
+<<<<<<< HEAD
+router.get('/maquinas/:usuario', function(req, res, next) {
+	
+	const instrucaoSql = `select id_maquina from maquina where fk_localizacao = ${req.params.usuario}`;
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/avisos/:maquina', function(req, res, next) {
+	
+	const instrucaoSql = `select id_aviso, categoria, mensagem, DATE_FORMAT (data_hora,'%d/%m : %Hh%i') AS data_hora from aviso where fk_maquina = ${req.params.maquina}`;
+
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/qntmaquinas/:local', function(req, res, next) {
+	
+	const instrucaoSql = `select * from maquina where fk_localizacao = ${req.params.local}`;
+	sequelize.query(instrucaoSql, selectQueryType, {
+		model: Registro,
+		mapToModel: true 
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado.length}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+
+
+module.exports = router;
+=======
 router.get("/getMaquina", function (req, res, next) {
 	console.log("Recuperando uma maquina");
 	
@@ -97,3 +151,4 @@ router.get("/getMaquina", function (req, res, next) {
   });
 
 module.exports = router;
+>>>>>>> 2d187d0a58ed2dbf6d410de782073ef75657b97c

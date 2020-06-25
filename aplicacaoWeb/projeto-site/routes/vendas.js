@@ -46,6 +46,47 @@ router.get('/relatorio/:startDate/:endDate', function(req, res, next) {
 	  });
 });
 
+router.get('/qntmaquina/:localizacao', function(req, res, next) {
+	
+	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
+	var startDate = req.params.startDate ;
+	var endDate = req.params.endDate;
+	const instrucaoSql = `select * from usuario;`;
+	
+
+	sequelize.query(instrucaoSql,selectQueryType, {
+		model: Venda,Model: true 	
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+router.get('/tabela/:maquina', function(req, res, next) {
+	
+	// alterar  os nomes da tabela de acordo com o nome da tabela e do nome dos campo
+	var startDate = req.params.startDate ;
+	var endDate = req.params.endDate;
+	const instrucaoSql = `select valor, hour(data_hora) as data_hora from venda where fk_maquina = ${req.params.maquina};`;
+	
+
+	sequelize.query(instrucaoSql,selectQueryType, {
+		model: Venda,Model: true 	
+	  })
+	  .then(resultado => {
+			console.log(`Encontrados: ${resultado}`);
+			res.json(resultado);
+	  }).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+	  });
+});
+
+
 
 
 module.exports = router;
