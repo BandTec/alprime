@@ -145,9 +145,7 @@ public class Consumo {
     public static Double monitorarRam() 
     {
         Double ramTotal = Converssao.bytesParaBits(INFO_HARDWARE.getMemory().getTotal());
-        System.out.println("ramTotal :" + ramTotal);
         Double ramDisponivel = Converssao.bytesParaBits(INFO_HARDWARE.getMemory().getAvailable());
-        System.out.println("ramDisponivel:" + ramDisponivel);
         Double ramRestante = ramTotal - ramDisponivel;
         System.out.println("ramRestante:" + ramRestante);
 
