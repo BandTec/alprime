@@ -8,6 +8,7 @@
 }
 .info h1{
     color: #4DB033;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 4em;
     transition: 0.5s;
     text-align: center;
@@ -20,19 +21,24 @@
     margin-left: 10%;
 }
 .btnBuscar{
-    background-color: blueviolet;
-    border-radius: 20px;
+    background-color: #6f2c91;
+    cursor: pointer;
+    border: #6f2c91;
+    color: white;
+    border-radius: 15px;
     font-weight: bold;
-    width: 20%;
-    height: 40px;
+    width: 18%;
+    height: 45px;
     margin-left: 40%;
     min-width: min-content;
     margin-bottom: 30px;
     transition: 0.5s;
 }
 .btnBuscar:hover{
-    color: white;
+    color: #190024;
     transition: 0.5s;
+    font-weight: bold;
+
 }
 .logo2{
     height: 400px;

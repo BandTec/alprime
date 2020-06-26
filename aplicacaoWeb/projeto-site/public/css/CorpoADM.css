@@ -47,17 +47,20 @@ body{
     color: red ;
 }
 .options button{
+    cursor: pointer;
     min-width: min-content;
-    background-color: blueviolet;
-    border-radius: 20px;
+    background-color: #6f2c91;
+    border: #6f2c91;
+    color: white;
+    border-radius: 15px;
     margin: auto;
     width: 10%;
-    height: 45%;
+    height: 55%;
     font-weight: bold;
     transition: 0.5s;
 }
 .options button:hover{
-    color: white;
+    color: #14001f;
     transition: 0.5s;
 }
 .fotos{
@@ -80,7 +83,7 @@ body{
     text-align: -webkit-center;
     width: 100%;
 }
-.finalInfo h2{
+.finalInfo h1{
     text-align: -webkit-center;
     color: #4DB033;
     font-family: Arial, Helvetica, sans-serif;

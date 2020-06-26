@@ -2,12 +2,14 @@
     text-align: -webkit-center;
     width: 58%;
 }
-.info h1{
-    color: blueviolet;
-    font-size: 3em;
+.info h3{
+    color: #6f2c91;
+    font-size:xx-large;
     margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .escrita{
+    font-family: Arial, Helvetica, sans-serif;
     width: 90% !important;
     text-align: justify;
     font-size: x-large;
@@ -20,27 +22,29 @@
     transition: 0.5s;
 }
 label{
-    color: blueviolet;
-    font-size: 3em;
+    color: #6f2c91;
+    font-size: 2em;
 }
 .info2{
-    height: auto;
-    margin-top: 2%;
+    height: 75%;
+    margin-top: 5%;
     margin-bottom: 2%;
     margin-right: 2%;
-    border: dotted blueviolet;
+    border: dotted #6f2c91;
     border-radius: 20px;
-    width: 40%;
+    width: 45%;
+    padding: 20px;
 }
 .escrita3{
     text-align: center;
+    margin-top: 25px;
 }
 .titulo{
-    font-size: 3em;
+    font-size: xx-large;
     color: #4DB033;
 }
 .preco{
-    font-size: 3em;
+    font-size: 70px;
     color: #4DB033;
 }
 .topico{
@@ -48,17 +52,23 @@ label{
     color: black;
 }
 .btnComprar{
-    margin: 40px !important;
-    background-color: blueviolet;
-    border-radius: 20px;
-    width: 20%;
-    height: 30px;
+    margin-left: -5px;
+    margin-bottom: 45px;
+    margin-top: 20px;
+    color: white;
+    background-color: #6f2c91;
+    cursor: pointer;
+    border: #6f2c91;
+    border-radius: 15px;
+    width: 22%;
+    height: 45px;
     font-weight: bold;
+    font-size: 16px;
     transition: 0.5s;
     min-width: min-content;
 }
 .btnComprar:hover{
-    color: white;
+    color: #13011b;
     transition: 0.5s;
 }
 
@@ -112,9 +122,6 @@ label{
     .preco{
         font-size: 1.3em;
         color: #4DB033;
-    }
-    .topico{
-        font-size: ;
     }
     .btnComprar{
         color: white;
