@@ -205,6 +205,7 @@ function VerificarTelefone() {
 
 function VerificarEstacao()
 {
+  
   if (Estacao.value.length == 0)
   {
     estacaoOk = false;
@@ -234,19 +235,21 @@ function VerificarEndereco(){
   }
 }
 
-function VerificarLinha(){
-  if (linha.value.length == 0){
+function VerificarLinha()
+{
+  if (linha.value.length == 0)
+  {
     linhaOK = false;
     AlertaLinha.style.color = "red";
     AlertaLinha.innerHTML = "informe sua linha"
-  } else{
+  } 
+  else
+  {
     linhaOK = true;
     AlertaLinha.style.color = "white";
     console.log("Linha válida");
   }
 }
-
-
 // function arrancar_mascara() {
 //   var tamanho = CPF.value.length;
 //   if (tamanho == 14) {

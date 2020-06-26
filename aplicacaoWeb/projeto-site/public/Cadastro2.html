@@ -22,22 +22,49 @@
                     <button onclick="window.location.href='Login.html';">LOGAR</button>
                 </div>
             </div>
+
+
+
             <h1 class="titulo1">Cadastre-se e controle seus totens</h1>
             <h2 class="titulo2">Parte 2/2 - Localização</h2>
+
+
             <form id="form_localizacao">
                 <div class="cadastrar">
-                    <div class="esquerda ">
-                        <label>Linha de metrô:</label><br>
-                        <input placeholder="  Linha azul" name="linha" id="linha" type="text"><br>
+                    <div class="esquerda">
+                        <label>Selecione a linha de metrô:</label><br>
+                        <select id="linha" name="linha">
+                            <option value="">----</option>
+                            <option value="Verde" onclick="escolherLinha()">Verde</option>
+                            <option value="Vermelha" onclick="escolherLinha()">Vermelha</option>
+                            <option value="Lilas" onclick="escolherLinha()">Lilás</option>
+                          </select>
                         <h6 id="AlertaLinha">asasdds</h6>
+                        
                         <label>Endereço:</label><br>
                         <input placeholder="  Rua São José de Camargo" id="endereco" name="endereco" type="text"><br>
                         <h6 id="AlertaEndereco">asasdds</h6>
                     </div>
+
                     <div class="direita">
                         <label>Estação:</label><br>
-                        <input placeholder="Tucuruvi" id="estacao" name="estacao" type="text"><br>
-                        <h6 id="AlertaEstacao">asasdds</h6>
+                        <div id="estacoes">
+                            <select id="estacao" name="estacao">
+                                <option value="">----</option>
+                                <option value="Penha">Penha</option>
+                                <option value="Carrao">Carrao</option>
+                                <option value="Tatuape">Tatuape</option>
+                                <option value="Tamanduatei" onchange="escolherLinha()">Tamanduatei</option>
+                                <option value="Vila Prudente" onchange="escolherLinha()">Vila Prudente</option>
+                                <option value="Consolacao" onchange="escolherLinha()">Consolacao</option>
+                                <option value="Giovanni Gronchi">Giovanni Gronchi</option>
+                                <option value="Santo Amaro">Santo Amaro</option>
+                                <option value="Capao Redondo">Capao Redondo</option>
+                            </select>
+                        </div>
+
+                        
+                         <h6 id="AlertaEstacao">asasdds</h6>
                         <button id="Cadastro2" type="button" onclick="cadastrar()" class="continuar">Cadastrar </button>
                     </div>
                 </div>

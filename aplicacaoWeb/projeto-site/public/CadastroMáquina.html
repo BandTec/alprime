@@ -26,15 +26,19 @@
 
             <form id="form_maquina">
                 <div class="cadastrar">
-                <div class="direita">
+                    <div class="esquerda">
                         <label>Senha da nova Máquina:</label><br>
-                        <input id="senha" name="senha" type="text"><br>
+                        <input id="senha" name="senha" type="password"><br>
+                        <input class="mostrarSenha" type="checkbox" onclick="mostrarSenha()">Mostrar senha</input>
+                    </div>
+                    
+                    <div class="direita">
                         <label>Estação da Máquina:</label><br>
                         <a href="" id="estacaoMaquina"></a>
                     </div>
                 </div>
             <button onclick="enviarMaquina()" type="button" class="continuar">Cadastrar</button>
-        </form>
+            </form>
 
             <div class="fotos">
                 <img src="./Imagens/CPTM.png" alt="ERRO LOGO" style="width: 22%;">
@@ -42,7 +46,6 @@
                 <img src="./Imagens/bilhete-unico.png" alt="ERRO LOGO">
                 <img src="./Imagens/SPTrans.png" alt="" style="width: 12%;">
             </div>
-
 
             <div class="finalDisplay">
                 <div class="finalInfo vertical">
@@ -62,3 +65,17 @@
 
 </html>
 <script src="JavaScript/cadastroMaquina.js"></script>
+<script>
+function mostrarSenha()
+{
+  var x = document.getElementById("senha");
+  if (x.type === "password") 
+  {
+    x.type = "text";
+  } 
+  else 
+  {
+    x.type = "password";
+  }
+}
+</script>

@@ -16,6 +16,7 @@ function enviarMaquina(){
     if (resposta.ok)     {
       resposta.json().then((json) => {
         console.log(json)
+        console.log("Cadastro realizado!")
       });
     } else {
       console.log("Erro de cadastro!");

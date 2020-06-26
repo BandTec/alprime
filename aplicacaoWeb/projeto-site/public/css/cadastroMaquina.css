@@ -45,7 +45,8 @@ h6{
     margin-top: 0px;
     margin-left: 10px;
 }
-.continuar{
+.continuar
+{
     background-color: blueviolet;
     border-radius: 10px;
     margin-left: 45%;
@@ -59,4 +60,11 @@ h6{
 .continuar:hover{
     color: white;
     transition: 0.5s;
+}
+
+.mostrarSenha
+{
+    position: left;
+    font-weight: bold;
+    font-size: small;
 }
