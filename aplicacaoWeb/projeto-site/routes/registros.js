@@ -129,10 +129,10 @@ router.get('/qntmaquinas/:local', function(req, res, next) {
 
 
 module.exports = router;
-router.get("/getMaquina", function (req, res, next) {
+router.get("/getMaquina/:usuario", function (req, res, next) {
 	console.log("Recuperando uma maquina");
 	
-	const instrucaoSql1 = ` select id_maquina, status, capacidade_memoria, sum(valor) as Transações, count(id_venda) as Clientes, count(id_aviso) as Ocorrências from venda, maquina, aviso GROUP BY id_maquina;`;
+	const instrucaoSql1 = ` select id_maquina, status, capacidade_memoria, sum(valor) as Transações, count(id_venda) as Clientes, count(id_aviso) as Ocorrências from venda, maquina, aviso where fk_localizacao = ${req.params.usuario} GROUP BY id_maquina;`;
 	sequelize.query(instrucaoSql1,selectQueryType, {
 		model: Registro,
 		mapToModel: true,
