@@ -52,7 +52,7 @@ function cadastrar()
     var formulario = new URLSearchParams(new FormData());
     formulario.append("nome", sessionStorage.getItem("nomeCadastro"));
     formulario.append("telefone", sessionStorage.getItem("telefoneCadastro"));
-    formulario.append("CPF", sessionStorage.getItem("CPFCadastro"));
+    formulario.append("cpf", sessionStorage.getItem("CPFCadastro"));
     formulario.append("email", sessionStorage.getItem("emailCadastro"));
     formulario.append("senha", sessionStorage.getItem("senhaCadastro"));
     var form_usuario = new URLSearchParams(formulario);
