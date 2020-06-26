@@ -6,20 +6,21 @@ canvas {
 }
 
 .grafico{
-    width: 70%;
+    width: 75%;
     text-align: center;
     margin-bottom: 30px;
+    margin-left: 12.5%;
 }
 
-.inf{
+.Cabecalho{
     text-align: -webkit-center;
 }
 
-.inf h1,h2{
+.Cabecalho h1, h2{
     color: #6f2c91;
 }
 
-.inf h3{
+.Cabecalho h3{
     color: #4DB033;
 }
 

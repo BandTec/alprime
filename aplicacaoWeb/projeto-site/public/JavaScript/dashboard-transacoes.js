@@ -180,7 +180,7 @@ function quantidadeMaquinas(){
 }
 
 function gerarTabela(maquina) {
-    var Trasacoes=0,horaLuc = 0;
+    var totalTrasa=0, Trasacoes=0,horaLuc = 0;
     console.log(`esse é o valor de res: ${maquina}`);
     fetch(`/vendas/tabela/${maquina}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
@@ -197,12 +197,17 @@ function gerarTabela(maquina) {
                     Trasacoes += registro.valor;
 
                 }
-                totalTransaçoe.innerHTML = Trasacoes.toFixed(2);
-                TotalPorHora.innerHTML = (Trasacoes/20).toFixed(2);
+                totalTrasa = Number(totalTransaçoe.innerHTML) + Trasacoes;
+                totalTransaçoe.innerHTML = totalTrasa.toFixed(2);
+                TotalPorHora.innerHTML = (totalTrasa/20).toFixed(2);
                 resposta.reverse();
             });
         } else {
             alert('erro ao pegar os dadosda tabela ');
         }
     })
+}
+
+function mostra(){
+
 }
