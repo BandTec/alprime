@@ -1,7 +1,8 @@
 let cpf_meuapp;
 let login_usuario;
 
-onload = function () {
+onload = function () 
+{
   document.body.style.visibility = "visible";
 };
 

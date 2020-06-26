@@ -6,15 +6,15 @@ let CPFCadastro;
 var Estacao, Endereco, linha;
 var emailOK, SenhaOK, ConfSenhaOK, NomeOK, CPFOK, TelefoneOK;
 var linhaOK, estacaoOk, enderecoOK;
-onload = function () {
+onload = function () 
+{
   document.body.style.visibility = "visible"
   Cadastro2.style.marginLeft = "30%"
-  Estacao = document.getElementById("estacao");
-  Endereco = document.getElementById("endereco");
-  linha = document.getElementById("linha");
+ 
 }
 
-function guardarDados() {
+function guardarDados() 
+{
   verificarNome();
   verificarSenha();
   verificarSenhaRep();
@@ -29,15 +29,22 @@ function guardarDados() {
     sessionStorage.senhaCadastro = senha.value;
     window.location.assign("./Cadastro2.html");
     console.log("deveria ter mudado de tela");
-  } else {
+  } 
+  else {
     console.log("Dados Incorretos");
   }
 }
 
-function cadastrar() {
-  VerificarEstacao();
+function cadastrar() 
+{
+  Estacao = document.getElementById("estacao");
+  Endereco = document.getElementById("endereco");
+  linha = document.getElementById("linha");
+
   VerificarEndereco();
+  VerificarEstacao();
   VerificarLinha();
+  
   if (estacaoOk == true && enderecoOK == true && linhaOK == true){
     var formulario_localizacao = new URLSearchParams(
       new FormData(form_localizacao)
@@ -163,6 +170,83 @@ function verificarEmail() {
   }
 }
 
+
+
+function VerificarCPF() {
+  if (cpf.value.length != 11) 
+  {
+    AlertaCPF.innerHTML = "CPF Inválido";
+    AlertaCPF.style.color = "red";
+    CPFOK = false;
+  }
+  else 
+  {
+    console.log("CPF está correto");
+    AlertaCPF.style.color = "white";
+    CPFOK = true;
+  }
+}
+
+function VerificarTelefone() {
+  if (telefone.value.length == 8 || telefone.value.length == 9) {
+    TelefoneOK = false;;
+    AlertaTelefone.innerHTML = "Informe o DD";
+    AlertaTelefone.style.color = "red";
+  } else if (telefone.value.length > 11 || telefone.value.length < 8) {
+    TelefoneOK = false;;
+    AlertaTelefone.innerHTML = "número de telefone inválido";
+    AlertaTelefone.style.color = "red";
+  } else {
+    TelefoneOK = true;;
+    console.log("Telefone Válido");
+    AlertaTelefone.style.color = "white";
+  }
+}
+
+function VerificarEstacao()
+{
+  if (Estacao.value.length == 0)
+  {
+    estacaoOk = false;
+    AlertaEstacao.style.color = "red";
+    AlertaEstacao.innerHTML = "informe sua estação"
+  } 
+  else
+  {
+    estacaoOk = true;
+    AlertaEstacao.style.color = "white";
+    console.log("estaçao válida");
+  }
+}
+
+function VerificarEndereco(){
+  if (Endereco.value.length == 0)
+  {
+    enderecoOK = false;
+    AlertaEndereco.style.color = "red";
+    AlertaEndereco.innerHTML = "informe seu endereço"
+  } 
+  else
+  {
+    enderecoOK = true;
+    AlertaEndereco.style.color = "white";
+    console.log("endereço válido");
+  }
+}
+
+function VerificarLinha(){
+  if (linha.value.length == 0){
+    linhaOK = false;
+    AlertaLinha.style.color = "red";
+    AlertaLinha.innerHTML = "informe sua linha"
+  } else{
+    linhaOK = true;
+    AlertaLinha.style.color = "white";
+    console.log("Linha válida");
+  }
+}
+
+
 // function arrancar_mascara() {
 //   var tamanho = CPF.value.length;
 //   if (tamanho == 14) {
@@ -192,68 +276,3 @@ function verificarEmail() {
 //     AlertaCPF.style.color = "red"
 //   }
 // }
-
-function VerificarCPF() {
-  if (cpf.value.length != 11) {
-    AlertaCPF.innerHTML = "CPF Inválido";
-    AlertaCPF.style.color = "red";
-    CPFOK = false;
-  }
-  else {
-    console.log("CPF está correto");
-    AlertaCPF.style.color = "white";
-    CPFOK = true;
-  }
-}
-
-function VerificarTelefone() {
-  if (telefone.value.length == 8 || telefone.value.length == 9) {
-    TelefoneOK = false;;
-    AlertaTelefone.innerHTML = "Informe o DD";
-    AlertaTelefone.style.color = "red";
-  } else if (telefone.value.length > 11 || telefone.value.length < 8) {
-    TelefoneOK = false;;
-    AlertaTelefone.innerHTML = "número de telefone inválido";
-    AlertaTelefone.style.color = "red";
-  } else {
-    TelefoneOK = true;;
-    console.log("Telefone Válido");
-    AlertaTelefone.style.color = "white";
-  }
-}
-
-function VerificarEstacao(){
-  if (Estacao.value.length == 0){
-    estacaoOk = false;
-    AlertaEstacao.style.color = "red";
-    AlertaEstacao.innerHTML = "informe sua estação"
-  } else{
-    estacaoOk = true;
-    AlertaEstacao.style.color = "white";
-    console.log("estaçao válida");
-  }
-}
-
-function VerificarEndereco(){
-  if (Endereco.value.length == 0){
-    enderecoOK = false;
-    AlertaEndereco.style.color = "red";
-    AlertaEndereco.innerHTML = "informe seu endereço"
-  } else{
-    enderecoOK = true;
-    AlertaEndereco.style.color = "white";
-    console.log("endereço válido");
-  }
-}
-
-function VerificarLinha(){
-  if (linha.value.length == 0){
-    linhaOK = false;
-    AlertaLinha.style.color = "red";
-    AlertaLinha.innerHTML = "informe sua linha"
-  } else{
-    linhaOK = true;
-    AlertaLinha.style.color = "white";
-    console.log("Linha válida");
-  }
-}

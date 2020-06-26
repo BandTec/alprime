@@ -22,46 +22,21 @@
                     <button onclick="window.location.href='Login.html';">LOGAR</button>
                 </div>
             </div>
-            <h1 class="titulo1">Cadastre a máquina</h1>
+            <h1 class="titulo1">Cadastre uma nova máquina</h1>
 
             <form id="form_maquina">
                 <div class="cadastrar">
                     <div class="esquerda ">
-                        <label>Tipo processador:</label><br>
-                        <input id="processador" name="processador" type="text"><br>
-                        <h6 id="AlertaProcessador">asasdds</h6>
-                        <label>Total de memória RAM:</label><br>
-                        <input id="memoriaRAM" name="memoriaRAM" type="number"><br>
-                        <h6 id="AlertaRAM">asasdds</h6>
-                        <label>Fabricante:</label><br>
-                        <input id="fabricante" name="fabricante" type="text"><br>
-                        <h6 id="AlertaFabricante">asasdds</h6>
-                        <label>Sistema Operacional:</label><br>
-                        <select style="width: 80%;" name="SO" id="SO">
-                            <option value="Windows">Windows</option>
-                            <option value="Linux">Linux</option>
-                            <option value="Mac">Mac</option>
-                        </select><br>
-                        <h6 id="AlertaSO">asasdds</h6>
+                        <label>ID da Máquina</label><br>
+                        <input id="idMaquina" name="idMaquina" type="number"><br>
+                        <label>Linha da Máquina:</label><br>
+                        <a href="" id="linhaMaquina"></a>
                     </div>
                     <div class="direita">
-                        <label>Capacidade da memória:</label><br>
-                        <input id="memoria" name="memoria" type="number"><br>
-                        <h6 id="AlertaMemoria">asasdds</h6>
-                        <label>Hostname:</label><br>
-                        <input id="hostname" name="hostname" type="text"><br>
-                        <h6 id="AlertaHostname">asasdds</h6>
-                        <label>Modelo:</label><br>
-                        <input id="modelo" name="modelo" type="text"><br>
-                        <h6 id="AlertaModelo">asasdds</h6>
-                        <label>Local:</label><br>
-                        <Select name="tipoLinha" id="tipoLinha">
-                            <option value="0">-- Escolha o metrô --</option>
-                        </Select>
-                        <select name="tipoEstacao" id="tipoEstacao">
-                            <option value="0">-- Escolha a estação --</option>
-                        </select>
-                        <h6 id="AlertaLocal">asasdds</h6>
+                        <label>Senha da nova Máquina:</label><br>
+                        <input id="senha" name="senha" type="text"><br>
+                        <label>Estação da Máquina:</label><br>
+                        <a href="" id="estacaoMaquina"></a>
                     </div>
                 </div>
             </form>
