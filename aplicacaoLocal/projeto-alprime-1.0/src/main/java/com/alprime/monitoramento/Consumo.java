@@ -4,6 +4,7 @@ package com.alprime.monitoramento;
 import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
 import com.profesorfalken.jsensors.model.components.Cpu;
+import com.profesorfalken.jsensors.model.components.Disk;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
 import java.util.List;
 import java.util.Map;
@@ -154,21 +155,24 @@ public class Consumo {
     
     public static Double monitorarConsumoDisco()
     {
-        SystemInfo sy = new SystemInfo();
-        OperatingSystem os = sy.getOperatingSystem();
-        FileSystem fileSystem = os.getFileSystem();
-        List<OSFileStore> osfs = fileSystem.getFileStores();
-
-        Double porcentagem = 0.0;
-        
-        Double usado = (double)osfs.get(0).getTotalSpace() 
-                       - (double)osfs.get(0).getFreeSpace();
-
-        Double total = (double)osfs.get(0).getTotalSpace();
-
-        porcentagem = (double)((usado / total)*100);
-        
-        return porcentagem;
+//        SystemInfo sy = new SystemInfo();
+//        OperatingSystem os = sy.getOperatingSystem();
+//        FileSystem fileSystem = os.getFileSystem();
+//        List<OSFileStore> osfs = fileSystem.getFileStores();
+//
+//        Double porcentagem = 0.0;
+//        
+//        Double usado = (double)osfs.get(0).getTotalSpace() 
+//                       - (double)osfs.get(0).getFreeSpace();
+//
+//        Double total = (double)osfs.get(0).getTotalSpace();
+//
+//        porcentagem = (double)((usado / total)*100);
+//        
+//        return porcentagem;
+         List<Disk> disco = JSensors.get.components().disks;
+        int tamanhoDisco = disco.get(0).sensors.loads.size();
+        return cpus.get(0).sensors.loads.get(tamanhoDisco - 1).value;
     }
 
     @Override

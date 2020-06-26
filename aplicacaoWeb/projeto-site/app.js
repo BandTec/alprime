@@ -10,6 +10,7 @@ var usuariosRouter = require('./routes/usuarios');
 var registrosRouter = require('./routes/registros');
 var vendasRouter = require('./routes/vendas');
 var localizacoesRouter = require('./routes/localizacoes');
+var maquinasRouter = require('./routes/maquinas');
 
 
 
@@ -26,6 +27,7 @@ app.use('/usuarios', usuariosRouter);
 app.use('/registros', registrosRouter);
 app.use('/vendas', vendasRouter);
 app.use('/localizacoes', localizacoesRouter);
+app.use('/maquinas', maquinasRouter);
 
 
 module.exports = app;

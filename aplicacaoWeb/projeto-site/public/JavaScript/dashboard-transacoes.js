@@ -3,6 +3,7 @@ onload = function () {
     quantidadeMaquinas();
     document.body.style.visibility = "visible";
     local.innerHTML = sessionStorage.localizacao_usuario;
+    
 }
 
 var exibiu_grafico = false;

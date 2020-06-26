@@ -111,10 +111,10 @@ public class QueryBD {
 
     public static void atualizarMaquina(Integer idMaquina, Maquina maquina) {
         jdbcTemplate.update("update maquina set tipo_processador = ?, capacidade_memoria = ?, "
-                + "sistema_operacional = ?, status = ?, hostname= ?, fabricante = ?, "
+                + "sistema_operacional = ?, status = true, hostname= ?, fabricante = ?, "
                 + "modelo = ?, ram_total = ? where id_maquina = ?;",
                 maquina.getTipoProcessador(), maquina.getCapacidadeMemoria(),
-                maquina.getSistemaOperacional(), maquina.isStatus(), maquina.getHostname(), maquina.getFabricante(),
+                maquina.getSistemaOperacional(), maquina.getHostname(), maquina.getFabricante(),
                 maquina.getModelo(), maquina.getRamTotal(), idMaquina);
     }
 

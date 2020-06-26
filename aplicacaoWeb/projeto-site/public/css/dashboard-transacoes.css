@@ -6,7 +6,6 @@ canvas {
 }
 
 .grafico{
-<<<<<<< HEAD
     width: 70%;
     text-align: center;
     margin-bottom: 30px;
@@ -52,39 +51,4 @@ canvas {
 .voltar:hover{
     color: white;
     transition: 0.5s;
-=======
-width: 65%;
-margin-left: 16%;
-margin-bottom: 100px;
-}
-
-.infos{
-font-family: Arial, Helvetica, sans-serif;
-font-weight: bold;
-width: 50%;
-border: 1px solid;
-border-radius: 25px;
-margin-left: 27%;
-height: 195px;
-padding: 20px;
-margin-bottom: 50px;
-margin-top: -25px;
-}
-
-.badge-alprime{
-font-size: 15px;
-background-color: #6f2c91;
-color: white;
-}
-
-.btn-voltar{
-font-family: Arial, Helvetica, sans-serif;
-width: 100px;
-height: 35px;
-border-radius: 10px;
-border-color: #3f1852;
-background-color: #6f2c91;
-color: white;
-font-weight: bold;
->>>>>>> 2d187d0a58ed2dbf6d410de782073ef75657b97c
 }
