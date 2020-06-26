@@ -22,62 +22,6 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-<<<<<<< HEAD
-		tipo_processador: 
-		{
-			field: "tipo_processador",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		capacidade_memoria: 
-		{
-			field: "capacidade_memoria",
-			type: DataTypes.DOUBLE,
-			allowNull: false
-		},
-		sistema_operacional: 
-		{
-			field: "sistema_operacional",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		status: 
-		{
-			field: "status",
-			type: DataTypes.INTEGER,
-			allowNull: false
-		},
-		hostname: 
-		{
-			field: "hostname",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		fabricante: 
-		{
-			field: "fabricante",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		modelo: 
-		{
-			field: "modelo",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		ram_total: 
-		{
-			field: "ram_total",
-			type: DataTypes.STRING,
-			allowNull: false
-		},
-		fk_localizacao: 
-		{
-			field: "estacao_maquina",
-			type: DataTypes.INTEGER,
-			allowNull: false
-		},
-=======
 		linha_maquina: 
 		{
 			field: "linha_maquina",
@@ -90,7 +34,6 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
->>>>>>> 508fe884469a262fcdf5a2267342e7493e40765f
 	}, 
 	{
 		//nome da tabela
