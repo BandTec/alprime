@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+<<<<<<< HEAD
 		tipo_processador: 
 		{
 			field: "tipo_processador",
@@ -76,6 +77,20 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER,
 			allowNull: false
 		},
+=======
+		linha_maquina: 
+		{
+			field: "linha_maquina",
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		estacao_maquina: 
+		{
+			field: "estacao_maquina",
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+>>>>>>> 508fe884469a262fcdf5a2267342e7493e40765f
 	}, 
 	{
 		//nome da tabela
