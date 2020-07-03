@@ -1,0 +1,81 @@
+.cadastrar{
+    /* text-align: -webkit-center; */
+    display: flex;
+}
+.cadastrar input{
+    outline: none;
+    height: 20px;
+    margin-top: 0px;
+    width: 80%;
+    border-radius: 7px;
+    border-color: #4DB033;
+    text-shadow: blue;
+}
+.cadastrar select{
+    outline: none;
+    height: 23px;
+    margin-top: 0px;
+    width: 41%;
+    border-radius: 7px;
+    border: inset 2px; 
+    border-color: #4DB033;
+    text-shadow: blue;
+}
+.cadastrar label{
+    font-size: large;
+    color: #6f2c91;
+    font-weight: bold;
+    text-align: left !important;
+    margin-left: 0%;
+}
+.titulo1{
+    color: #4DB033;
+    margin-bottom: 0px;
+    font-weight: bold;
+    text-align: -webkit-center;
+    margin-bottom: 40px;
+}
+.esquerda{
+    width: 50%;
+    margin-left: 8%;
+    text-align: -webkit-center;
+}
+.direita{
+    width: 50%;
+    text-align: -webkit-center;
+}
+h6{
+    color: red;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+.botoes button
+{
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: large;
+    height: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    transition: 0.5s;
+    outline: none;
+    cursor: pointer;
+    background-color: #6f2c91;
+    color: white;
+    border: #6f2c91;
+    width: 13%;
+}
+.botoes button:hover{
+    color: white;
+    transition: 0.5s;
+}
+
+.mostrarSenha
+{
+    inline-size: 20px !important;
+    font-weight: bold;
+    font-size: small;
+    margin-top: 5px !important;
+}

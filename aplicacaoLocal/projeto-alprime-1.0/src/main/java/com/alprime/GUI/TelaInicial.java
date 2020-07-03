@@ -43,7 +43,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         lblErroSenha = new javax.swing.JLabel();
         lblSucesso = new javax.swing.JLabel();
         lblErroCodigo = new javax.swing.JLabel();
@@ -115,9 +114,6 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/metro.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cptm.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
-
         lblErroSenha.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
         lblErroSenha.setForeground(new java.awt.Color(255, 33, 77));
         lblErroSenha.setText("Erro");
@@ -154,12 +150,12 @@ public class TelaInicial extends javax.swing.JFrame {
         btnMonitoramento.setActionCommand("  Tela de Monitoramento");
         btnMonitoramento.setContentAreaFilled(false);
         btnMonitoramento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(btnMonitoramento, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
+        jPanel1.add(btnMonitoramento, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(111, 44, 145));
         jLabel10.setText("Selecione a tela desejada");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
         btnMostrarSenha.setBackground(new java.awt.Color(111, 44, 145));
         btnMostrarSenha.setFont(new java.awt.Font("Dubai", 1, 12)); // NOI18N
@@ -410,7 +406,6 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblErroCodigo;
     private javax.swing.JLabel lblErroSenha;
